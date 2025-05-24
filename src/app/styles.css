@@ -1,0 +1,11 @@
+.circular-hover {
+  display: inline-block;
+  padding: 20px 40px;
+  background-color: #3498db;
+  color: white;
+  font-size: 18px;
+  position: relative;
+  border-radius: 0%;
+  /* Empieza sin borde redondeado */
+  cursor: pointer;
+}
