@@ -1,13 +1,10 @@
 import ImgTor from "../../../../utils/img-tor";
 import { projects } from "../../../../data";
 import { useLanguageStore } from '../../../../store';
-import Link from "next/link";
 import { FaEye, FaGithub } from "react-icons/fa";
 
 export default function MoreProjects() {
   const language = useLanguageStore((state) => state.language)
-
-  console.log('PROYECTS', projects)
 
   return (
     <div>
@@ -22,7 +19,7 @@ export default function MoreProjects() {
       </div>
       {
         projects.find(i => i.language === language)
-          .content.map((i, n) => (
+          ?.content.map((i, n) => (
             <div
               className="border-b-2 border-black dark:border-white py-5"
               key={`${n}__${language}__${i.title}`}
@@ -61,18 +58,20 @@ export default function MoreProjects() {
                     <div
                       className="mt-5 flex flex-row items-center gap-x-3 text-[13px]"
                     >
-                      <Link
-                        href={`/${language}/projects/${encodeURIComponent(i.title)}`}
+                      <a
+                        target="_blank" rel="noopener noreferrer"
+                        href={i.website}
                         className="px-2 py-1 border flex flex-row items-center gap-x-2 w-fit transition-transform duration-700 border-white/10 hover:scale-110 bg-white text-black hover:text-black hover:font-bold rounded-full"
                       >
                         <FaEye
                           size={20}
                         />
                         <span>View</span>
-                      </Link>
+                      </a>
 
-                      <Link
-                        href={`/${language}/projects/${encodeURIComponent(i.title)}`}
+                      <a
+                        target="_blank" rel="noopener noreferrer"
+                        href={i.source}
                         className="px-2 py-1 border flex flex-row items-center gap-x-2 w-fit transition-transform duration-700 border-white hover:scale-110 bg-white text-black hover:text-black hover:font-bold rounded-full"
                       >
                         <FaGithub
@@ -81,7 +80,7 @@ export default function MoreProjects() {
                           size={20}
                         />
                         <span>Source</span>
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>

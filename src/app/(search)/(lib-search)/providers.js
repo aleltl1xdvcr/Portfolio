@@ -1,4 +1,3 @@
-// app/providers.tsx
 'use client'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
@@ -11,7 +10,7 @@ function getQueryClient() {
     queryClientSingleton = new QueryClient({
       defaultOptions: {
         queries: {
-          staleTime: 60 * 1000, // evita refetch inmediato en cliente
+          staleTime: 60 * 1000, 
         },
       },
     })

@@ -2,8 +2,10 @@
 
 import { Mail, MapPin } from "feather-icons-react"
 import Projects from "../(projects-section)/projects"
+import { contact } from "../../data"
+import { useLanguageStore } from "../../store"
 
-export function Contact() {
+export function Contact() {  
   return (
     <div
       className="flex flex-col gap-5 w-full"
@@ -64,11 +66,15 @@ export function Contact() {
 }
 
 function Info() {
+  const language = useLanguageStore((state) => state.language)
+  console.log('xxxxxx', 
+    Object.keys(contact.find(i => i.language === language))[1]
+  )
   return(
     <div
       className="w-full"
     >
-      <div
+      {/* <div
         className="my-5"
       >
       
@@ -77,14 +83,14 @@ function Info() {
 
           John Richardson Development offers web development services, primarily serving the North East region, including Newcastle, Sunderland, Middlesbrough & County Durham.
         </p>
-      </div>
+      </div> */}
       <div
         className="my-2.5 text-[20px] font-bold"
       >
         <h1
           className="text-[18px]"
         >
-          Información de Contacto
+          {Object.keys(contact.find(i => i.language === language))[1]}
         </h1>
       </div>
       <div
@@ -102,10 +108,10 @@ function Info() {
             <h1
               className="font-bold"
             >
-              Correo electrónico
+              {Object.keys(contact.find(i => i.language === language).content)[0]}
             </h1>
             <div>
-              gentsie1@gmail.com
+              {Object.values(contact.find(i => i.language === language).content)[0]}
             </div>
           </div>
           
@@ -120,10 +126,10 @@ function Info() {
             <h1
               className="font-bold"
             >
-              Ubicación
-            </h1>
+              {Object.keys(contact.find(i => i.language === language).content)[1]}
+              </h1>
             <div>
-              México
+              {Object.values(contact.find(i => i.language === language).content)[1]}
             </div>
           </div>
           

@@ -10,6 +10,7 @@ const cinema = projects.map(a => ({
   content: a.content.map(b => ({
     [b.title]: false,
     img: b.img,
+    url: b.url,
   }))
 }))
 

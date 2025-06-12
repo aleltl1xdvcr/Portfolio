@@ -7,6 +7,7 @@ import { Configure, useInfiniteHits } from "react-instantsearch"
 import Link from 'next/link'
 import '@splidejs/react-splide/css/core'
 import { FaGithub, FaEye } from "react-icons/fa";
+import { CgDetailsMore } from "react-icons/cg";
 
 export default function SubResults() {
   const cinema = useLanguageStore((state) => state.cinema)
@@ -88,18 +89,19 @@ export default function SubResults() {
                   <div
                     className="mt-5 flex flex-row items-center gap-x-3 text-[13px]"
                   >
-                    <Link
-                      href={`/${language}/projects/${encodeURIComponent(i.title)}`}
+                    <a
+                      target="_blank" rel="noopener noreferrer"
+                      href={i.website}
                       className="px-2 py-1 border flex flex-row items-center gap-x-2 w-fit transition-transform duration-700 border-white/10 hover:scale-110 bg-white text-black hover:text-black hover:font-bold rounded-full"
                     >
                       <FaEye
                         size={20}
                       />
                       <span>View</span>
-                    </Link>
+                    </a>
 
-                    <Link
-                      href={`/${language}/projects/${encodeURIComponent(i.title)}`}
+                    <a target="_blank" rel="noopener noreferrer"
+                      href={i.source}
                       className="px-2 py-1 border flex flex-row items-center gap-x-2 w-fit transition-transform duration-700 border-white hover:scale-110 bg-white text-black hover:text-black hover:font-bold rounded-full"
                     >
                       <FaGithub
@@ -108,6 +110,18 @@ export default function SubResults() {
                         size={20}
                       />
                       <span>Source</span>
+                    </a>
+
+                    <Link
+                      href={`/${language}/projects/${i.url}`}
+                      className="hidden px-2 py-1 border flex flex-row items-center gap-x-2 w-fit transition-transform duration-700 border-white hover:scale-110 bg-white text-black hover:text-black hover:font-bold rounded-full"
+                    >
+                      <CgDetailsMore
+                        className=""
+                        color="black"
+                        size={20}
+                      />
+                      <span>More Details</span>
                     </Link>
                   </div>
                 </div>

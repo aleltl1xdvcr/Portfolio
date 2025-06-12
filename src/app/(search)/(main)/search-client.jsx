@@ -36,13 +36,7 @@ export default function SearchClient({ RESULTS }) {
 
   const {
     items,
-    hasExhaustiveItems,
-    createURL,
     refine: refineRefinementList,
-    sendEvent,
-    searchForItems,
-    isFromSearch,
-    canRefine,
     canToggleShowMore,
     isShowingMore,
     toggleShowMore,
@@ -61,8 +55,6 @@ export default function SearchClient({ RESULTS }) {
       addItemsRl(items)
     }
   }, [items])
-
-  // useEffect(() => console.log('RESULTS_PERSISTED:', persisted_items), [persisted_items])
 
   function setQuery(newQuery) {
     setInputValue(newQuery);
@@ -166,7 +158,6 @@ export default function SearchClient({ RESULTS }) {
 
             </form>
           </div>
-
 
           <div>
             <Stack

@@ -67,9 +67,6 @@ export default function Home({ data }) {
             </div>
           ))
 
-      // case 'projects':
-      //   return null
-
       case 'about':
         return profile
           .filter((item) => item.language === language)
@@ -97,7 +94,7 @@ export default function Home({ data }) {
           ))
 
       default:
-        return <div>No se encontró la sección solicitada.</div>
+        return null
     }
   }
 
@@ -181,7 +178,7 @@ export default function Home({ data }) {
           <h1
             id="#projects"
             label="Sección 2"
-            className="text-[30px] italic"
+            className="text-[30px] italic hidden"
           >
             {
               language === 'es' ? 'Proyectos' : language === 'en' ? 'Proyects' : null
@@ -204,7 +201,7 @@ export default function Home({ data }) {
           <h1
             id="#about"
             label="Sección 3"
-            className="text-[30px] italic"
+            className="text-[30px] italic hidden"
           >
             {
               language === 'es' ? 'Sobre mí' : language === 'en' ? 'About' : null
@@ -219,9 +216,7 @@ export default function Home({ data }) {
             label="Sección 4"
             className="text-[30px] w-full "  
           >
-            {
-              language === 'es' ? "Let's Work Together" : language === 'en' ? "Let's Work Together" : "Let's Work Together"
-            }
+            {Object.keys(contact.find(i => i.language === language) || '')[2]}
           </h1>
 
           <RenderSection key={`CONTACT_${language}`} name_section='contact' language={language} />

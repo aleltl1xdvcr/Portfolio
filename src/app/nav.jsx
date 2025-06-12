@@ -1,14 +1,12 @@
 'use client'
 
-import { Github, Linkedin, Menu, Star } from 'feather-icons-react'
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { Menu, Star } from 'feather-icons-react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import {useLanguageStore} from './store'
 import { useHydration } from './useHydrated'
-import { FaEye, FaGithub, FaHome, FaLinkedin } from "react-icons/fa";
-
-const languages = ['es', 'de', 'fr', 'ja', 'ko', 'pt', 'ru']
+import { FaGithub, FaHome } from "react-icons/fa";
 
 const translations = {
   es: { 
@@ -120,14 +118,7 @@ export default function Nav() {
             modal?.classList.remove('opacity-0', 'pointer-events-none')
             modal?.classList.add('opacity-100')
           }
-        } else if (action === 'click-hidden') {
-          return
-          const target = e.target.id
-          if (modal?.classList.contains('opacity-100') && target !== 'li_lan') {
-            modal?.classList.remove('opacity-100')
-            modal?.classList.add('opacity-0', 'pointer-events-none')
-          }   
-        }
+        } 
       }
 
       const path_url = window.location
@@ -171,7 +162,7 @@ export default function Nav() {
           window.history.pushState(null, '', complete)
         }
 
-        sections.forEach((i, index) => {
+        sections.forEach((i, _) => {
           const id = i.id.length > 0 ? i.id.slice(0, -1) : i.id
           if (i?.classList.contains('font-bold') && id !== sectionId) {
             i?.classList.add('opacity-0')
@@ -199,7 +190,6 @@ export default function Nav() {
         const sectionAOffset = sectionA.offsetTop;
         const sectionBOffset = sectionB.offsetTop;
         const sectionCOffset = sectionC.offsetTop;
-        //const sectionDOffset = sectionD.offsetTop;
         const sectionDOffset = null
 
         if (scrollY >= sectionAOffset && scrollY < sectionBOffset) {
@@ -293,13 +283,6 @@ export default function Nav() {
     }
   }
 
-  const handleHashChange = () => {
-    const sectionId = window.location.hash
-    if (sectionId) {
-      handleScrollToSection(sectionId)
-    }
-  }
-
   function handleLanguage(n, ) {
     const lan = n === 'Deutsch' ? 'de' : n === 'Español' ? 'es' : n === 'English' ? 'en' : n === 'Français' ? 'fr' : n === '日本語' ? 'ja' 
     : n === 'Português(do Brasil)' ? 'pt' : n === '한국어' ? 'ko' : n === 'Português (do Brasil)' ? 'pt' : n === 'Русский' ? 'ru' : null
@@ -308,11 +291,8 @@ export default function Nav() {
     window.history.pushState(null, '', '/' + lan + '/' + x);
   } 
 
-
   if (!isClient) return null; 
-
-  
-    if (!hasHydrated) return
+  if (!hasHydrated) return
 
   return (
     <div 
@@ -344,7 +324,7 @@ export default function Nav() {
         <ol 
           className='flex flex-row items-center gap-x-5'>
           {
-            ['Home', 'Projects', 'About', 'Contact',].map((i, index) => (
+            ['Home', 'Projects', 'Contact',].map((i, index) => (
               <li
                
                 id={'#' + i.toLowerCase() + 'N'}
@@ -422,13 +402,6 @@ export default function Nav() {
             <FaGithub 
               size={25}
             color='white' />
-          </li>
-          <li
-            className='ml-4'
-          >
-            <FaLinkedin
-              size={25}
-            />
           </li>
         </ol>
         

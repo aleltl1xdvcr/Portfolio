@@ -1,7 +1,7 @@
 'use client'
 
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import { useLanguageStore } from '../../../../store';
 import ImgTor from '../../../../utils/img-tor';
@@ -44,13 +44,12 @@ export default function Client({ project_slug, }) {
   }
 
   function fnCinema(id) {
-    setCinema(Object.keys(cinema.find(i => i.lang === language).content.find(b => Object.keys(b)[0] === id) || [])[0] || null)
+    setCinema(Object.keys(cinema.find(i => i.lang === language)?.content.find(b => Object.keys(b)[0] === id) || [])[0] || null)
   }
 
   function fnThumbnail() {
     var thumbnails = document.getElementsByClassName('thumbnail_projects')
     thumbnails[0]?.classList.add('is-active')
-    var current
 
     for (var i = 0; i < thumbnails.length; i++) {
       initThumbnail(thumbnails[i], i)
@@ -73,7 +72,9 @@ export default function Client({ project_slug, }) {
 
   const splide_data = cinema
     .find(i => i.lang === language)
-    ?.content.find(i => Object.keys(i)[0] === project_slug)
+    ?.content.find(i => i.url === project_slug)
+
+  const projects_data = projects.find(i => i.language === language).content
 
   function playCarruselFn() {
     splideRef.current.play()
@@ -83,6 +84,8 @@ export default function Client({ project_slug, }) {
     splideRef.current.splide.pause()
   }
 
+  const title = Object.keys(cinema.find(i => i.lang === language).content.find(i => i.url === project_slug))[0]
+
   return (
     <div
       className="mt-20 w-fit justify-center flex flex-col items-center"
@@ -90,13 +93,12 @@ export default function Client({ project_slug, }) {
       <h1
         className='text-[30px] mb-5'
       >
-        {project_slug}
+        {title}
       </h1>
 
       <div className='w-[80vw]'
       >
         <Splide
-      
           onMounted={(splide) => fnSplideMounted(splide)}
           ref={splideRef}
           options={{
@@ -119,7 +121,6 @@ export default function Client({ project_slug, }) {
             arrows: false,
             pagination: false,
             mediaQuery: 'min',
-
             autoScroll: {
               speed: 1,
               pauseOnHover: false,
@@ -147,7 +148,7 @@ export default function Client({ project_slug, }) {
                     <div className="w-full h-[80vh] relative">
                       <ImgTor
                         className=""
-                        src={i || '/images/doll.jpeg'} 
+                        src={i || '/images/doll.jpeg'}
                         alt={i}
                         containerclassName="w-[500px] h-[500px] relative"
                         key={`imgtor4_${0}_${language}`}
@@ -196,57 +197,14 @@ export default function Client({ project_slug, }) {
           </button>
 
         </Splide >
-          
+
       </div>
 
       <div
         className="w-[90vw] sm:w-[80vw] md:w-[70vw] lg:w-[50vw] relative">
         <div
         >
-          Overview
-          I recently had the opportunity to design a landing page for a marketing agency. The page is responsive, ensuring a seamless experience across all devices, and includes smooth animations to enhance user engagement. The modern layout effectively showcases the agency’s services with clear calls to action.
-
-          Smooth Animations
-
-          Objectives
-          Highlight Core Services: Present the agency’s diverse offerings, including Digital Marketing, Affiliate Marketing, Web Development, and User Experience design.
-          Increase Engagement: Use animations, clear CTAs, and visually appealing elements to captivate visitors and guide them through the website.
-          Simplify Information: Provide accessible service descriptions, pricing plans, and contact information for potential clients.
-          Modernize Branding: Use a bold and colorful design that reflects the innovative and forward-thinking nature of the agency.
-          Key Features
-          Animated Hero Section:
-          Features dynamic elements to grab users’ attention immediately.
-          Includes clear CTAs: “Start Your Journey” and “Explore Services.”
-          Subtle animations of icons and design elements emphasize modernity.
-          Service Highlights:
-          Icons and descriptions provide a quick understanding of offerings.
-          Focus on usability and readability.
-          Pricing Section:
-          Cleanly presented Standard and Premium packages.
-          Encourages users to make decisions with a simple layout.
-          Testimonials Section:
-          Includes client reviews to build trust.
-          Interactive design enhances engagement.
-          Portfolio Showcase:
-          Displays agency achievements and work examples.
-          Tags like “Branding” and “SEO” help categorize services.
-          Contact Information:
-          Strategically placed to encourage communication.
-          Features a map and links to social media profiles.
-          Challenges and Solutions
-          Challenge: Incorporating animations without affecting performance.
-          Solution: Implemented lightweight CSS animations and optimized assets to ensure smooth functionality.
-          Challenge: Balancing a vibrant design with professionalism.
-          Solution: Used a clean grid structure and consistent typography to maintain a professional appearance.
-          Technologies Used
-          Frameworks and Tools: Next.js for the front-end, CSS for styling.
-          Design Tools: Figma for prototyping.
-          Hosting: Deployed on a performance-optimized platform.
-          Outcome
-          The MarketWave landing page successfully combines engaging design and functionality. The animated hero section stands out as a focal point, setting the tone for the user experience. The client praised the page for its modern aesthetic and clear representation of their brand identity. Early analytics indicate increased user engagement and session duration.
-
-          Lessons Learned
-          This project demonstrated the value of animations in improving user engagement. It also emphasized the importance of balancing design creativity with performance optimization.
+          <p dangerouslySetInnerHTML={{ __html: projects_data[0].content }} />
         </div>
 
         <div>
@@ -279,24 +237,24 @@ function Stack({ language, project_slug }) {
     <div
       className='flex flex-col items-start'
     >
-     <div
-      className='my-3'
-     >
+      <div
+        className='my-3'
+      >
         <h1
           className='text-[30px]'
         >
           Stack
         </h1>
-     </div>
+      </div>
       <ul
         className='flex flex-row items-center gap-x-3 text-[15px]'
       >
         {
           projects
             .find(i => i.language === language)
-            .content
-            .find(i => i.title === project_slug)
-            .stack.map((i, n) => (
+            ?.content
+            .find(i => i.url === project_slug)
+            ?.stack.map((i, n) => (
               <li
                 className='bg-zinc-900 px-2 py-1 rounded-[3px]'
                 key={`${n}__${i}__`}
