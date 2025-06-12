@@ -398,11 +398,15 @@ export default function Nav() {
 
             </div>
           </div>
-          <li className='text-white ml-4'>
+           <a
+            target="_blank" 
+            rel="noopener noreferrer"
+            href='https://github.com/aleltl1xdvcr'
+            className='text-white ml-4'>
             <FaGithub 
               size={25}
             color='white' />
-          </li>
+          </a>
         </ol>
         
       </div>
