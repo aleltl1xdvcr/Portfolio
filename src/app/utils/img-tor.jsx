@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
-export default function ImgTor({ src, alt, containerClass, quote }) {
+export default function ImgTor({ src, alt, containerClass, quote, scale, fnCinema, cinemaID }) {
   const [loaded, setLoaded] = useState(false)
   const containerRef = useRef(null)
 
@@ -14,15 +14,17 @@ export default function ImgTor({ src, alt, containerClass, quote }) {
   }, [loaded])
 
   return (
-    <div>
       <div
         className={containerClass}
       >
         <div
+          onClick={() => fnCinema(cinemaID)}
           ref={containerRef}
-          className="transition-opacity duration-1000 opacity-0 w-full h-full"
+          className="transition-opacity duration-200 opacity-0 w-full h-full l6"
         >
           <Image
+            priority
+            className=''
             src={src}
             alt={alt}
             fill
@@ -32,18 +34,5 @@ export default function ImgTor({ src, alt, containerClass, quote }) {
         </div>
 
       </div>
-      {
-        !quote || quote.trim() === ''
-          ? null
-          : 
-          <div
-            className='mb-5 mt-1'
-          >
-            <p>
-              {quote}
-            </p>
-          </div>
-      }
-    </div>
   )
 }

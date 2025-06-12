@@ -6,6 +6,7 @@ import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import {useLanguageStore} from './store'
 import { useHydration } from './useHydrated'
+import { FaEye, FaGithub, FaHome, FaLinkedin } from "react-icons/fa";
 
 const languages = ['es', 'de', 'fr', 'ja', 'ko', 'pt', 'ru']
 
@@ -16,6 +17,13 @@ const translations = {
     About: 'Sobre mí',
     Contact: 'Contacto',
     Name: 'Español'
+  },
+  en: {
+    Home: 'Home',
+    Projects: 'Projects',
+    About: 'About',
+    Contact: 'Contact',
+    Name: 'English'
   },
   de: { 
     Home: 'Startseite',
@@ -73,6 +81,7 @@ export default function Nav() {
   const pathRef = useRef(null)
   const language  = useLanguageStore((state) => state.language)
   const  setLanguage  = useLanguageStore((state) => state.setLanguage)
+  const setLenisStore = useLanguageStore((state) => state.setLenis)
   const hasHydrated = useHydration(useLanguageStore);
 
   useLayoutEffect(() => {
@@ -89,34 +98,34 @@ export default function Nav() {
       const button_to_top = document.getElementById('button_to_top')
       function modal_actions(e, action) {
         if (action === 'display') {
-          if (modal.classList.contains('opacity-0')) {
+          if (modal?.classList.contains('opacity-0')) {
             const w_modal = modal.offsetWidth / 2
             const w_to = to.offsetWidth / 2
             const width = '-' + (w_modal - w_to) + 'px'
             
             modal.style.left = width
-            modal.classList.remove('opacity-0', 'pointer-events-none')
-            modal.classList.add('opacity-100')
+            modal?.classList.remove('opacity-0', 'pointer-events-none')
+            modal?.classList.add('opacity-100')
           }
         } else if (action === 'hidden') {
-          if (modal.classList.contains('opacity-100')) {
-            modal.classList.remove('opacity-100')
-            modal.classList.add('opacity-0', 'pointer-events-none')
+          if (modal?.classList.contains('opacity-100')) {
+            modal?.classList.remove('opacity-100')
+            modal?.classList.add('opacity-0', 'pointer-events-none')
           } 
         } else if (action === 'click-display/hidden') {
-          if (modal.classList.contains('opacity-100')) {
-            modal.classList.remove('opacity-100')
-            modal.classList.add('opacity-0', 'pointer-events-none')
-          } else if (modal.classList.contains('opacity-0') ) {
-            modal.classList.remove('opacity-0', 'pointer-events-none')
-            modal.classList.add('opacity-100')
+          if (modal?.classList.contains('opacity-100')) {
+            modal?.classList.remove('opacity-100')
+            modal?.classList.add('opacity-0', 'pointer-events-none')
+          } else if (modal?.classList.contains('opacity-0') ) {
+            modal?.classList.remove('opacity-0', 'pointer-events-none')
+            modal?.classList.add('opacity-100')
           }
         } else if (action === 'click-hidden') {
           return
           const target = e.target.id
-          if (modal.classList.contains('opacity-100') && target !== 'li_lan') {
-            modal.classList.remove('opacity-100')
-            modal.classList.add('opacity-0', 'pointer-events-none')
+          if (modal?.classList.contains('opacity-100') && target !== 'li_lan') {
+            modal?.classList.remove('opacity-100')
+            modal?.classList.add('opacity-0', 'pointer-events-none')
           }   
         }
       }
@@ -136,8 +145,10 @@ export default function Nav() {
         easing: 'ease', 
         smoothWheel: true, 
         smoothTouch: true, 
+        prevent: (node) => node.id === 'modal_cinema__'
       })
 
+      setLenisStore(lenisRef)
       
       function raf(time) {
         lenisRef.current.raf(time)
@@ -162,35 +173,35 @@ export default function Nav() {
 
         sections.forEach((i, index) => {
           const id = i.id.length > 0 ? i.id.slice(0, -1) : i.id
-          if (i.classList.contains('font-bold') && id !== sectionId) {
-            i.classList.add('opacity-0')
-            i.classList.remove('opacity-0', 'font-bold')
-            i.classList.add('opacity-100')
+          if (i?.classList.contains('font-bold') && id !== sectionId) {
+            i?.classList.add('opacity-0')
+            i?.classList.remove('opacity-0', 'font-bold')
+            i?.classList.add('opacity-100')
           }
-          if (!(i.classList.contains('font-bold')) && id === sectionId) {
-            i.classList.add('opacity-0')
-            i.classList.remove('opacity-0')
-            i.classList.add('font-bold', 'opacity-100')
+          if (!(i?.classList.contains('font-bold')) && id === sectionId) {
+            i?.classList.add('opacity-0')
+            i?.classList.remove('opacity-0')
+            i?.classList.add('font-bold', 'opacity-100')
           }
         })
       }
 
       function ActionsScrollSections(e) {
         const scrollY = e.scroll;
-        console.log('SCROLL Y:', scrollY)
-        if (scrollY <= 100 && button_to_top.classList.contains('opacity-100')) {
-          button_to_top.classList.remove('opacity-100')
-          button_to_top.classList.add('opacity-0')
-        } else if (scrollY >= 101 && button_to_top.classList.contains('opacity-0')) {
-          button_to_top.classList.remove('opacity-0')
-          button_to_top.classList.add('opacity-100')
+        if (scrollY <= 100 && button_to_top?.classList.contains('opacity-100')) {
+          button_to_top?.classList.remove('opacity-100')
+          button_to_top?.classList.add('opacity-0')
+        } else if (scrollY >= 101 && button_to_top?.classList.contains('opacity-0')) {
+          button_to_top?.classList.remove('opacity-0')
+          button_to_top?.classList.add('opacity-100')
         }
 
         const sectionAOffset = sectionA.offsetTop;
         const sectionBOffset = sectionB.offsetTop;
         const sectionCOffset = sectionC.offsetTop;
-        const sectionDOffset = sectionD.offsetTop;
-       
+        //const sectionDOffset = sectionD.offsetTop;
+        const sectionDOffset = null
+
         if (scrollY >= sectionAOffset && scrollY < sectionBOffset) {
           boldSections('#home')
         }
@@ -268,15 +279,15 @@ export default function Nav() {
 
       sections.forEach((i, index) => {
         const id = i.id.length > 0 ? i.id.slice(0, -1) : i.id
-        if (i.classList.contains('font-bold') && id !== sectionId) {
-          i.classList.add('opacity-0')
-          i.classList.remove('opacity-0', 'font-bold')
-          i.classList.add('opacity-100')
+        if (i?.classList.contains('font-bold') && id !== sectionId) {
+          i?.classList.add('opacity-0')
+          i?.classList.remove('opacity-0', 'font-bold')
+          i?.classList.add('opacity-100')
         } 
-         if (!(i.classList.contains('font-bold')) && id === sectionId) {
-           i.classList.add('opacity-0')
-             i.classList.remove('opacity-0')
-             i.classList.add('font-bold', 'opacity-100')
+         if (!(i?.classList.contains('font-bold')) && id === sectionId) {
+           i?.classList.add('opacity-0')
+             i?.classList.remove('opacity-0')
+             i?.classList.add('font-bold', 'opacity-100')
         }
       })
     }
@@ -290,7 +301,8 @@ export default function Nav() {
   }
 
   function handleLanguage(n, ) {
-    const lan = n === 1 ? 'de' : n === 2 ? 'es' : n === 3 ? 'fr' : n === 4 ? 'ja' : n === 5 ? 'pt' : n === 6 ? 'ru' : null
+    const lan = n === 'Deutsch' ? 'de' : n === 'Español' ? 'es' : n === 'English' ? 'en' : n === 'Français' ? 'fr' : n === '日本語' ? 'ja' 
+    : n === 'Português(do Brasil)' ? 'pt' : n === '한국어' ? 'ko' : n === 'Português (do Brasil)' ? 'pt' : n === 'Русский' ? 'ru' : null
    setLanguage(lan)
     const x = window.location.hash
     window.history.pushState(null, '', '/' + lan + '/' + x);
@@ -304,7 +316,7 @@ export default function Nav() {
 
   return (
     <div 
-      className='fixed top-0 left-0 w-full h-16 z-50 bg-black/30¿ justify-center items-center flex bg-transparent backdrop-blur-md border-white/30 border-b'>
+      className='fixed top-0 left-0 w-full h-16 z-40 bg-black/30¿ justify-center items-center flex bg-transparent backdrop-blur-md border-white/30 border-b'>
       <div
         className='flex items-center justify-between w-full px-5 flex-row sm:hidden'
       >
@@ -324,7 +336,9 @@ export default function Nav() {
         <ol 
           className='flex flex-row items-center gap-x-5'>
           <li>
-            <Star />
+            <FaHome
+              size={25}
+            />
           </li>
         </ol>
         <ol 
@@ -387,11 +401,11 @@ export default function Nav() {
                   className='flex flex-col'
                 >
                   {
-                    ['Deutsch', 'Español', 'Français', '日本語', '한국어', 'Português (do Brasil)', 'Русский']
+                    ['Deutsch', 'Español', 'English', 'Français', '日本語', '한국어', 'Português (do Brasil)', 'Русский']
                       .map((i, n) => (
                         <li
                           key={n}
-                          onClick={() => handleLanguage(n + 1)}
+                          onClick={() => handleLanguage(i)}
                           className={`cursor-pointer mb-2 hover:underline ${language === 'en' ? 'font-bold' : null}`}
                         >
                           {i}
@@ -404,11 +418,17 @@ export default function Nav() {
 
             </div>
           </div>
-          <li className='text-white ml-4'><Github color='white' /></li>
+          <li className='text-white ml-4'>
+            <FaGithub 
+              size={25}
+            color='white' />
+          </li>
           <li
             className='ml-4'
           >
-            <Linkedin />
+            <FaLinkedin
+              size={25}
+            />
           </li>
         </ol>
         

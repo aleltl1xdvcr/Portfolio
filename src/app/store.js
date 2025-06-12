@@ -1,50 +1,47 @@
-
 'use client'
 
-// import { create } from 'zustand';
-// import { createJSONStorage, persist } from 'zustand/middleware';
-
-
-// const useLanguageStore = create(persist(
-//   (set) => ({
-//     language: null,
-//     setLanguage: (lang) => set({ language: lang }),
-
-//   }),
-//   {
-//     name: 'language-storage',
-//     storage: createJSONStorage(() => localStorage), // (optional) by default, 'localStorage' is used
-//     partialize: (state) => ({ foo: state.foo }),
-//     merge: (c, p) => {console.log('PERSISTED:', p, 'CURRENT:', c)},
-//     onRehydrateStorage: (state) => {
-//       console.log('hydration starts', state)
-
-//       // optional
-//       return (state, error) => {
-//         if (error) {
-//           console.log('an error happened during hydration', error)
-//         } else {
-//           console.log('hydration finished')
-//         }
-//       }}
-//   }
-// ));
-
-// export default useLanguageStore
-
+import { produce } from 'immer'
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
+import { projects } from './data'
+
+const cinema = projects.map(a => ({
+  lang: a.language,
+  content: a.content.map(b => ({
+    [b.title]: false,
+    img: b.img,
+  }))
+}))
 
 export const useLanguageStore = create()(
   persist(
     (set, get) => ({
       language: 'es',
       setLanguage: (lang) => set({ language: lang }),
-      addABear: () => set({ bears: get().bears + 1 }),
+      
+      lenis: null,
+      setLenis: (lenisInstance) => set({ lenis: lenisInstance }),
+
+      cinema: cinema,
+      setCinema: (title) =>
+        set(
+          produce(draft => {    
+            const obj = draft.cinema.find(i => i.lang === get().language).content.find(o => Object.keys(o)[0] === title)
+            console.log('LANGUAGE BEAR:', get().language)
+            if (obj) {
+              const key = Object.keys(obj)[0]
+              obj[key] = !obj[key]
+            }
+          })
+        )
     }),
     {
-      name: 'storage', // name of the item in the storage (must be unique)
-      storage: createJSONStorage(() => localStorage), // (optional) by default, 'localStorage' is used
+      name: 'storage', 
+      storage: createJSONStorage(() => localStorage), 
+      partialize: (state) =>
+        Object.fromEntries(
+          Object.entries(state).filter(([key]) => !['cinema', 'lenis'].includes(key)),
+        ),
     },
   ),
 )
