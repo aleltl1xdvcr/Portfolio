@@ -2,7 +2,7 @@ export const home = [
   {
     "language": "es",
     "content": {
-      "title": "Me llamo Alejandro; desarrollador Web Full Stack de México.",
+      "title": "Me llamo Alejandro; <span class='font-bold'>Desarrollador Web Full Stack de México</span>.",
       "description": ""
     }
   },
@@ -71,103 +71,115 @@ export const projects = [
     "language": "en",
     "content": [
       {
-        "title": "Project A: 'Revive Your Style'",
-        "description": "A project aimed at helping fashion brands redesign their image through an interactive and personalized website. I designed a modern, intuitive user interface with an AI-based recommendation system to suggest products according to user preferences. This project allowed me to apply my UX/UI design skills and learn more about integrating AI into e-commerce.",
+        "title": "Tesla Landing Page Clone",
+        "description": "A frontend-only project to showcase my skills by creating a functional copy of the Tesla.com homepage",
         "status": "Completed",
-        "website": "magedfaiz.xyz",
-        "stack": ["SvelteKit", "WebSockets", "Stockfish"],
-        "img": ["/images/creative.jpg", "/images/art.jpg", "/images/saw1.jpg", "/images/terrifier1.jpg"], 
-        "url": "tesla-landing-page-clone",
-      },
+        "website": "https://aleltl1xdvcr.github.io/Tesla-Clone/",
+        "source": "https://github.com/aleltl1xdvcr/Tesla-Clone",
+        "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
+        "img": ["/images/project1i1.png", "/images/project1i2.png", "/images/project1i3.png", "/images/project1i4.png"],
+        "url": "clon-de-landing-page-de-tesla",
+        "content": ""
+      }
     ]
+
   },
   {
     "language": "de",
     "content": [
       {
-        "title": "Projekt A: 'Revive Your Style'",
-        "description": "Ein Projekt, das darauf abzielt, Modebrands bei der Neugestaltung ihres Images durch eine interaktive und personalisierte Website zu unterstützen. Ich entwarf eine moderne, intuitive Benutzeroberfläche mit einem KI-basierten Empfehlungssystem, das Produkte basierend auf den Vorlieben der Nutzer vorschlägt. Dieses Projekt ermöglichte es mir, meine UX/UI-Design-Fähigkeiten anzuwenden und mehr über die Integration von KI in den E-Commerce zu lernen.",
+        "title": "Klon der Tesla-Landingpage",
+        "description": "Ein reines Frontend-Projekt, um meine Fähigkeiten bei der Erstellung einer funktionalen Kopie der Hauptseite von Tesla.com zu demonstrieren",
         "status": "Abgeschlossen",
-        "website": "magedfaiz.xyz",
-        "stack": ["SvelteKit", "WebSockets", "Stockfish"],
-        "img": ["/images/creative.jpg", "/images/art.jpg", "/images/saw1.jpg", "/images/terrifier1.jpg"],
-        "url": "klon-der-tesla-landingpage",
-      },
+        "website": "https://aleltl1xdvcr.github.io/Tesla-Clone/",
+        "source": "https://github.com/aleltl1xdvcr/Tesla-Clone",
+        "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
+        "img": ["/images/project1i1.png", "/images/project1i2.png", "/images/project1i3.png", "/images/project1i4.png"],
+        "url": "clon-de-landing-page-de-tesla",
+        "content": ""
+      }
     ]
+
   },
   {
     "language": "ko",
     "content": [
       {
-        "title": "프로젝트 A: 'Revive Your Style'",
-        "description": "패션 브랜드가 인터랙티브하고 개인화된 웹사이트를 통해 브랜드 이미지를 재디자인하도록 돕는 프로젝트입니다. 사용자 선호도에 따라 제품을 추천하는 AI 기반 추천 시스템을 갖춘 현대적이고 직관적인 사용자 인터페이스를 설계했습니다. 이 프로젝트는 제 UX/UI 디자인 능력을 발휘하고, AI를 전자상거래에 통합하는 방법에 대해 더 많이 배울 수 있는 기회를 제공했습니다.",
-        "status": "완료",
-        "website": "magedfaiz.xyz",
-        "stack": ["SvelteKit", "WebSockets", "Stockfish"],
-        "img": ["/images/creative.jpg", "/images/art.jpg", "/images/saw1.jpg", "/images/terrifier1.jpg"],
+        "title": "테슬라 랜딩 페이지 클론",
+        "description": "Tesla.com 홈페이지의 기능적인 복사본을 제작하여 프론트엔드 역량을 보여주는 프로젝트입니다",
+        "status": "완료됨",
+        "website": "https://aleltl1xdvcr.github.io/Tesla-Clone/",
+        "source": "https://github.com/aleltl1xdvcr/Tesla-Clone",
+        "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
+        "img": ["/images/project1i1.png", "/images/project1i2.png", "/images/project1i3.png", "/images/project1i4.png"],
         "url": "clon-de-landing-page-de-tesla",
-      },
+        "content": ""
+      }
     ]
-
   },
   {
     "language": "fr",
     "content": [
       {
-        "title": "Projet A: 'Revive Your Style'",
-        "description": "Un projet visant à aider les marques de mode à redéfinir leur image à travers un site web interactif et personnalisé. j'ai conçu une interface utilisateur moderne et intuitive avec un système de recommandations basé sur l'IA pour suggérer des produits en fonction des préférences des utilisateurs. Ce projet m'a permis d'appliquer mes compétences en UX/UI design et d'en apprendre davantage sur l'intégration de l'IA dans le commerce en ligne.",
+        "title": "Clone de la page d'accueil de Tesla",
+        "description": "Un projet purement frontend pour démontrer mes compétences en créant une copie fonctionnelle de la page d'accueil du site Tesla.com",
         "status": "Terminé",
-        "website": "magedfaiz.xyz",
-        "stack": ["SvelteKit", "WebSockets", "Stockfish"],
-        "img": "/images/creative.jpg",
-        "url": "clone-de-la-page-d-atterrissage-de-tesla",
-      },
+        "website": "https://aleltl1xdvcr.github.io/Tesla-Clone/",
+        "source": "https://github.com/aleltl1xdvcr/Tesla-Clone",
+        "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
+        "img": ["/images/project1i1.png", "/images/project1i2.png", "/images/project1i3.png", "/images/project1i4.png"],
+        "url": "clon-de-landing-page-de-tesla",
+        "content": ""
+      }
     ]
-
   },
   {
     "language": "ja",
     "content": [
       {
-        "title": "プロジェクトA: 'Revive Your Style'",
-        "description": "ファッションブランドがインタラクティブでパーソナライズされたウェブサイトを通じてブランドイメージを再設計することを目的としたプロジェクトです。ユーザーの好みに基づいて商品を提案するAIベースのレコメンデーションシステムを備えたモダンで直感的なユーザーインターフェイスをデザインしました。このプロジェクトを通じて、UX/UIデザインスキルを活かし、AIのeコマースへの統合について学ぶことができました。",
+        "title": "テスラのランディングページのクローン",
+        "description": "Tesla.com のホームページを機能的に再現することで、自分のフロントエンドスキルを示すためのプロジェクトです",
         "status": "完了",
-        "website": "magedfaiz.xyz",
-        "stack": ["SvelteKit", "WebSockets", "Stockfish"],
-        "img": ["/images/creative.jpg", "/images/art.jpg", "/images/saw1.jpg", "/images/terrifier1.jpg"],
-        "url": "tesura-no-randingu-peji-no-kuron",
-      },
+        "website": "https://aleltl1xdvcr.github.io/Tesla-Clone/",
+        "source": "https://github.com/aleltl1xdvcr/Tesla-Clone",
+        "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
+        "img": ["/images/project1i1.png", "/images/project1i2.png", "/images/project1i3.png", "/images/project1i4.png"],
+        "url": "clon-de-landing-page-de-tesla",
+        "content": ""
+      }
     ]
   },
   {
     "language": "pt",
     "content": [
       {
-        "title": "Projeto A: 'Revive Your Style'",
-        "description": "Um projeto com o objetivo de ajudar marcas de moda a redesenhar sua imagem através de um site interativo e personalizado. Projetei uma interface de usuário moderna e intuitiva com um sistema de recomendações baseado em IA para sugerir produtos de acordo com as preferências dos usuários. Esse projeto me permitiu aplicar minhas habilidades de design UX/UI e aprender mais sobre a integração de IA no comércio eletrônico.",
+        "title": "Clone da Landing Page da Tesla",
+        "description": "Um projeto apenas Frontend para demonstrar minhas habilidades criando uma cópia funcional da página inicial do site Tesla.com",
         "status": "Concluído",
-        "website": "magedfaiz.xyz",
-        "stack": ["SvelteKit", "WebSockets", "Stockfish"],
-        "img": ["/images/creative.jpg", "/images/art.jpg", "/images/saw1.jpg", "/images/terrifier1.jpg"],
-        "url": "clone-da-landing-page-da-tesla",
-      },
+        "website": "https://aleltl1xdvcr.github.io/Tesla-Clone/",
+        "source": "https://github.com/aleltl1xdvcr/Tesla-Clone",
+        "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
+        "img": ["/images/project1i1.png", "/images/project1i2.png", "/images/project1i3.png", "/images/project1i4.png"],
+        "url": "clon-de-landing-page-de-tesla",
+        "content": ""
+      }
     ]
-
   },
   {
     "language": "ru",
     "content": [
       {
-        "title": "Проект A: 'Revive Your Style'",
-        "description": "Проект, направленный на помощь модным брендам в переработке их имиджа через интерактивный и персонализированный веб-сайт. Я разработал современный и интуитивно понятный интерфейс с системой рекомендаций на базе ИИ, которая предлагает продукты в зависимости от предпочтений пользователя. Этот проект позволил мне применить мои навыки UX/UI-дизайна и узнать больше о внедрении ИИ в электронную торговлю.",
+        "title": "Клон лендинга Tesla",
+        "description": "Проект только на фронтенде, чтобы продемонстрировать мои навыки, создав функциональную копию главной страницы сайта Tesla.com",
         "status": "Завершено",
-        "website": "magedfaiz.xyz",
-        "stack": ["SvelteKit", "WebSockets", "Stockfish"],
-        "img": ["/images/creative.jpg", "/images/art.jpg", "/images/saw1.jpg", "/images/terrifier1.jpg"],
-        "url": "klon-lendinga-tesla",
-      },
+        "website": "https://aleltl1xdvcr.github.io/Tesla-Clone/",
+        "source": "https://github.com/aleltl1xdvcr/Tesla-Clone",
+        "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
+        "img": ["/images/project1i1.png", "/images/project1i2.png", "/images/project1i3.png", "/images/project1i4.png"],
+        "url": "clon-de-landing-page-de-tesla",
+        "content": ""
+      }
     ]
-
   }
 ]
 

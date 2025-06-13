@@ -14,56 +14,64 @@ const translations = {
     Projects: 'Proyectos',
     About: 'Sobre mí',
     Contact: 'Contacto',
-    Name: 'Español'
+    Name: 'Español',
+    Skills: 'Habilidades',
   },
   en: {
     Home: 'Home',
     Projects: 'Projects',
     About: 'About',
     Contact: 'Contact',
-    Name: 'English'
+    Name: 'English',
+    Skills: 'Skills',
   },
   de: { 
     Home: 'Startseite',
     Projects: 'Projekte',
     About: 'Über mich',
     Contact: 'Kontakt',
-    Name: 'Deutsch'
+    Name: 'Deutsch',
+    Skills: 'Fähigkeiten',
   },
   fr: { 
     Home: 'Accueil',
     Projects: 'Projets',
     About: 'À propos de moi',
     Contact: 'Contact',
-    Name: 'Français'
+    Name: 'Français',
+    Skills: 'Compétences',
   },
   ja: { 
     Home: 'ホーム',
     Projects: 'プロジェクト',
     About: '自己紹介',
     Contact: '連絡先',
-    Name: '日本語'
+    Name: '日本語',
+    Skills: 'Skills',
   },
   ko: { 
     Home: '홈',
     Projects: '프로젝트',
     About: '내 소개',
     Contact: '연락처',
-    Name: 'Coreano (한국어)'
+    Name: '(한국어)',
+    Skills: '기술 스킬',
   },
   pt: { 
     Home: 'Início',
     Projects: 'Projetos',
     About: 'Sobre mim',
     Contact: 'Contato',
-    Name: 'Portugués (Brasil)'
+    Name: 'Portugués (Brasil)',
+    Skills: 'Habilidades',
   },
   ru: { 
     Home: 'Главная',
     Projects: 'Проекты',
     About: 'Обо мне',
     Contact: 'Контакт',
-    Name: 'Русский'
+    Name: 'Русский',
+    Skills: 'Навыки ',
   }
 };
 
@@ -85,15 +93,17 @@ export default function Nav() {
   useLayoutEffect(() => {
     if (typeof window !== 'undefined') {
       setIsClient(true);
-      const sections = document.querySelectorAll('[id^="#homeN"], [id^="#projectsN"], [id^="#aboutN"], [id^="#contactN"]')
+      const sections = document.querySelectorAll('[id^="#homeN"], [id^="#skillsN"], [id^="#projectsN"], [id^="#aboutN"], [id^="#contactN"]')
       const sectionA = document.getElementById('#home');
-      const sectionB = document.getElementById('#projects');
-      const sectionC = document.getElementById('#about');
-      const sectionD = document.getElementById('#contact');
+      const sectionB = document.getElementById('#skills');
+      const sectionC = document.getElementById('#projects');
+      const sectionD = document.getElementById('#about');
+      const sectionE = document.getElementById('#contact');
       const modal_container = document.getElementById('modal_container')
       const modal = document.getElementById('modal_language')
       const to = document.getElementById('trigger_opener')
       const button_to_top = document.getElementById('button_to_top')
+
       function modal_actions(e, action) {
         if (action === 'display') {
           if (modal?.classList.contains('opacity-0')) {
@@ -156,8 +166,8 @@ export default function Nav() {
         if (sectionId && sectionId.trim() !== '') {
           const hash = window.location.hash
           const pathname =  window.location.pathname
-          const path = pathname.slice(-1) === '/' ? pathname : pathname + '/'
-          const complete = path + sectionId
+          const path = pathname.slice(-1) === '/' ? pathname : pathname
+          const complete = path
           if (hash === sectionId) return
           window.history.pushState(null, '', complete)
         }
@@ -197,11 +207,11 @@ export default function Nav() {
         }
 
         else if (scrollY >= sectionBOffset && scrollY < sectionCOffset) {
-          boldSections('#projects')
+          boldSections('#skills')
         }
 
         else if (scrollY >= sectionCOffset && scrollY < sectionDOffset) {
-          boldSections('#about')
+          boldSections('#projects')
         }
 
         else if (scrollY >= sectionDOffset) {
@@ -245,8 +255,10 @@ export default function Nav() {
   }, [isClient])
 
   const handleScrollToSection = (sectionId) => {
-    const sections = document.querySelectorAll('[id^="#homeN"], [id^="#projectsN"], [id^="#aboutN"], [id^="#contactN"]')
+    console.log('SECTION ID', sectionId)
+    const sections = document.querySelectorAll('[id^="#homeN"], [id^="#skillsN"], [id^="#projectsN"], [id^="#contactN"]')
     const section = document.getElementById(sectionId)
+    console.log('SECTION', section)
     const path_name = 
       language === 'es' ? '/es/' + sectionId 
       : language === 'en' ? '/en/' + sectionId
@@ -256,8 +268,11 @@ export default function Nav() {
       : language === 'pt' ? '/pt/' + sectionId
       : language === 'ru' ? '/ru/' + sectionId
       : null
+
+    console.log('PATH NAME', path_name)
+
     if (section && lenisRef.current) {
-      window.history.pushState(null, '', path_name);
+      //window.history.pushState(null, '', path_name);
 
       const offset = 25
       const top = section.offsetTop + offset  
@@ -286,8 +301,8 @@ export default function Nav() {
   function handleLanguage(n, ) {
     const lan = n === 'Deutsch' ? 'de' : n === 'Español' ? 'es' : n === 'English' ? 'en' : n === 'Français' ? 'fr' : n === '日本語' ? 'ja' 
     : n === 'Português(do Brasil)' ? 'pt' : n === '한국어' ? 'ko' : n === 'Português (do Brasil)' ? 'pt' : n === 'Русский' ? 'ru' : null
-   setLanguage(lan)
-    const x = window.location.hash
+    setLanguage(lan)
+    const x = ''
     window.history.pushState(null, '', '/' + lan + '/' + x);
   } 
 
@@ -324,7 +339,7 @@ export default function Nav() {
         <ol 
           className='flex flex-row items-center gap-x-5'>
           {
-            ['Home', 'Projects', 'Contact',].map((i, index) => (
+            ['Home', 'Skills', 'Projects', 'Contact',].map((i, index) => (
               <li
                
                 id={'#' + i.toLowerCase() + 'N'}
@@ -332,9 +347,8 @@ export default function Nav() {
                 className='cursor-pointer transition-opacity duration-1000'
                 onClick={() => handleScrollToSection('#' + i.toLowerCase())}>
                 {
-                 
                   getTranslation(language, i)
-} 
+                } 
               </li>
             ))
           }

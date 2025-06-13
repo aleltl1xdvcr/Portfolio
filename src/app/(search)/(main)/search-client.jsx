@@ -70,7 +70,6 @@ export default function SearchClient({ RESULTS }) {
     { lang: 'ko', placeholder: '프로젝트 검색...'},
     { lang: 'ja', placeholder: '	プロジェクトを検索...'},
     { lang: 'fr', placeholder: 'Rechercher des projets...'},
-
   ]
 
   function translatePlaceholder() {

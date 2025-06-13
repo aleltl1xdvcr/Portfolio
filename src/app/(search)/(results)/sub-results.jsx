@@ -20,6 +20,8 @@ export default function SubResults() {
     setCinema(Object.keys(cinema.find(i => i.lang === language).content.find(b => Object.keys(b)[0] === id) || [])[0] || null)
   }
 
+  console.log('CINEMA', cinema)
+
   const {
     items,
   } = useInfiniteHits()
@@ -29,8 +31,6 @@ export default function SubResults() {
       addResultsStore(items)
     }
   }, [items])
-
-  useEffect(() => console.log('RESULTS_PERSISTED:', persisted_results), [persisted_results])
 
   const language_filter = `language:${language}`
 
@@ -59,7 +59,7 @@ export default function SubResults() {
                   <ImgTor
                     key={`${i.img[index]}_${language}`}
                     src={i.img?.[0]}
-                    alt="x"
+                    alt={i.title}
                     containerclassName="w-full relative"
                     fnCinema={fnCinema}
                     cinemaID={i.title}

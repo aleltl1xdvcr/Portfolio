@@ -10,11 +10,9 @@ import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide"
 import '@splidejs/react-splide/css/core'
 import Image from "next/image"
 import { home, projects, profile, contact } from '../../data'
-import {Contact, ProjectsPage, } from "./sections"
+import {Contact, ProjectsPage, Skills, } from "./sections"
 
-const czk109 = 'red-700'
-
-let first = true
+export const dynamic = 'force-dynamic';
 
 export default function Home({ data }) {
   const cinema = useLanguageStore((state) => state.cinema)
@@ -55,11 +53,10 @@ export default function Home({ data }) {
               key={`${item.content?.title || 'home'}_${index}`}
               className="flex flex-col"
             >
-              <h1
-                className="text-[30px]"
-              >
-                {item.content?.title}
-              </h1>
+              <div
+                dangerouslySetInnerHTML={{ __html: item.content?.title }}
+                className="text-[29px]"
+              />
               <br />
               <div>
                 <p>{item.content?.description}</p>
@@ -93,6 +90,8 @@ export default function Home({ data }) {
             </div>
           ))
 
+      case 'skills':
+        return <Skills />
       default:
         return null
     }
@@ -101,6 +100,8 @@ export default function Home({ data }) {
   useEffect(() => setIsClient(true), [])
 
   function fnCinema(id) {
+    console.log('fncinema')
+    console.log('VALUE', Object.keys(cinema.find(i => i.lang === language).content.find(b => Object.keys(b)[0] === id) || [])[0] || null)
     setCinema(Object.keys(cinema.find(i => i.lang === language).content.find(b => Object.keys(b)[0] === id) || [])[0] || null)
   }
 
@@ -175,17 +176,19 @@ export default function Home({ data }) {
 
           <br />
 
-          <h1
-            id="#projects"
+          <div
+            id="#skills"
             label="Sección 2"
-            className="text-[30px] italic hidden"
           >
-            {
-              language === 'es' ? 'Proyectos' : language === 'en' ? 'Proyects' : null
-            }
-          </h1>
+            <RenderSection key={`SKILLS_${language}`} name_section='skills' language={language} />
+          </div>
+
+          <br />
           
-          <div>
+          <div
+            id="#projects"
+            label="Sección 3"
+          >
             <ProjectsPage
               data={data}
             />
@@ -225,11 +228,10 @@ export default function Home({ data }) {
           <h1
             id="#section5"
             label="Sección 5"
-            className="text-[30px]"
+            className="text-[30px] hidden"
           >
 
           </h1>
-
         </div>
       </main>
 
@@ -258,8 +260,12 @@ export default function Home({ data }) {
           null
       }
 
-      <footer className="">
-
+      <footer className="relative">
+        <div
+          className="text-white/90 text-[13px] border-b border-white absolute bottom-[-100px] mb-4"
+        >
+          © 2025 Alejandro Sánchez. Todos los derechos reservados.
+        </div>
       </footer>
     </div>
   )
@@ -274,13 +280,13 @@ function ModalCinema({ src, alt, quote, fnCinema, id, cinema, modal_cinema, spli
       <div
         className='w-[1000px] h-full flex flex-col justify-center items-center bg-black border-white/30¿ border¿ relative'
       >
-        <div
+        {/* <div
           className="absolute top-6 left-5"
         >
           {
             title()
           }
-        </div>
+        </div> */}
 
         <div
           className="text-white cursor-pointer top-4 right-4 absolute text-[25px]"

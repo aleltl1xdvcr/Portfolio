@@ -4,6 +4,108 @@ import { Mail, MapPin } from "feather-icons-react"
 import Projects from "../(projects-section)/projects"
 import { contact } from "../../data"
 import { useLanguageStore } from "../../store"
+import Image from "next/image"
+
+const skills = [
+  {
+    name: "JavaScript",
+    img: "/images/JS-icon.png",
+  },
+  {
+    name: "HTML",
+    img: "/images/html-logo.png",
+  },
+  {
+    name: "CSS",
+    img: "/images/logo-css.png",
+  },
+  {
+    name: "Tailwind",
+    img: "/images/tailwind-logo.PNG",
+  },
+  {
+    name: "React",
+    img: "/images/icon-react.png",
+  },
+  {
+    name: "Zustand",
+    img: "/images/zustand-logo.PNG",
+  },
+  {
+    name: "NextJS",
+    img: "/images/nextjs-logo.png",
+  },
+  {
+    name: "NodeJS",
+    img: "/images/nodejs-logo.png",
+  },
+  {
+    name: "Strapi",
+    img: "/images/strapi.png",
+  },
+  {
+    name: "Algolia",
+    img: "/images/algolia-logo.png",
+  },
+  {
+    name: "Express",
+    img: "/images/express-logo.png",
+  },
+  {
+    name: "PostgreSQL",
+    img: "/images/postgres-logo.png",
+  },
+  {
+    name: "MongoDB",
+    img: "/images/mongodb-logo.png",
+  },
+  {
+    name: "Render",
+    img: "/images/render-logo.png",
+  },
+  {
+    name: "Git",
+    img: "/images/git-logo.png",
+  },
+]
+
+export function Skills() {
+  return (
+    <div
+      className="flex flex-col gap-5 w-full"
+    >
+      <div
+        className="flex flex-wrap items-start translate-x-[-15px]¿ gap-5"
+      >
+        {
+          skills.map((i, n) => (
+            <div
+              key={n}
+              className="flex flex-col-reverse items-center hover:scale-110 transition-transform duration-800 group ease"
+            >
+              <h1
+                className="text-[17.5px] italic group-hover:font-bold"
+              >
+                {i.name}
+              </h1>
+              <div
+                className="relative w-[70px] h-[70px]"
+              >
+                <Image
+                  src={i.img}
+                  fill
+                  alt={i.name}
+                  
+                />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      
+    </div>
+  )
+}
 
 export function Contact() {  
   return (
@@ -67,23 +169,11 @@ export function Contact() {
 
 function Info() {
   const language = useLanguageStore((state) => state.language)
-  console.log('xxxxxx', 
-    Object.keys(contact.find(i => i.language === language))[1]
-  )
+  
   return(
     <div
       className="w-full"
     >
-      {/* <div
-        className="my-5"
-      >
-      
-        <p>
-          Interested in working together, want to submit an article to the blog or have a question? Drop me a message and ill be in touch in due course.
-
-          John Richardson Development offers web development services, primarily serving the North East region, including Newcastle, Sunderland, Middlesbrough & County Durham.
-        </p>
-      </div> */}
       <div
         className="my-2.5 text-[20px] font-bold"
       >

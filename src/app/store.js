@@ -28,7 +28,6 @@ export const useLanguageStore = create()(
         set(
           produce(draft => {    
             const obj = draft.cinema.find(i => i.lang === get().language).content.find(o => Object.keys(o)[0] === title)
-            console.log('LANGUAGE BEAR:', get().language)
             if (obj) {
               const key = Object.keys(obj)[0]
               obj[key] = !obj[key]
