@@ -11,6 +11,8 @@ import { Play } from 'react-feather';
 import MoreProjects from './more-projects';
 import { projects } from "../../../../data";
 
+export const dynamic = 'force-dynamic';
+
 export default function Client({ project_slug, }) {
   const cinema = useLanguageStore((state) => state.cinema)
   const language = useLanguageStore((state) => state.language)
