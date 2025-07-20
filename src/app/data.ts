@@ -50,6 +50,30 @@ export const home = [
 ]
 
 export const projects = [
+  // Ecommerce Search Clone Adidas
+  {
+    "language": "es",
+    "content": [
+      {
+        "title": "Clon de Búsqueda del Ecommerce de Adidas",
+        "description": "Un proyecto full stack desarrollado y desplegado. Con un stack diverso, me he esforzado por cumplir con todas las funciones del ecommerce original.",
+        "status": "Completado",
+        "website": "https://ecommerce-search-clone-adidas.onrender.com/us/search",
+        "source": "https://github.com/aleltl1xdvcr/Ecommerce-Search-Clone-Adidas",
+        "stack": ["React", "Next.js", "Tailwind", "Zustand", 'Frammer Motion', 'Splide', 'Redis', 'Render', 'Postgres', 'Algolia'],
+        "img": ["/image-preview-adidas-project.png", "/images/adidas-imagepreview1.png", "/images/adidas-imagepreview2.png", "/images/adidas-imagepreview3.png", "/images/adidas-imagepreview4.png", "/images/adidas-imagepreview5.png", "/images/adidas-imagepreview6.png"],
+        "url": "clon-de-landing-page-de-tesla",
+        "content": ""
+      },
+    ]
+
+  },
+
+
+
+
+
+
   {
     "language": "es",
     "content": [
@@ -241,7 +265,13 @@ export const profile = [
   }
 ]
 
-export const contact = [
+type ContactItem = {
+  language: string;
+  content: Record<string, string>;
+  [key: string]: any;
+};
+
+export const contact: ContactItem[] = [
   {
     "language": "es",
     "Información de Contacto": null,

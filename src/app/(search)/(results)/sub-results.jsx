@@ -20,8 +20,6 @@ export default function SubResults() {
     setCinema(Object.keys(cinema.find(i => i.lang === language).content.find(b => Object.keys(b)[0] === id) || [])[0] || null)
   }
 
-  console.log('CINEMA', cinema)
-
   const {
     items,
   } = useInfiniteHits()
@@ -57,7 +55,7 @@ export default function SubResults() {
               <div className="relative w-full md:w-4/12 h-[250px] mb-2 md:h-[200px] md:mb-0">
                 <div className="absolute w-full h-full cursor-zoom-in">
                   <ImgTor
-                    key={`${i.img[index]}_${language}`}
+                    key={`${i.img?.[index]}_${language}`}
                     src={i.img?.[0]}
                     alt={i.title}
                     containerclassName="w-full relative"
@@ -71,12 +69,12 @@ export default function SubResults() {
                   <h1 className="text-[20px] pt-2 font-bold group-hover:underline leading-tight">
                     {i?.title}
                   </h1>
-                  <p className="pt-2 leading-tight">{i?.description.slice(0, 150)}</p>
+                  <p className="pt-2 leading-tight">{i?.description?.slice(0, 150)}</p>
                   <ul
-                    className="flex flex-row items-center gap-3 mt-5 text-[15px]"
+                    className="flex flex-row items-center gap-3 mt-5 text-[15px] flex-wrap"
                   >
                     {
-                      i?.stack.map((i, n) => (
+                      i?.stack?.map((i, n) => (
                         <li
                           className='bg-zinc-900 px-2 py-1 rounded-[3px]'
                         key={n}

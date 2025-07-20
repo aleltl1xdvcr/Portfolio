@@ -10,7 +10,8 @@ import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide"
 import '@splidejs/react-splide/css/core'
 import Image from "next/image"
 import { home, projects, profile, contact } from '../../data'
-import {Contact, ProjectsPage, Skills, } from "./sections"
+import {ProjectsPage, Skills, } from "./sections"
+import { Contact } from "./contact"
 
 export const dynamic = 'force-dynamic';
 
@@ -77,19 +78,6 @@ export default function Home({ data }) {
               </div>
             </div>
           ))
-
-      case 'contact':
-        return contact
-          .filter((item) => item.language === language)
-          .map((item, index) => (
-            <div
-              key={`contact_${index}`}
-              className="flex flex-col gap-y-5 items-start w-full"
-            >
-              <Contact /> 
-            </div>
-          ))
-
       case 'skills':
         return <Skills />
       default:
@@ -222,8 +210,8 @@ export default function Home({ data }) {
             {Object.keys(contact.find(i => i.language === language) || '')[2]}
           </h1>
 
-          <RenderSection key={`CONTACT_${language}`} name_section='contact' language={language} />
-
+          {/* <RenderSection key={`CONTACT_${language}`} name_section='contact' language={language} /> */}
+            <Contact />
           <br />
           <h1
             id="#section5"
@@ -278,25 +266,17 @@ function ModalCinema({ src, alt, quote, fnCinema, id, cinema, modal_cinema, spli
       className='items-center flex justify-center h-screen fixed z-40 top-[0px] left-0 w-full bg-black transition-transform duration-500'
     >
       <div
+        className="text-white cursor-pointer top-4 right-6 absolute text-[25px]"
+        onClick={() => fnCinema(Object.keys(cinema.find(i => i.lang === language).content.find(b => Object.values(b)[0] === true) || [])[0] || false)}
+      >
+        <X />
+      </div>
+      <div
         className='w-[1000px] h-full flex flex-col justify-center items-center bg-black border-white/30¿ border¿ relative'
       >
-        {/* <div
-          className="absolute top-6 left-5"
-        >
-          {
-            title()
-          }
-        </div> */}
-
-        <div
-          className="text-white cursor-pointer top-4 right-4 absolute text-[25px]"
-          onClick={() => fnCinema(Object.keys(cinema.find(i => i.lang === language).content.find(b => Object.values(b)[0] === true) || [])[0] || false)}
-        >
-          <X />
-        </div>
 
         <div  
-           className="w-[500px] h-[500px]"
+           className="w-[80vw] h-[90vh]"
         >
           <Splide
             onMove={(splide) => fnSplideMove(splide)}
@@ -321,20 +301,6 @@ function ModalCinema({ src, alt, quote, fnCinema, id, cinema, modal_cinema, spli
               arrows: true,
               pagination: false,
               mediaQuery: 'min',
-              // breakpoints: {
-              //   640: {
-              //     perPage: 1,
-              //   },
-              //   768: {
-              //     perPage: 1,
-              //   },
-              //   1024: {
-              //     perPage: 1,
-              //   },
-              //   1280: {
-              //     perPage: 1,
-              //   },
-              // }
             }
             }
             className='slide'
@@ -353,7 +319,7 @@ function ModalCinema({ src, alt, quote, fnCinema, id, cinema, modal_cinema, spli
                     <div className="">
                       <div
                         id={`item-${index + 1}`}
-                        className="group/el-4 el-1 group group/cbk h-[500px] w-[500px] el-img overflow-hidden bg-black"
+                        className="group/el-4 el-1 group group/cbk h-[600px] w-[500px] el-img overflow-hidden bg-black"
                         data-n={`n_${index + 1}`}
                       >
                         <div className="w-full h-full">
