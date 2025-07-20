@@ -150,11 +150,11 @@ export default function Home({ data }) {
   if (!hasHydrated) return
 
   return (
-    <div className="mt-[100px]">
+    <div className="mt-[100px] w-full flex justify-center">
       <main
         className="flex justify-center items-center w-full">
         <div
-          className="w-[90vw] sm:w-[80vw] md:w-[70vw] lg:w-[50vw] relative"
+          className="w-full px-6 sm:px-0 sm:w-[80vw] md:w-[70vw] flex justify-center flex-col lg:w-[50vw] relative"
         >
           <div
             id="#home"
@@ -209,17 +209,8 @@ export default function Home({ data }) {
           >
             {Object.keys(contact.find(i => i.language === language) || '')[2]}
           </h1>
-
-          {/* <RenderSection key={`CONTACT_${language}`} name_section='contact' language={language} /> */}
             <Contact />
           <br />
-          <h1
-            id="#section5"
-            label="Sección 5"
-            className="text-[30px] hidden"
-          >
-
-          </h1>
         </div>
       </main>
 

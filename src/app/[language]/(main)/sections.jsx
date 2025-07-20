@@ -76,7 +76,7 @@ export function Skills() {
       className="flex flex-col gap-5 w-full"
     >
       <div
-        className="flex flex-wrap items-start translate-x-[-15px]¿ gap-5"
+        className="flex flex-wrap items-start w-full gap-5"
       >
         {
           skills.map((i, n) => (

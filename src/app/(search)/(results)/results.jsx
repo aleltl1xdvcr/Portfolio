@@ -14,7 +14,9 @@ export default function Results() {
   const slug_result = urlParams.get('query')
 
   return (
-    <div>
+    <div
+      className="w-full"
+    >
       {
         !slug_result || slug_result?.length === 0
           ? null

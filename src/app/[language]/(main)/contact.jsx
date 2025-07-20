@@ -21,7 +21,7 @@ export function Contact() {
             {Object.keys(currentLang)[1]}
           </h1>
         </div>
-        < div className="flex flex-row gap-10" >
+        < div className="flex flex-row gap-10 flex-wrap">
           <div className="flex flex-row items-center gap-5" >
             <Mail />
             < div className="flex flex-col items-start" >

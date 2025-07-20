@@ -82,7 +82,7 @@ export default function SearchClient({ RESULTS }) {
     >
       <div
         id="sb_top"
-        className=""
+        className="w-full"
       >
         <div
           id=""
@@ -90,11 +90,10 @@ export default function SearchClient({ RESULTS }) {
         >
           <div
             className="flex flex-row items-center justify-between
-            h-[45px] 
-            "
+            h-[45px] w-full"
           >
             <form
-              className="dark:border dark:border-white h-full  flex flex-row focus-within:border-y-[2.5px] focus-within:border-l-[2.5px] border-r-0 transition-all duration-100
+              className="dark:border dark:border-white h-full flex flex-row focus-within:border-y-[2.5px] focus-within:border-l-[2.5px] border-r-0 transition-all duration-100
             w-full border border-black"
               action=""
               role="search"
@@ -137,9 +136,7 @@ export default function SearchClient({ RESULTS }) {
                 className="is-dirty peer placeholder:text-zinc-600 dark:bg-inherit dark:text-white dark:placeholder:text-white
                 placeholder:text-[18px]  
                 outline-none w-full h-full text-[20px] px-1.5 
-                font-bold placeholder:font-light 
-              
-            "
+                font-bold placeholder:font-light"
                 type="text"
                 ref={inputRefN}
                 autoComplete="off"
