@@ -35,7 +35,7 @@ export default function SubResults() {
   return (
     <div
       id="observer_root"
-      className="flex flex-col dark:text-white"
+      className="flex flex-col"
     >
       <Configure
         analytics={false}
@@ -47,7 +47,7 @@ export default function SubResults() {
           <div
             id={`target_observer_node_${items?.length - 1 === index ? 'last' : `_${index + 1}_${i?.id}`
               }`}
-            className="border-b-2 border-black dark:border-white py-5"
+            className="border-b border-black/60 dark:border-white py-5"
 
             key={index}
           >
@@ -76,7 +76,7 @@ export default function SubResults() {
                     {
                       i?.stack?.map((i, n) => (
                         <li
-                          className='bg-zinc-900 px-2 py-1 rounded-[3px]'
+                          className='bg-zinc-900 text-white px-2 py-1 rounded-[3px]'
                         key={n}
                         >
                           {i}
@@ -90,7 +90,7 @@ export default function SubResults() {
                     <a
                       target="_blank" rel="noopener noreferrer"
                       href={i.website}
-                      className="px-2 py-1 border flex flex-row items-center gap-x-2 w-fit transition-transform duration-700 border-white/10 hover:scale-110 bg-white text-black hover:text-black hover:font-bold rounded-full"
+                      className="px-2 py-1 border flex flex-row items-center gap-x-2 w-fit transition-transform duration-700 border-white/10 hover:scale-110 bg-black dark:bg-white dark:text-black text-white hover:text-black hover:font-bold rounded-full"
                     >
                       <FaEye
                         size={20}
@@ -100,11 +100,9 @@ export default function SubResults() {
 
                     <a target="_blank" rel="noopener noreferrer"
                       href={i.source}
-                      className="px-2 py-1 border flex flex-row items-center gap-x-2 w-fit transition-transform duration-700 border-white hover:scale-110 bg-white text-black hover:text-black hover:font-bold rounded-full"
+                      className="px-2 py-1 border flex flex-row items-center gap-x-2 w-fit transition-transform duration-700 border-white hover:scale-110 bg-black dark:bg-white text-white dark:text-black hover:text-black hover:font-bold rounded-full"
                     >
                       <FaGithub
-                        className=""
-                        color="black"
                         size={20}
                       />
                       <span>Source</span>

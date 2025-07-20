@@ -210,8 +210,8 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
           <div
             onClick={() => refine(i.value)}
             key={`${n}_${i}`}
-            className={`border border-white/50 p-2.5 hover:bg-white hover:text-black cursor-pointer transition-colors duration-100 ease-in 
-              rounded-full text-[15px] hover:font-bold ${i.isRefined ? 'bg-white text-black font-bold' : null}`}
+            className={`border dark:border-white/50 border-black/50 p-2.5 hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black cursor-pointer transition-colors duration-100 ease-in 
+              rounded-full text-[15px] hover:font-bold ${i.isRefined ? 'dark:bg-white bg-black text-white dark:text-black font-bold' : null}`}
           >
             <label
               className="flex flex-row items-center"
@@ -288,8 +288,8 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
                         onChange={(e) => setOperator(e.target.value)}
                         className="peer hidden"
                       />
-                      <div className="h-5 w-5 rounded-full border border-white-400 group-hover:border-black relative">
-                        <div className={`w-3 h-3 group-hover:bg-black bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-0 ${operator === 'OR' ? 'scale-100' : null} ¿peer-checked:scale-100 transition-transform duration-200`} />
+                      <div className="h-5 w-5 rounded-full border border-white-400 group-hover:border-white dark:group-hover:border-black relative">
+                        <div className={`w-3 h-3 group-hover:bg-white dark:group-hover:bg-black bg-black/90 dark:bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-0 ${operator === 'OR' ? 'scale-100' : null} ¿peer-checked:scale-100 transition-transform duration-200`} />
                       </div>
                       <span className={`text-sm group-hover:text-black ${operator === 'OR' ? 'font-bold' : null}`}>OR</span>
                     </label>
@@ -305,7 +305,7 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
                         className="peer hidden"
                       />
                       <div className="h-5 w-5 rounded-full border border-gray-400 group-hover:border-black relative">
-                        <div className={`w-3 h-3 bg-white group-hover:bg-black rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-0 ${operator === 'AND' ? 'scale-100' : null} peer-checked:scale-100¿ transition-transform duration-200`} />
+                        <div className={`w-3 h-3 bg-black dark:bg-white group-hover:bg-white dark:group-hover:bg-black rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-0 ${operator === 'AND' ? 'scale-100' : null} peer-checked:scale-100¿ transition-transform duration-200`} />
                       </div>
                       <span className={`text-sm group-hover:text-black ${operator === 'AND' ? 'font-bold' : null}`}>AND</span>
                     </label>
@@ -342,12 +342,12 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
                         className="peer hidden"
                       />
                       <div className="h-5 w-5 rounded-full border border-white-400 group-hover:border-black relative">
-                        <div className={`w-3 h-3 group-hover:bg-black bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-0 ${name === 'ASC' ? 'scale-100' : null} ¿peer-checked:scale-100 transition-transform duration-200`} />
+                        <div className={`w-3 h-3 group-hover:bg-white dark:group-hover:bg-black bg-black dark:bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-0 ${name === 'ASC' ? 'scale-100' : null} ¿peer-checked:scale-100 transition-transform duration-200`} />
                       </div>
                       <span className={`text-sm group-hover:text-black ${name === 'OR' ? 'font-bold' : null}`}>ASC</span>
                     </label>
 
-                    <label htmlFor="name_desc" className="flex items-center gap-3 cursor-pointer py-2 pl-1 pr-2 hover:bg-gray-100 rounded-lg w-full group">
+                    <label htmlFor="name_desc" className="flex items-center gap-3 cursor-pointer py-2 pl-1 pr-2 hover:bg-gray-900 dark:hover:bg-gray-100 rounded-lg w-full group">
                       <input
                         type="radio"
                         id="name_desc"
@@ -358,7 +358,7 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
                         className="peer hidden"
                       />
                       <div className="h-5 w-5 rounded-full border border-gray-400 group-hover:border-black relative">
-                        <div className={`w-3 h-3 bg-white group-hover:bg-black rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-0 ${name === 'DESC' ? 'scale-100' : null} peer-checked:scale-100¿ transition-transform duration-200`} />
+                        <div className={`w-3 h-3 bg-black dark:bg-white group-hover:bg-white dark:group-hover:bg-black rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-0 ${name === 'DESC' ? 'scale-100' : null} peer-checked:scale-100¿ transition-transform duration-200`} />
                       </div>
                       <span className={`text-sm group-hover:text-black ${name === 'AND' ? 'font-bold' : null}`}>DESC</span>
                     </label>
@@ -402,7 +402,7 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
                         className="peer hidden"
                       />
                       <div className="h-5 w-5 rounded-full border border-gray-400 group-hover:border-black relative">
-                        <div className={`w-3 h-3 bg-white group-hover:bg-black rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-0 ${count === 'DESC' ? 'scale-100' : null} peer-checked:scale-100¿ transition-transform duration-200`} />
+                        <div className={`w-3 h-3 bg-black dark:bg-white group-hover:bg-white dark:group-hover:bg-black rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-0 ${count === 'DESC' ? 'scale-100' : null} peer-checked:scale-100¿ transition-transform duration-200`} />
                       </div>
                       <span className={`text-sm group-hover:text-black ${count === 'DESC' ? 'font-bold' : null}`}>DESC</span>
                     </label>
@@ -430,7 +430,7 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
                         className="peer hidden"
                       />
                       <div className="h-5 w-5 rounded-full border border-white-400 group-hover:border-black relative">
-                        <div className={`w-3 h-3 group-hover:bg-black bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-0 ${isRefined === 'ASC' ? 'scale-100' : null} ¿peer-checked:scale-100 transition-transform duration-200`} />
+                        <div className={`w-3 h-3 group-hover:bg-white dark:group-hover:bg-black bg-black dark:bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-0 ${isRefined === 'ASC' ? 'scale-100' : null} ¿peer-checked:scale-100 transition-transform duration-200`} />
                       </div>
                       <span className={`text-sm group-hover:text-black ${isRefined === 'ASC' ? 'font-bold' : null}`}>ASC</span>
                     </label>
@@ -446,7 +446,7 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
                         className="peer hidden"
                       />
                       <div className="h-5 w-5 rounded-full border border-gray-400 group-hover:border-black relative">
-                        <div className={`w-3 h-3 bg-white group-hover:bg-black rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-0 ${isRefined === 'DESC' ? 'scale-100' : null} peer-checked:scale-100¿ transition-transform duration-200`} />
+                        <div className={`w-3 h-3 bg-black dark:bg-white group-hover:bg-white dark:group-hover:bg-black rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-0 ${isRefined === 'DESC' ? 'scale-100' : null} peer-checked:scale-100¿ transition-transform duration-200`} />
                       </div>
                       <span className={`text-sm group-hover:text-black ${isRefined === 'DESC' ? 'font-bold' : null}`}>DESC</span>
                     </label>
@@ -460,7 +460,7 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
               className="flex flex-row items-center gap-x-5 mt-3 text-[15px]"
             >
               <button
-                className="border border-white/80 rounded-[7px] py-2 px-3 hover:bg-white hover:text-black"
+                className="border dark:border-white/80 border-black/80 rounded-[7px] py-2 px-3 hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black"
               >
                 Apply Filters
               </button>

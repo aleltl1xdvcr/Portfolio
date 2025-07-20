@@ -7,6 +7,8 @@ import 'lenis/dist/lenis.css'
 import {useLanguageStore} from './store'
 import { useHydration } from './useHydrated'
 import { FaGithub, FaHome } from "react-icons/fa";
+import { useThemeStore } from './store-theme'
+import { MdDarkMode, MdLightMode } from "react-icons/md"
 
 const translations = {
   es: { 
@@ -89,6 +91,7 @@ export default function Nav() {
   const  setLanguage  = useLanguageStore((state) => state.setLanguage)
   const setLenisStore = useLanguageStore((state) => state.setLenis)
   const hasHydrated = useHydration(useLanguageStore);
+  const { theme, toggleTheme } = useThemeStore();
 
   useLayoutEffect(() => {
     if (typeof window !== 'undefined') {
@@ -306,14 +309,42 @@ export default function Nav() {
   if (!isClient) return null; 
   if (!hasHydrated) return
 
+
+  const cycleTheme = () => {
+    const nextTheme =
+      theme === "light" ? "dark" : theme === "dark" ? "system" : "light";
+    toggleTheme(nextTheme);
+  };
+
   return (
     <div 
       className='fixed top-0 left-0 w-full h-16 z-40 bg-black/30¿ justify-center items-center flex bg-transparent backdrop-blur-md border-white/30 border-b'>
       <div
         className='flex items-center justify-between w-full px-5 flex-row sm:hidden'
       >
-        <div>
-          <Menu />
+        <div
+          className='relative h-6'
+        >
+          <span
+            className="absolute z-40 flex items-start"
+          >
+            {theme === 'dark'
+              ? <MdDarkMode
+                onClick={() => cycleTheme('light')}
+                size={23}
+              />
+              : theme === 'light'
+                ? <MdLightMode
+                  onClick={() => cycleTheme('light')}
+                  size={23}
+                />
+                : <MdLightMode
+                  onClick={() => cycleTheme('light')}
+
+                  size={23}
+                />
+            }
+          </span>
         </div>
         <ol
           className='flex flex-row items-center gap-x-5'>
@@ -325,14 +356,29 @@ export default function Nav() {
       <div 
         className='w-full justify-between items-center px-16 hidden sm:flex'>
           
-        <ol 
-          className='flex flex-row items-center gap-x-5'>
-          <li>
-            <FaHome
-              size={25}
-            />
-          </li>
-        </ol>
+        <div 
+          className='flex flex-row items-center gap-x-5 relative'>
+          <span
+            className="absolute z-40 flex items-start"
+          >
+            {theme === 'dark'
+              ? <MdDarkMode
+                onClick={() => cycleTheme('light')}
+                size={23}
+              />
+              : theme === 'light'
+                ? <MdLightMode
+                  onClick={() => cycleTheme('light')}
+                  size={23}
+                />
+                : <MdLightMode
+                  onClick={() => cycleTheme('light')}
+
+                  size={23}
+                />
+            }
+          </span>
+        </div>
         <ol 
           className='flex flex-row items-center gap-x-5'>
           {
@@ -413,7 +459,7 @@ export default function Nav() {
             target="_blank" 
             rel="noopener noreferrer"
             href='https://github.com/aleltl1xdvcr'
-            className='text-white ml-4'>
+            className=' ml-4'>
             <FaGithub 
               size={25}
             color='white' />

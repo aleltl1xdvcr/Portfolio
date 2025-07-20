@@ -4,7 +4,9 @@ import { Github, Linkedin, Menu, Star } from 'feather-icons-react'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import {useLanguageStore} from '../../../store'
 import { useHydration } from '../../../useHydrated'
-import { FaGithub, FaHouseDamage, FaLinkedin } from 'react-icons/fa'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { MdDarkMode, MdLightMode } from "react-icons/md"
+import { useThemeStore } from '../../../store-theme'
 
 const languages = ['es', 'de', 'fr', 'ja', 'ko', 'pt', 'ru']
 
@@ -79,7 +81,7 @@ export default function NavProjects() {
   const pathRef = useRef(null)
   const language  = useLanguageStore((state) => state.language)
   const  setLanguage  = useLanguageStore((state) => state.setLanguage)
-  const hasHydrated = useHydration(useLanguageStore);
+  const { theme, toggleTheme } = useThemeStore();
 
   useLayoutEffect(() => {
     if (typeof window !== 'undefined') {
@@ -228,38 +230,64 @@ export default function NavProjects() {
     window.history.pushState(null, '', '/' + lan + '/' + x);
   } 
 
-  // if (!isClient) return null
-  // if (!hasHydrated) return
+
+  const cycleTheme = () => {
+    const nextTheme =
+      theme === "light" ? "dark" : theme === "dark" ? "system" : "light";
+    toggleTheme(nextTheme);
+  };
 
   return (
     <div 
-      className='fixed top-0 left-0 w-full h-16 z-40 bg-black/30¿ justify-center items-center flex bg-transparent backdrop-blur-md border-white/30 border-b'>
+      className='fixed top-0 left-0 w-full h-16 z-40 justify-center items-center flex bg-transparent backdrop-blur-md border-white/30 border-b'>
       <div
-        className='flex items-center justify-between w-full px-5 flex-row sm:hidden'
+        className='flex items-center justify-between w-full px-2 flex-row sm:hidden relative'
       >
-        <div>
-          <Menu />
-        </div>
-        <ol
-          className='flex flex-row items-center gap-x-5'>
-          <li>
-            <FaHouseDamage 
-              size={25}
+        <span
+          className="absolute z-40 flex items-start"
+        >
+          {theme === 'dark'
+            ? <MdDarkMode
+              onClick={() => cycleTheme('light')}
+              size={23}
             />
-          </li>
-        </ol>
+            : theme === 'light'
+              ? <MdLightMode
+                onClick={() => cycleTheme('light')}
+                size={23}
+              />
+              : <MdLightMode
+                onClick={() => cycleTheme('light')}
+
+                size={23}
+              />
+          }
+        </span>
+    
       </div>
       <div 
-        className='w-full justify-between items-center px-16 hidden sm:flex'>
+        className='w-full justify-between items-center px-16 hidden sm:flex relat'>
           
-        <ol 
-          className='flex flex-row items-center gap-x-5'>
-          <li>
-            <FaHouseDamage
-              size={25}
+        <span
+          className="absolute z-40 flex items-start"
+        >
+          {theme === 'dark'
+            ? <MdDarkMode
+              onClick={() => cycleTheme('light')}
+              size={23}
             />
-          </li>
-        </ol>
+            : theme === 'light'
+              ? <MdLightMode
+                onClick={() => cycleTheme('light')}
+                size={23}
+              />
+              : <MdLightMode
+                onClick={() => cycleTheme('light')}
+
+                size={23}
+              />
+          }
+        </span>
         <ol 
           className='flex flex-row items-center gap-x-5'>
           {
@@ -302,7 +330,7 @@ export default function NavProjects() {
               id='modal_language'
             >
               <div
-                className='flex flex-col items-start w-full border mt-[18px] border-white p-6 bg-black'
+                className='flex flex-col items-start w-full border mt-[18px] border-white p-6 '
                   >
                 <div
 
@@ -337,7 +365,7 @@ export default function NavProjects() {
 
             </div>
           </div>
-          <li className='text-white ml-4'>
+          <li className='ml-4'>
             <FaGithub 
               size={25}
               color='white' 

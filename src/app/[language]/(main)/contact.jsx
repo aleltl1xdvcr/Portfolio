@@ -6,10 +6,6 @@ import { Mail, MapPin } from 'feather-icons-react'
 export function Contact() {
   const { register, handleSubmit, } = useForm()
 
-  function onSubmit(data) {
-
-  }
-
   const Info = () => {
     const language = useLanguageStore((state) => state.language)
     const currentLang = contact.find((i) => i.language === language)
@@ -52,7 +48,7 @@ export function Contact() {
   return (
     <div className="flex flex-col gap-5 w-full" >
       <Info />
-      < div className="w-full p-5 border-white/30 border rounded-[3px]" >
+      < div className="w-full p-5 border-bblack/30 dark:border-white/30 border rounded-[3px]" >
         <form
           type='submit'
           className="flex flex-col gap-5 w-full"
@@ -62,7 +58,7 @@ export function Contact() {
               <h1>Name </h1>
             </div>
             < input
-              className="border border-white/10 h-10 bg-zinc-800/60 rounded-[3px] p-2 w-full"
+              className="border border-black/10 dark:border-white/10 h-10 dark:bg-zinc-900 bg-neutral-100 rounded-[3px] p-2 w-full"
               type="text"
               placeholder="Your name"
               {...register('name', { required: true })}
@@ -73,7 +69,7 @@ export function Contact() {
               <h1>Your mail direction </h1>
             </div>
             < input
-              className="border border-white/10 h-10 bg-zinc-900 rounded-[3px] p-2 w-full"
+              className="border border-black/10 dark:border-white/10 h-10 bg-neutral-100 dark:bg-zinc-900 rounded-[3px] p-2 w-full"
               type="text"
               placeholder="Your email..."
               {...register('email', { required: true })}
@@ -85,14 +81,14 @@ export function Contact() {
             </div>
             < textarea
               {...register('message', { required: true })}
-              className="border border-white/10 bg-zinc-900 text-white opacity-100 w-full h-[400px] rounded-[3px] p-2"
+              className="border border-black/10 dark:border-white/10 dark:bg-zinc-900 bg-neutral-100 opacity-100 w-full h-[400px] rounded-[3px] p-2"
               placeholder="Your message"
             />
           </div>
           < input
             type="submit"
             value="Send Message"
-            className="w-fit px-2 h-14 bg-white text-black text-center text-[18px] rounded-[3px] hover:bg-white/70 cursor-pointer transition-colors duration-300 ease-in"
+            className="w-fit px-2 h-14 dark:bg-white bg-black text-white dark:text-black text-center text-[18px] rounded-[3px] hover:bg-white/70 cursor-pointer transition-colors duration-300 ease-in"
           />
         </form>
       </div>

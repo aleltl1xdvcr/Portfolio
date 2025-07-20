@@ -88,15 +88,12 @@ export default function Home({ data }) {
   useEffect(() => setIsClient(true), [])
 
   function fnCinema(id) {
-    console.log('fncinema')
-    console.log('VALUE', Object.keys(cinema.find(i => i.lang === language).content.find(b => Object.keys(b)[0] === id) || [])[0] || null)
     setCinema(Object.keys(cinema.find(i => i.lang === language).content.find(b => Object.keys(b)[0] === id) || [])[0] || null)
   }
 
   function fnThumbnail() {
       var thumbnails = document.getElementsByClassName('thumbnail')
       thumbnails[0].classList.add('is-active')
-      var current
 
       for (var i = 0; i < thumbnails.length; i++) {
         initThumbnail(thumbnails[i], i)
@@ -150,7 +147,7 @@ export default function Home({ data }) {
   if (!hasHydrated) return
 
   return (
-    <div className="mt-[100px] w-full flex justify-center">
+    <div className="mt-[100px] w-full flex flex-col items-center justify-center">
       <main
         className="flex justify-center items-center w-full">
         <div
@@ -217,7 +214,7 @@ export default function Home({ data }) {
       <div
         id="button_to_top"
         onClick={() => toTop()}
-        className={`circular-hover fixed z-20 bottom-[50px] right-[50px] hover:scale-125 transition-transform duration-200 ease-in-out cursor-pointer`}
+        className={`circular-hover fixed z-20 bottom-20 right-20 hover:scale-125 transition-transform duration-200 ease-in-out cursor-pointer`}
       >
         <ArrowUp />
       </div>
@@ -239,9 +236,9 @@ export default function Home({ data }) {
           null
       }
 
-      <footer className="relative">
+      <footer className="relative w-full">
         <div
-          className="text-white/90 text-[13px] border-b border-white absolute bottom-[-100px] mb-4"
+          className="text-[13px] border-b border-white absolute bottom-[-100px] mb-4 w-full"
         >
           © 2025 Alejandro Sánchez. Todos los derechos reservados.
         </div>
@@ -257,7 +254,7 @@ function ModalCinema({ src, alt, quote, fnCinema, id, cinema, modal_cinema, spli
       className='items-center flex justify-center h-screen fixed z-40 top-[0px] left-0 w-full bg-black transition-transform duration-500'
     >
       <div
-        className="text-white cursor-pointer top-4 right-6 absolute text-[25px]"
+        className=" cursor-pointer top-4 right-6 absolute text-[25px]"
         onClick={() => fnCinema(Object.keys(cinema.find(i => i.lang === language).content.find(b => Object.values(b)[0] === true) || [])[0] || false)}
       >
         <X />
@@ -340,7 +337,7 @@ function ModalCinema({ src, alt, quote, fnCinema, id, cinema, modal_cinema, spli
                   className='flex flex-row w-fit absolute top-0 left-[-50px] hover:scale-150 transition-transform duration-200 ease-in-out cursor-pointer'
                 >
                   <ChevronLeft
-                    className='text-black dark:text-white'
+                    className='text-black dark:'
                     size={25}
                   />
                 </div>
@@ -351,7 +348,7 @@ function ModalCinema({ src, alt, quote, fnCinema, id, cinema, modal_cinema, spli
                   className='w-fit flex-row flex absolute top-0 right-[-50px] hover:scale-155 transition-transform duration-200 ease-in-out cursor-pointer'
                 >
                   <ChevronRight
-                    className='text-black dark:text-white'
+                    className='text-black dark:'
                     size={25}
                   />
                 </div>

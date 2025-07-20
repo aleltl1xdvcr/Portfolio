@@ -171,7 +171,7 @@ export default function Client({ project_slug, }) {
                 className='flex flex-row w-fit absolute top-0 left-[-50px] hover:scale-150 transition-transform duration-200 ease-in-out cursor-pointer'
               >
                 <ChevronLeft
-                  className='text-black dark:text-white'
+                  className='text-black dark:'
                   size={25}
                 />
               </div>
@@ -182,14 +182,14 @@ export default function Client({ project_slug, }) {
                 className='w-fit flex-row flex absolute top-0 right-[-50px] hover:scale-155 transition-transform duration-200 ease-in-out cursor-pointer'
               >
                 <ChevronRight
-                  className='text-black dark:text-white'
+                  className='text-black dark:'
                   size={25}
                 />
               </div>
             </div>
           </div>
 
-          <button className="splide__toggle absolute top-[530px] left-0 bg-black text-white p-4">
+          <button className="splide__toggle absolute top-[530px] left-0 bg-black  p-4">
             <span className="splide__toggle__play">
               <Play />
             </span>

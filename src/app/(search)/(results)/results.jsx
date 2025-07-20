@@ -36,19 +36,11 @@ export default function Results() {
             }
           </div>
       }
-      <div
-        className={persisted_results?.length === 0
-          ?
-          `border-t border-black`
-          :
-          `border-t-2 border-black`
-        }
-      >
+      <div>
         <SubResults
           RESULTS={RESULTS_SSR}
        
         />
-
       </div>
 
       {
@@ -67,8 +59,7 @@ export default function Results() {
               <button
                 onClick={(e) => showMoreResults(e)}
                 id='button-update-results'
-                className='px-6 py-[20px] bg-black hover:bg-stone-700 text-white hover:text-white transition-colors dark:border-white dark:border-2
-        duration-1000'
+                className='px-6 py-[20px] bg-black text-white hover:bg-stone-700 transition-colors dark:border-white dark:border-2 duration-1000'
               >
                 Más historias
               </button>
