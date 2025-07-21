@@ -318,7 +318,7 @@ export default function Nav() {
 
   return (
     <div 
-      className='fixed top-0 left-0 w-full h-16 z-40 bg-black/30¿ justify-center items-center flex bg-transparent backdrop-blur-md border-white/30 border-b'>
+      className='fixed top-0 left-0 w-full h-16 z-40 justify-center items-center flex bg-transparent backdrop-blur-md border-white/30 border-b'>
       <div
         className='flex items-center justify-between w-full px-5 flex-row sm:hidden'
       >
@@ -420,11 +420,11 @@ export default function Nav() {
               id='modal_language'
             >
               <div
-                className='flex flex-col items-start w-full border mt-[18px] border-white p-6 bg-black'
+                className='flex flex-col items-start w-full border mt-[18px] border-black dark:border-white p-6 bg-white text-black dark:text-white dark:bg-black'
                   >
                 <div
 
-                  className='flex flex-row items-center gap-x-2 w-full mb-2'
+                  className='flex flex-row items-center gap-x-2 w-full mb-2 hidden'
                 >
                   <input type="radio" />
                   <li
@@ -462,7 +462,7 @@ export default function Nav() {
             className=' ml-4'>
             <FaGithub 
               size={25}
-            color='white' />
+            />
           </a>
         </ol>
         
