@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
-export default function ImgTor({ src, alt, containerClass, quote, scale, fnCinema, cinemaID }) {
+export default function ImgTor({ src, alt, containerClass, quote, scale, fnCinema, cinemaID, objectFit }) {
   const [loaded, setLoaded] = useState(false)
   const containerRef = useRef(null)
 
@@ -15,7 +15,8 @@ export default function ImgTor({ src, alt, containerClass, quote, scale, fnCinem
 
   return (
       <div
-        className={containerClass}
+      id='containerClass'
+      className={containerClass}
       >
         <div
           onClick={() => fnCinema(cinemaID)}
@@ -24,11 +25,11 @@ export default function ImgTor({ src, alt, containerClass, quote, scale, fnCinem
         >
           <Image
             priority
-            className=''
+            className={`${scale}`}
             src={src}
             alt={alt}
             fill
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: objectFit || 'cover' }}
             onLoad={() => setLoaded(true)}
           />
         </div>

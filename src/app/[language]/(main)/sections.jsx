@@ -72,8 +72,8 @@ const skills = [
   },
   {
     name: "Render",
-    img_dark: "/images/render-logo.png",
-    img_light: "/images/logo-render-black.png",
+    img_dark: "/images/logo-render-black.png",
+    img_light: "/images/render-logo.png",
   },
   {
     name: "Git",
@@ -112,6 +112,7 @@ export function Skills() {
                 className="relative w-[70px] h-[70px]"
               >
                 <Image
+                  priority
                   src={
                     theme === 'light' ? i.img_light : theme === 'dark' ? i.img_dark : null
                   }

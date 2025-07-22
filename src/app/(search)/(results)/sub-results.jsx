@@ -8,6 +8,7 @@ import Link from 'next/link'
 import '@splidejs/react-splide/css/core'
 import { FaGithub, FaEye } from "react-icons/fa";
 import { CgDetailsMore } from "react-icons/cg";
+// import { object } from "zod"
 
 export default function SubResults() {
   const cinema = useLanguageStore((state) => state.cinema)
@@ -17,7 +18,10 @@ export default function SubResults() {
   const persisted_results = useQueryStore((state) => state.RESULTS)
 
   function fnCinema(id) {
-    setCinema(Object.keys(cinema.find(i => i.lang === language).content.find(b => Object.keys(b)[0] === id) || [])[0] || null)
+    const three = cinema.filter(i => i.lang === language).find(i => Object.keys(i.content[0])[0] === id).content[0]
+    const key = Object.keys(three)[0]
+    
+    setCinema(id)
   }
 
   const {

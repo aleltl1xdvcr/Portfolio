@@ -9,7 +9,10 @@ const cinema = projects.map(a => ({
   lang: a.language,
   content: a.content.map(b => ({
     [b.title]: false,
-    img: b.img,
+    items: b.items.map(c => ({
+      img: c.img,
+      title: c.title,
+    })),
     url: b.url,
   }))
 }))
@@ -26,8 +29,8 @@ export const useLanguageStore = create()(
       cinema: cinema,
       setCinema: (title) =>
         set(
-          produce(draft => {    
-            const obj = draft.cinema.find(i => i.lang === get().language).content.find(o => Object.keys(o)[0] === title)
+          produce(draft => {   
+            const obj = draft.cinema.filter(i => i.lang === get().language).find(o => Object.keys(o.content[0])[0] === title).content[0]
             if (obj) {
               const key = Object.keys(obj)[0]
               obj[key] = !obj[key]

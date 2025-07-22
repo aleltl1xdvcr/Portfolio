@@ -61,7 +61,7 @@ const useQueryStore = create(
         return (state, error) => {
           if (error) {
             console.log('an error happened during hydration', error)
-          } 
+          }
         }
       },
     }

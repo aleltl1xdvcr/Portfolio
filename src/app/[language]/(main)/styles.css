@@ -1,0 +1,20 @@
+.parent {
+    display: flex;
+}
+
+.child {
+    flex: 1;
+}
+
+.scrollable {
+    overflow: auto;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+}
+
+.scrollable::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}

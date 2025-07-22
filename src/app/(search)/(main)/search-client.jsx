@@ -89,12 +89,11 @@ export default function SearchClient({ RESULTS }) {
           className="mt-3 w-full flex flex-col gap-5"
         >
           <div
-            className="flex flex-row items-center justify-between
-            h-[45px] w-full"
+            className="flex flex-row items-center justify-between h-[45px] w-full"
           >
             <form
-              className="dark:border dark:border-white h-full flex flex-row focus-within:border-y-[2.5px] focus-within:border-l-[2.5px] border-r-0 transition-all duration-100
-            w-full border border-black"
+              className="dark:border dark:border-white h-full flex flex-row focus-within:border-y-[2.5px] focus-within:border-l-[2.5px] 
+              border-r-0 transition-all duration-100 w-full border border-black"
               action=""
               role="search"
               noValidate
@@ -107,9 +106,8 @@ export default function SearchClient({ RESULTS }) {
               }}
             >
               <div
-                className="
-                 peer-[.is-dirty]:peer-focus:border-l-[2.5px] peer-[.is-dirty]:peer-focus:hidden border-l-black transition-all duration-100  
-                text-[25px]  h-full items-center flex text-center px-3 w-[50px] "
+                className="peer-[.is-dirty]:peer-focus:border-l-[2.5px] peer-[.is-dirty]:peer-focus:hidden border-l-black transition-all duration-100  
+                text-[25px] h-full items-center flex text-center px-3 w-[50px] "
               >
                 {
                   inputValue?.length === 0
@@ -151,10 +149,8 @@ export default function SearchClient({ RESULTS }) {
                 })}
                 autoFocus
               />
-
             </form>
           </div>
-
           <div>
             <Stack
               refine={refineRefinementList}
@@ -176,7 +172,6 @@ export default function SearchClient({ RESULTS }) {
           </div>
         </div>
       </div>
-
       <div>
         <Results
           RESULTS_SSR={RESULTS}
@@ -201,16 +196,18 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
     setIsRefined('ASC')
   }
 
+
   return (
     <div
-      className="flex flex-row items-center gap-3 flex-wrap"
+      className="flex flex-row items-center gap-3 flex-wrap w-full hidde overflow-hidden"
     >
       {
-        items?.map((i, n) => (
+        items?.map((i, n) => (        
           <div
             onClick={() => refine(i.value)}
             key={`${n}_${i}`}
-            className={`border dark:border-white/50 border-black/50 p-2.5 hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black cursor-pointer transition-colors duration-100 ease-in 
+            className={`border dark:border-white/50 border-black/50 p-2.5 hover:bg-black dark:hover:bg-white hover:text-white 
+            dark:hover:text-black cursor-pointer transition-colors duration-100 ease-in 
               rounded-full text-[15px] hover:font-bold ${i.isRefined ? 'dark:bg-white bg-black text-white dark:text-black font-bold' : null}`}
           >
             <label

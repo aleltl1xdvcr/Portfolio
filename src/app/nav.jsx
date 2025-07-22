@@ -354,7 +354,7 @@ export default function Nav() {
         </ol>
       </div>
       <div 
-        className='w-full justify-between items-center px-16 hidden sm:flex'>
+        className='w-full justify-between items-center px-4 lg:px-16 hidden sm:flex'>
           
         <div 
           className='flex flex-row items-center gap-x-5 relative'>
@@ -387,7 +387,7 @@ export default function Nav() {
                
                 id={'#' + i.toLowerCase() + 'N'}
                 key={index}
-                className='cursor-pointer transition-opacity duration-1000'
+                className='cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out '
                 onClick={() => handleScrollToSection('#' + i.toLowerCase())}>
                 {
                   getTranslation(language, i)
@@ -431,14 +431,14 @@ export default function Nav() {
                    
                     className={`cursor-pointer`}
                   >
-                    Remeber Language
+                    Remember Language
                   </li>
                 </div>
                 <div
                   className='flex flex-col'
                 >
                   {
-                    ['Deutsch', 'Español', 'English', 'Français', '日本語', '한국어', 'Português (do Brasil)', 'Русский']
+                    ['Deutsch', 'Español', 'English', 'Français', '日本語', 'Português (do Brasil)', 'Русский']
                       .map((i, n) => (
                         <li
                           key={n}

@@ -61,13 +61,308 @@ export const projects = [
         "website": "https://ecommerce-search-clone-adidas.onrender.com/us/search",
         "source": "https://github.com/aleltl1xdvcr/Ecommerce-Search-Clone-Adidas",
         "stack": ["React", "Next.js", "Tailwind", "Zustand", 'Frammer Motion', 'Splide', 'Redis', 'Render', 'Postgres', 'Algolia'],
-        "img": ["/image-preview-adidas-project.png", "/images/adidas-imagepreview1.png", "/images/adidas-imagepreview2.png", "/images/adidas-imagepreview3.png", "/images/adidas-imagepreview4.png", "/images/adidas-imagepreview5.png", "/images/adidas-imagepreview6.png"],
+        "items": [
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'Theme Dark'
+          }, 
+          {
+            img: "/images/adidas-project-overview2.png",
+            title: 'Pagination'
+          }, 
+          {
+            img: "/images/adidas-project-overview3.png",
+            title: 'Filtering'
+          }, 
+          {
+            img: "/images/adidas-project-overview4.png",
+            title: 'Theme Dark Mobile'
+          }, {
+            img: "/images/adidas-project-overview5.png",
+            title: 'E'
+          }, 
+          {
+            img: "/images/adidas-project-overview6.png",
+            title: 'Search System Mobile'
+          }, 
+        {
+          img: "/images/adidas-project-overview7.png",
+          title: 'Menu Mobile Modal'
+        }],
         "url": "clon-de-landing-page-de-tesla",
         "content": ""
       },
     ]
-
   },
+  {
+    "language": "en",
+    "content": [
+      {
+        "title": "Adidas Ecommerce Search Clone",
+        "description": "A full stack project developed and deployed. With a diverse stack, I have strived to fulfill all the functions of the original ecommerce.",
+        "status": "Completed",
+        "website": "https://ecommerce-search-clone-adidas.onrender.com/us/search",
+        "source": "https://github.com/aleltl1xdvcr/Ecommerce-Search-Clone-Adidas",
+        "stack": ["React", "Next.js", "Tailwind", "Zustand", "Framer Motion", "Splide", "Redis", "Render", "Postgres", "Algolia"],
+       
+        "items": [
+          {
+            img: "/adidas-project-overview1.png",
+            title: 'A'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'B'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'C'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'D'
+          }, {
+            img: "/images/adidas-project-overview1.png",
+            title: 'E'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'F'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'G'
+          }], 
+       "url": "adidas-ecommerce-search-clone",
+        "content": ""
+      }
+    ]
+  },
+{
+    "language": "ru",
+    "content": [
+      {
+        "title": "Клон поиска электронной коммерции Adidas",
+        "description": "Полноценный full stack проект, разработанный и развернутый. С разнообразным стеком я стремился реализовать все функции оригинального интернет-магазина.",
+        "status": "Завершено",
+        "website": "https://ecommerce-search-clone-adidas.onrender.com/us/search",
+        "source": "https://github.com/aleltl1xdvcr/Ecommerce-Search-Clone-Adidas",
+        "stack": ["React", "Next.js", "Tailwind", "Zustand", "Framer Motion", "Splide", "Redis", "Render", "Postgres", "Algolia"],
+      
+        
+        "items": [
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'A'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'B'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'C'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'D'
+          }, {
+            img: "/images/adidas-project-overview1.png",
+            title: 'E'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'F'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'G'
+          }],
+      "url": "klon-poiska-ecommerce-adidas",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "language": "ja",
+    "content": [
+      {
+        "title": "アディダスEコマース検索クローン",
+        "description": "フルスタックで開発およびデプロイされたプロジェクトです。多様なテクノロジースタックを使用し、オリジナルのEコマースのすべての機能を実現しました。",
+        "status": "完了",
+        "website": "https://ecommerce-search-clone-adidas.onrender.com/us/search",
+        "source": "https://github.com/aleltl1xdvcr/Ecommerce-Search-Clone-Adidas",
+        "stack": ["React", "Next.js", "Tailwind", "Zustand", "Framer Motion", "Splide", "Redis", "Render", "Postgres", "Algolia"],
+        //"img": ["/image-preview-adidas-project.png", "/images/adidas-imagepreview1.png", "/images/adidas-imagepreview2.png", "/images/adidas-imagepreview3.png", "/images/adidas-imagepreview4.png", "/images/adidas-imagepreview5.png", "/images/adidas-imagepreview6.png"],
+        "items": [
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'A'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'B'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'C'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'D'
+          }, {
+            img: "/images/adidas-project-overview1.png",
+            title: 'E'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'F'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'G'
+          }],
+        "url": "adidas-ecommerce-search-clone",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "language": "de",
+    "content": [
+      {
+        "title": "Adidas E‑Commerce Suchklon",
+        "description": "Ein Full‑Stack-Projekt, entwickelt und bereitgestellt. Mit einem vielseitigen Tech‑Stack habe ich mich bemüht, alle Funktionen des originalen E‑Commerce umzusetzen.",
+        "status": "Abgeschlossen",
+        "website": "https://ecommerce-search-clone-adidas.onrender.com/us/search",
+        "source": "https://github.com/aleltl1xdvcr/Ecommerce-Search-Clone-Adidas",
+        "stack": ["React", "Next.js", "Tailwind", "Zustand", "Framer Motion", "Splide", "Redis", "Render", "Postgres", "Algolia"],
+        //"img": ["/image-preview-adidas-project.png", "/images/adidas-imagepreview1.png", "/images/adidas-imagepreview2.png", "/images/adidas-imagepreview3.png", "/images/adidas-imagepreview4.png", "/images/adidas-imagepreview5.png", "/images/adidas-imagepreview6.png"],
+        
+        "items": [
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'A'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'B'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'C'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'D'
+          }, {
+            img: "/images/adidas-project-overview1.png",
+            title: 'E'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'F'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'G'
+          }],
+        "url": "adidas-ecommerce-suchklon",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "language": "pt",
+    "content": [
+      {
+        "title": "Clone de Pesquisa do Ecommerce da Adidas",
+        "description": "Um projeto full stack desenvolvido e implantado. Com um stack diversificado, esforcei‑me para cumprir todas as funções do ecommerce original.",
+        "status": "Concluído",
+        "website": "https://ecommerce-search-clone-adidas.onrender.com/us/search",
+        "source": "https://github.com/aleltl1xdvcr/Ecommerce-Search-Clone-Adidas",
+        "stack": ["React", "Next.js", "Tailwind", "Zustand", "Framer Motion", "Splide", "Redis", "Render", "Postgres", "Algolia"],
+       
+        "items": [
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'A'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'B'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'C'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'D'
+          }, {
+            img: "/images/adidas-project-overview1.png",
+            title: 'E'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'F'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'G'
+          }],
+        "url": "clone-de-pesquisa-ecommerce-adidas",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "language": "fr",
+    "content": [
+      {
+        "title": "Clone de recherche Ecommerce d'Adidas",
+        "description": "Un projet full stack développé et déployé. Avec une stack diversifiée, je me suis efforcé de remplir toutes les fonctions de l’e‑commerce original.",
+        "status": "Terminé",
+        "website": "https://ecommerce-search-clone-adidas.onrender.com/us/search",
+        "source": "https://github.com/aleltl1xdvcr/Ecommerce-Search-Clone-Adidas",
+        "stack": ["React", "Next.js", "Tailwind", "Zustand", "Framer Motion", "Splide", "Redis", "Render", "Postgres", "Algolia"],
+        "items": [
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'A'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'B'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'C'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'D'
+          }, {
+            img: "/images/adidas-project-overview1.png",
+            title: 'E'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'F'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'G'
+          }],
+        "url": "clone-de-recherche-ecommerce-adidas",
+        "content": ""
+      }
+    ]
+  },
+
+
+
+
 
 
 
@@ -83,8 +378,35 @@ export const projects = [
         "status": "Completado",
         "website": "https://aleltl1xdvcr.github.io/Tesla-Clone/",
         "source": "https://github.com/aleltl1xdvcr/Tesla-Clone",
-        "stack": ["React", "Next.js", "Tailwind", "Zustand", 'Frammer Motion', 'Splide'],
-        "img": ["/images/project1i1.png", "/images/project1i2.png", "/images/project1i3.png", "/images/project1i4.png"],
+        "stack": ["React", "Next.js", "Tailwind", "Zustand", 'Frammer Motion', 'Splide'],        
+        "items": [
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'A'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'B'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'C'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'D'
+          }, {
+            img: "/images/adidas-project-overview1.png",
+            title: 'E'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'F'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'G'
+          }],
         "url": "clon-de-landing-page-de-tesla",
         "content": ""
       },
@@ -101,8 +423,34 @@ export const projects = [
         "website": "https://aleltl1xdvcr.github.io/Tesla-Clone/",
         "source": "https://github.com/aleltl1xdvcr/Tesla-Clone",
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
-        "img": ["/images/project1i1.png", "/images/project1i2.png", "/images/project1i3.png", "/images/project1i4.png"],
-        "url": "clon-de-landing-page-de-tesla",
+        "items": [
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'A'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'B'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'C'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'D'
+          }, {
+            img: "/images/adidas-project-overview1.png",
+            title: 'E'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'F'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'G'
+          }],        "url": "clon-de-landing-page-de-tesla",
         "content": ""
       }
     ]
@@ -118,8 +466,34 @@ export const projects = [
         "website": "https://aleltl1xdvcr.github.io/Tesla-Clone/",
         "source": "https://github.com/aleltl1xdvcr/Tesla-Clone",
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
-        "img": ["/images/project1i1.png", "/images/project1i2.png", "/images/project1i3.png", "/images/project1i4.png"],
-        "url": "clon-de-landing-page-de-tesla",
+        "items": [
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'A'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'B'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'C'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'D'
+          }, {
+            img: "/images/adidas-project-overview1.png",
+            title: 'E'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'F'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'G'
+          }],        "url": "clon-de-landing-page-de-tesla",
         "content": ""
       }
     ]
@@ -135,8 +509,34 @@ export const projects = [
         "website": "https://aleltl1xdvcr.github.io/Tesla-Clone/",
         "source": "https://github.com/aleltl1xdvcr/Tesla-Clone",
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
-        "img": ["/images/project1i1.png", "/images/project1i2.png", "/images/project1i3.png", "/images/project1i4.png"],
-        "url": "clon-de-landing-page-de-tesla",
+        "items": [
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'A'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'B'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'C'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'D'
+          }, {
+            img: "/images/adidas-project-overview1.png",
+            title: 'E'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'F'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'G'
+          }],        "url": "clon-de-landing-page-de-tesla",
         "content": ""
       }
     ]
@@ -151,8 +551,34 @@ export const projects = [
         "website": "https://aleltl1xdvcr.github.io/Tesla-Clone/",
         "source": "https://github.com/aleltl1xdvcr/Tesla-Clone",
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
-        "img": ["/images/project1i1.png", "/images/project1i2.png", "/images/project1i3.png", "/images/project1i4.png"],
-        "url": "clon-de-landing-page-de-tesla",
+        "items": [
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'A'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'B'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'C'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'D'
+          }, {
+            img: "/images/adidas-project-overview1.png",
+            title: 'E'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'F'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'G'
+          }],        "url": "clon-de-landing-page-de-tesla",
         "content": ""
       }
     ]
@@ -167,8 +593,34 @@ export const projects = [
         "website": "https://aleltl1xdvcr.github.io/Tesla-Clone/",
         "source": "https://github.com/aleltl1xdvcr/Tesla-Clone",
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
-        "img": ["/images/project1i1.png", "/images/project1i2.png", "/images/project1i3.png", "/images/project1i4.png"],
-        "url": "clon-de-landing-page-de-tesla",
+        "items": [
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'A'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'B'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'C'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'D'
+          }, {
+            img: "/images/adidas-project-overview1.png",
+            title: 'E'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'F'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'G'
+          }],        "url": "clon-de-landing-page-de-tesla",
         "content": ""
       }
     ]
@@ -183,8 +635,34 @@ export const projects = [
         "website": "https://aleltl1xdvcr.github.io/Tesla-Clone/",
         "source": "https://github.com/aleltl1xdvcr/Tesla-Clone",
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
-        "img": ["/images/project1i1.png", "/images/project1i2.png", "/images/project1i3.png", "/images/project1i4.png"],
-        "url": "clon-de-landing-page-de-tesla",
+        "items": [
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'A'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'B'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'C'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'D'
+          }, {
+            img: "/images/adidas-project-overview1.png",
+            title: 'E'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'F'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'G'
+          }],        "url": "clon-de-landing-page-de-tesla",
         "content": ""
       }
     ]
@@ -199,8 +677,34 @@ export const projects = [
         "website": "https://aleltl1xdvcr.github.io/Tesla-Clone/",
         "source": "https://github.com/aleltl1xdvcr/Tesla-Clone",
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
-        "img": ["/images/project1i1.png", "/images/project1i2.png", "/images/project1i3.png", "/images/project1i4.png"],
-        "url": "clon-de-landing-page-de-tesla",
+        "items": [
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'A'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'B'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'C'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'D'
+          }, {
+            img: "/images/adidas-project-overview1.png",
+            title: 'E'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'F'
+          },
+          {
+            img: "/images/adidas-project-overview1.png",
+            title: 'G'
+          }],        "url": "clon-de-landing-page-de-tesla",
         "content": ""
       }
     ]

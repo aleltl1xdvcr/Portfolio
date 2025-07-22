@@ -16,21 +16,22 @@ export default function RootLayout({ children }) {
       <body
         className={`${smooch_Sans.className}  dark:bg-black dark:text-white bg-white text-black transition-colors duration-300 ease-in w-full antialiased`}
       >
-        <ThemeProvider>
-          <Head>
-            <link rel="icon" href="/favicon.ico" />
-          </Head>
-          <nav
-            className="h-fit w-full"
-          >
-            <Nav />
-          </nav>
-          <main
-            className="min-h-screen"
-          >
-            {children}
-          </main>
-        </ThemeProvider>
+       <div
+        className="w-full"
+       >
+          <ThemeProvider>
+            <nav
+              className="h-fit w-full"
+            >
+              <Nav />
+            </nav>
+            <main
+              className="min-h-screen w-full"
+            >
+              {children}
+            </main>
+          </ThemeProvider>
+       </div>
       </body>
     </html>
   );

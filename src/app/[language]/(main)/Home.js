@@ -4,14 +4,16 @@ import ImgTor from "../../utils/img-tor"
 import { useEffect, useRef, useState } from "react"
 import { useLanguageStore } from "../../store"
 import { useHydration } from "../../useHydrated"
-import { ArrowUp, ExternalLink, ChevronLeft, ChevronRight, Info, X } from "feather-icons-react"
+import { ArrowUp, ChevronLeft, ChevronRight, X } from "feather-icons-react"
+import { IoMdSettings } from "react-icons/io";
 import '../styles.css'
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide"
 import '@splidejs/react-splide/css/core'
 import Image from "next/image"
-import { home, projects, profile, contact } from '../../data'
+import { home, profile, contact } from '../../data'
 import {ProjectsPage, Skills, } from "./sections"
 import { Contact } from "./contact"
+import './styles.css'
 
 export const dynamic = 'force-dynamic';
 
@@ -52,7 +54,7 @@ export default function Home({ data }) {
           .map((item, index) => (
             <div
               key={`${item.content?.title || 'home'}_${index}`}
-              className="flex flex-col"
+              className="flex flex-col w-full"
             >
               <div
                 dangerouslySetInnerHTML={{ __html: item.content?.title }}
@@ -71,7 +73,7 @@ export default function Home({ data }) {
           .map((item, index) => (
             <div
               key={`${item.content?.title || 'about'}_${index}`}
-              className="flex flex-col"
+              className="flex flex-col w-full"
             >
               <div>
                 <p>{item.content?.description}</p>
@@ -88,7 +90,8 @@ export default function Home({ data }) {
   useEffect(() => setIsClient(true), [])
 
   function fnCinema(id) {
-    setCinema(Object.keys(cinema.find(i => i.lang === language).content.find(b => Object.keys(b)[0] === id) || [])[0] || null)
+    // setCinema(Object.keys(cinema.find(i => i.lang === language).content.find(b => Object.keys(b)[0] === id) || [])[0] || null)
+    setCinema(id)
   }
 
   function fnThumbnail() {
@@ -142,10 +145,15 @@ export default function Home({ data }) {
       document.documentElement.classList.remove('overflow-hidden')
     }
   }, [modal_cinema])
-
+  
   if (!isClient) return
   if (!hasHydrated) return
 
+  const base = cinema.filter(i => i.lang === language).find(i => Object.values(i.content[0])[0] === true)?.content
+  const idPropModalCinema = Object.keys(cinema.filter(i => i.lang === language).find(i => Object.values(i.content[0])[0] === true)?.content[0] || {})[0]
+  const isShowModalCinema = cinema.filter(i => i.lang === language).map(o => Object.values(o.content[0])[0]).find(i => i === true)
+  // console.log('base:',base)
+  console.log('is show modalcinema:', cinema.filter(i => i.lang === language).map(o => Object.values(o.content[0])[0]).find(i => i === true))
   return (
     <div className="mt-[100px] w-full flex flex-col items-center justify-center">
       <main
@@ -154,6 +162,7 @@ export default function Home({ data }) {
           className="w-full px-6 sm:px-0 sm:w-[80vw] md:w-[70vw] flex justify-center flex-col lg:w-[50vw] relative"
         >
           <div
+            className="w-full"
             id="#home"
           >
             <RenderSection key={`HOME_${language}`} name_section='home' language={language} />
@@ -162,6 +171,7 @@ export default function Home({ data }) {
           <br />
 
           <div
+            className="w-full"
             id="#skills"
             label="Sección 2"
           >
@@ -171,6 +181,7 @@ export default function Home({ data }) {
           <br />
           
           <div
+            className="w-full"
             id="#projects"
             label="Sección 3"
           >
@@ -180,7 +191,7 @@ export default function Home({ data }) {
           </div>
           
           <div
-            className="flex flex-col gap-y-5 mt-5"
+            className="flex flex-col gap-y-5 mt-5 w-full"
           >
             <RenderSection key={`PROJECTS_${language}`} name_section='projects' language={language} />
           </div>
@@ -202,7 +213,7 @@ export default function Home({ data }) {
           <h1
             id="#contact"
             label="Sección 4"
-            className="text-[30px] w-full "  
+            className="text-[30px] w-full"  
           >
             {Object.keys(contact.find(i => i.language === language) || '')[2]}
           </h1>
@@ -214,15 +225,16 @@ export default function Home({ data }) {
       <div
         id="button_to_top"
         onClick={() => toTop()}
-        className={`circular-hover fixed z-20 bottom-20 right-20 hover:scale-125 transition-transform duration-200 ease-in-out cursor-pointer`}
+        className={`hidden circular-hover fixed z-20 bottom-20 right-20 hover:scale-125 transition-transform duration-200 ease-in-out cursor-pointer`}
       >
         <ArrowUp />
       </div>
 
       {
-        Object.keys(cinema.find(i => i.lang === language)?.content.find(b => Object.values(b)[0] === true) || [])[0] || false === true
+        isShowModalCinema
           ?
           <ModalCinema
+            id={idPropModalCinema}
             modal_cinema={modal_cinema}
             cinema={cinema}
             fnCinema={fnCinema}
@@ -230,13 +242,15 @@ export default function Home({ data }) {
             fnSplideMounted={fnSplideMounted}
             fnSplideMove={fnSplideMove}
             language={language}
-            title={title}
+            base={base}
           />
           :
           null
       }
 
-      <footer className="relative w-full">
+      <footer
+        className="relative w-full"
+      >
         <div
           className="text-[13px] border-b border-white absolute bottom-[-100px] mb-4 w-full"
         >
@@ -247,147 +261,292 @@ export default function Home({ data }) {
   )
 }
 
-function ModalCinema({ src, alt, quote, fnCinema, id, cinema, modal_cinema, splideRef, fnSplideMounted, fnSplideMove, language, title}) {
+function ModalCinema({ src, alt, quote, fnCinema, id, cinema, modal_cinema, splideRef, fnSplideMounted, fnSplideMove, base}) {
+  // console.log('id modal cinema', id)
+  const items = base[0].items
+  const itemIndex = splideRef.current?.splide.index || 0
+  const title = items[itemIndex].title
+  // console.log('cinema img', base)
+  console.log('items', items)
+  console.log('title',
+    items[itemIndex].title
+  )
+
+  const [scaleSt, setScaleSt] = useState(1)
+  const [isOpenModalZoom,setIsOpenModalZoom] = useState(false)
+  const [isVisibleSettings, setIsVisibleSettings] = useState(false)
+
+  let hasOppenedModalZoom = useRef(false)
+
+  function toggleSettings(e) {
+    if (e.type === 'mouseleave' && hasOppenedModalZoom.current) {
+      hasOppenedModalZoom.current = false
+    }
+    if (hasOppenedModalZoom.current) return
+    if (isOpenModalZoom) {
+      setIsVisibleSettings(true)
+      hasOppenedModalZoom.current = true
+    }
+    else if (e.type === 'mouseover') {
+      setIsVisibleSettings(true)
+    } else if (e.type === 'mouseleave') {
+      setIsVisibleSettings(false)
+    }
+  }
+
+  function handleTabScale(type) {
+    const v = 0.25
+    if (type === 'increase') {
+      setScaleSt(prev => prev + v)
+    } else if (type === 'decrease') {
+      setScaleSt(prev => prev - v)
+    }
+  }
+
+  function toggleModalZoom(e) {
+    if (e.type === 'mouseenter') {
+      setIsOpenModalZoom(true)
+    } else if (e.type === 'mouseleave') {
+      setIsOpenModalZoom(false)
+    }
+  }
+
+  // ci = container image
+
+  function onZoom(e, el, ci) {
+    toggleSettings(e)
+    const img = document.getElementById(el)
+    const ciEl = document.getElementById(ci)
+
+    const rect = ciEl.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+
+    img.style.transformOrigin = `${x}px ${y}px`
+    img.style.transform = `scale(${scaleSt})`
+  }
+
+  function offZoom(e, el) {
+    const img = document.getElementById(el)
+    img.style.transformOrigin = `center center`;
+    img.style.transform = "scale(1)";
+  }
+
   return (
     <div
       id={`modal_cinema__`}
-      className='items-center flex justify-center h-screen fixed z-40 top-[0px] left-0 w-full bg-black transition-transform duration-500'
+      className='items-center¿ flex justify-center h-screen fixed z-40 top-[0px] left-0 w-full dark:bg-black dark:text-white bg-white
+       text-black transition-transform duration-500'
     >
       <div
-        className=" cursor-pointer top-4 right-6 absolute text-[25px]"
-        onClick={() => fnCinema(Object.keys(cinema.find(i => i.lang === language).content.find(b => Object.values(b)[0] === true) || [])[0] || false)}
+        className="cursor-pointer top-2 right-2 sm:top-4 sm:right-6 absolute"
+        onClick={() => fnCinema(id)}
       >
-        <X />
+        <X 
+          className="sm:flex hidden"
+         size={35}
+        />
+        <X
+          className="sm:hidden"
+          size={28}
+        />
       </div>
       <div
-        className='w-[1000px] h-full flex flex-col justify-center items-center bg-black border-white/30¿ border¿ relative'
+        className="absolute left-4 top-4 text-[24px] md:text-[26px] lg:text-[28px] xl:text-[30px] italic"
       >
-
-        <div  
-           className="w-[80vw] h-[90vh]"
+        { title }
+      </div>
+      <div
+        className="h-[100vh] w-full flex items-center justify-center flex-col"
+      >
+        <div
+          className='flex flex-col justify-center items-center h-[43vh] dark:bg-black bg-white relative'
         >
-          <Splide
-            onMove={(splide) => fnSplideMove(splide)}
-            onMounted={(splide) => fnSplideMounted()}
-            ref={splideRef}
-            options={{
-              type: 'slide',
-              label: 'Carrusel de Projectos',
-              rewind: true,
-              speed: 650,
-              rewindSpeed: 650,
-              rewindByDrag: true,
-              width: '100%',
-              perPage: 1,
-              gap: 6,
-              start: 0,
-              paginationKeyboard: true,
-              drag: true,
-              snap: true,
-              wheel: false,
-              cover: false,
-              arrows: true,
-              pagination: false,
-              mediaQuery: 'min',
-            }
-            }
-            className='slide'
-            hasTrack={false}
-            autoFocus={true}
-
-            aria-label='Carrousel'
+          <div
+            className="w-[90vw] h-[80vh] sm:w-[80vw]"
           >
-            <SplideTrack id='container'>
-              {cinema
-                .find(i => i.lang === language)
-                ?.content.find(i => Object.values(i)[0] === true)
-                ?.img?.map((i, index) => (
-                  <SplideSlide key={index}>
-                    {/* AFTER LINK THIS DIV ---> */}
-                    <div className="">
-                      <div
-                        id={`item-${index + 1}`}
-                        className="group/el-4 el-1 group group/cbk h-[600px] w-[500px] el-img overflow-hidden bg-black"
-                        data-n={`n_${index + 1}`}
-                      >
-                        <div className="w-full h-full">
-                          <ImgTor
-                            className=""
-                            src={i || '/image/doll.jpeg'}
-                            alt={'x'}
-                            containerclassName="relative w-full h-[600px]"
-                            cinemaID={i.title}
-                            fnCinema={fnCinema}
-                            key={'imgtor2'}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    {/* AFTER LINK THIS DIV ---> */}
-                  </SplideSlide>
-                ))}
-            </SplideTrack>
-
-
-
-            <div className="splide__arrows w-full sm:flex justify-between flex-row absolute top-5/12 left-0"
-            >
-              <div className="splide__arrow splide__arrow--prev">
-                <div id='button-prev'
-                  className='flex flex-row w-fit absolute top-0 left-[-50px] hover:scale-150 transition-transform duration-200 ease-in-out cursor-pointer'
-                >
-                  <ChevronLeft
-                    className='text-black dark:'
-                    size={25}
-                  />
-                </div>
-              </div>
-
-              <div className="splide__arrow splide__arrow--next">
-                <div id='button-next'
-                  className='w-fit flex-row flex absolute top-0 right-[-50px] hover:scale-155 transition-transform duration-200 ease-in-out cursor-pointer'
-                >
-                  <ChevronRight
-                    className='text-black dark:'
-                    size={25}
-                  />
-                </div>
-              </div>
-            </div>
-
-
-            <div
-              className='relative items-center flex justify-center flex-row mt-5 w-full'
+            <Splide
+              onMove={(splide) => fnSplideMove(splide)}
+              onMounted={(splide) => fnSplideMounted()}
+              ref={splideRef}
+              options={{
+                type: 'slide',
+                label: 'Carrusel de Projectos',
+                rewind: true,
+                speed: 650,
+                rewindSpeed: 650,
+                rewindByDrag: true,
+                width: '100%',
+                perPage: 1,
+                gap: 6,
+                start: 0,
+                paginationKeyboard: true,
+                drag: true,
+                snap: true,
+                wheel: false,
+                cover: false,
+                arrows: true,
+                pagination: false,
+                mediaQuery: 'min',
+              }
+              }
+              className='slide fur294 h-[90vh]¿'
+              hasTrack={false}
+              autoFocus={true}
+              aria-label='Carrousel'
             >
               <div
-                className='flex justify-center items-center h-[50px]'
+                className="relative"
+                onMouseLeave={(e) => toggleSettings(e)}
               >
-                <ul
-                  id="thumbnails"
-                  className="flex justify-center gap-x-5"
+                <div
+                  onMouseLeave={(e) => toggleModalZoom(e)}
+                  className={
+                    `absolute right-2 top-2 z-40 
+                   text-white text-[30px]`}
                 >
-                  {
-                    cinema.find(i => i.lang === language).content.find(i => Object.values(i)[0] === true)?.img.map((i, index) => (
-                  <li
-                    key={index}
-                    className="w-[50px] h-[50px] relative cursor-pointer thumbnail"
+                  <div
+                    className={`${isVisibleSettings ? 'relative z-50' : 'hidden'} `}
                   >
-                    <Image
-                      src={i}
-                      alt='x'
-                      fill
-                      objectFit="cover"
+                    <IoMdSettings
+                      className="absolute right-0 top-0"
+                      onMouseEnter={(e) => toggleModalZoom(e)}
                     />
-                  </li>
-                    ))
-                  }
-                </ul>
+                  </div>
+                  <div
+                    className={
+                      `${isOpenModalZoom ? null : 'hidden'} bg-black px-5 py-1 gap-5 mt-6 flex flex-row items-center justify-center`
+                    }
+                  >
+                    <span
+                      className="text-[15px]"
+                    >
+                      Zoom
+                    </span>
+                    <span
+                      className="flex flex-row items-center gap-x-3"
+                    >
+                      <span
+                        className="cursor-pointer"
+                        onClick={() => handleTabScale('decrease')}
+                      >
+                        -
+                      </span>
+                      <span
+                        className="text-[15px]"
+                      >
+                        {scaleSt * 100}
+                      </span>
+                      <span
+                        className="cursor-pointer"
+                        onClick={() => handleTabScale('increase')}
+                      >
+                        +
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <SplideTrack id='container'>
+                  {items?.map((i, index) => (
+                    <SplideSlide
+
+                      className='h-[25vh] sm:h-[30vh] md:h-[35vh] xl:h-[75vh] fur293'
+                      key={index}>
+                      <div
+                        onMouseLeave={(e) => offZoom(e, `c-image-zoom${index}`, `czoomedn${index}`)}
+                        onMouseMove={(e) => onZoom(e, `c-image-zoom${index}`, `czoomedn${index}`)}
+                        onMouseOver={(e) => onZoom(e, `c-image-zoom${index}`, `czoomedn${index}`)}
+                        className="h-full cursor-zoom-in"
+                      >
+                        <div
+                          id={`item-${index + 1}`}
+                          className="group/el-4 el-1 group group/cbk h-full el-img overflow-hidden bg-black
+                           sm:bg-blue-700 md:bg-red-700 lg:bg-green-700 xl:bg-purple-700"
+                          data-n={`n_${index + 1}`}
+                        >
+                          <div
+                            id={`czoomedn${index}`}
+                            className="w-full h-full relative"
+                          >
+                            <Image
+                              id={`c-image-zoom${index}`}
+                              priority
+                              className="opacity-55 transition-transform duration-700"
+                              fill
+                              src={i.img}
+                              alt={'x'}
+                              objectFit="cover"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </SplideSlide>
+                  ))}
+                </SplideTrack>
               </div>
-            </div>
 
-          </Splide >
+              <div className="splide__arrows w-full sm:flex justify-between flex-row absolute top-5/12 left-0 hidden"
+              >
+                <div className="splide__arrow splide__arrow--prev">
+                  <div id='button-prev'
+                    className='flex flex-row w-fit absolute top-0 left-[-50px] hover:scale-150 transition-transform duration-200 ease-in-out cursor-pointer'
+                  >
+                    <ChevronLeft
+                      className='text-black dark:'
+                      size={25}
+                    />
+                  </div>
+                </div>
+
+                <div className="splide__arrow splide__arrow--next">
+                  <div id='button-next'
+                    className='w-fit flex-row flex absolute top-0 right-[-50px] hover:scale-155 transition-transform duration-200 ease-in-out cursor-pointer'
+                  >
+                    <ChevronRight
+                      className='text-black dark:'
+                      size={25}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className={`relative items-center flex justify-center flex-row mt-5 w-full`}
+              >
+                <div
+                  className='flex ju¿stify-center items-ce¿nter overflow-x-auto'
+                >
+                  <ul
+                    id="thumbnails"
+                    className="flex justify-center gap-x-5 mx-2"
+                  >
+                    {
+                      items
+                        .map((i, index) => (
+                          <li
+                            key={index}
+                            className={
+                              // `w-[20vw] sm:w-[20vw] md:w-[15vw] lg:w-[10vw] h-[10vh]  relative cursor-pointer thumbnail bg-orange-700 sm:bg-green-700 md:bg-purple-700 lg:bg-blue-700`
+                              `w-[20vw] sm:w-[20vw] md:w-[15vw] lg:w-[10vw] h-[10vh] relative cursor-pointer thumbnail`
+                            }
+                          >
+                            <Image
+                              src={i.img}
+                              alt='x'
+                              fill
+                              objectFit="cover"
+                            />
+                          </li>
+                        ))
+                    }
+                  </ul>
+                </div>
+              </div>
+
+            </Splide >
+          </div>
+
         </div>
-
       </div>
     </div >
 

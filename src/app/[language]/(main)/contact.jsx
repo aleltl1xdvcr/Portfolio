@@ -58,7 +58,7 @@ export function Contact() {
               <h1>Name </h1>
             </div>
             < input
-              className="border border-black/10 dark:border-white/10 h-10 dark:bg-zinc-900 bg-neutral-100 rounded-[3px] p-2 w-full"
+              className="border border-black/10 placeholder:text-black/80 dark:placeholder:text-neutral-400 dark:border-white/10 h-10 dark:bg-zinc-900 bg-neutral-100 rounded-[3px] p-2 w-full"
               type="text"
               placeholder="Your name"
               {...register('name', { required: true })}
@@ -69,7 +69,7 @@ export function Contact() {
               <h1>Your mail direction </h1>
             </div>
             < input
-              className="border border-black/10 dark:border-white/10 h-10 bg-neutral-100 dark:bg-zinc-900 rounded-[3px] p-2 w-full"
+              className="border border-black/10 placeholder:text-black/80 dark:placeholder:text-neutral-400 dark:border-white/10 h-10 bg-neutral-100 dark:bg-zinc-900 rounded-[3px] p-2 w-full"
               type="text"
               placeholder="Your email..."
               {...register('email', { required: true })}
@@ -81,14 +81,14 @@ export function Contact() {
             </div>
             < textarea
               {...register('message', { required: true })}
-              className="border border-black/10 dark:border-white/10 dark:bg-zinc-900 bg-neutral-100 opacity-100 w-full h-[400px] rounded-[3px] p-2"
+              className="border border-black/10 placeholder:text-black/80 dark:placeholder:text-neutral-400 dark:border-white/10 dark:bg-zinc-900 bg-neutral-100 opacity-100 w-full h-[400px] rounded-[3px] p-2"
               placeholder="Your message"
             />
           </div>
           < input
             type="submit"
             value="Send Message"
-            className="w-fit px-2 h-14 dark:bg-white bg-black text-white dark:text-black text-center text-[18px] rounded-[3px] hover:bg-white/70 cursor-pointer transition-colors duration-300 ease-in"
+            className="w-fit px-2 h-14 dark:bg-white placeholder:text-black/80 dark:placeholder:text-neutral-400 bg-black text-white dark:text-black text-center text-[18px] rounded-[3px] hover:bg-white/70 cursor-pointer transition-colors duration-300 ease-in"
           />
         </form>
       </div>
