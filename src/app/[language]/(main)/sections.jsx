@@ -32,8 +32,8 @@ const skills = [
   },
   {
     name: "Zustand",
-    img_dark: "/images/zustand-logo.PNG",
-    img_light: "/images/zustand-logo.PNG",
+    img_dark: "/images/zustand-logo.png",
+    img_light: "/images/zustand-logo.png",
   },
   {
     name: "NextJS",
