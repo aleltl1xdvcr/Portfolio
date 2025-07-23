@@ -55,7 +55,7 @@ export default function SubResults() {
                 <div className="absolute w-full h-full cursor-zoom-in">
                   <ImgTor
                     key={`${i.img?.[index]}_${language}`}
-                    src={i.img?.[0]}
+                    src={i.img?.[0] || '/images/project1i1.png'}
                     alt={i.title}
                     containerclassName="w-full relative"
                     fnCinema={fnCinema}
