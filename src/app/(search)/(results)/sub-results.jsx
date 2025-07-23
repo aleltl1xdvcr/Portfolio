@@ -48,7 +48,6 @@ export default function SubResults() {
             id={`target_observer_node_${items?.length - 1 === index ? 'last' : `_${index + 1}_${i?.id}`
               }`}
             className="border-b border-black/60 dark:border-white py-5"
-
             key={index}
           >
             <div className="w-full items-start flex flex-col md:flex-row gap-x-5 group">

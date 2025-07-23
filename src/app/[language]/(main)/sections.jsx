@@ -118,6 +118,7 @@ export function Skills() {
                   }
                   fill
                   alt={i.name}
+                  objectFit="contain"
                 />
               </div>
             </div>

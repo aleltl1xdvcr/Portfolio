@@ -61,7 +61,7 @@ export default function Home({ data }) {
               />
               <br />
               <div
-                className="text-[16.5px] mb-12"
+                className="text-[17.5px] mb-10"
               >
                 <p
                   dangerouslySetInnerHTML={{ __html: item.content?.description }}
