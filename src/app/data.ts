@@ -70,48 +70,50 @@ export const home = [
     "language": "es",
     "content": {
       "title": "Me llamo Alejandro; <span>Desarrollador Web Full Stack de México</span>.",
-      "description": "<span>Full Stack Developer with 3+ years of experience</span> architecting and delivering <span >high‑performance, conversion‑optimized </span> digital solutions — spanning responsive web applications, scalable e‑commerce platforms, headless CMS integrations, real‑time experiences, dynamic landing pages, internal tools, and marketing websites."
+      "description": "<span>Desarrollador Full Stack con más de 3 años de experiencia</span> diseñando y entregando <span>soluciones digitales de alto rendimiento y optimizadas para la conversión</span> — que abarcan aplicaciones web responsivas, plataformas de comercio electrónico escalables, integraciones headless CMS, experiencias en tiempo real, páginas de aterrizaje dinámicas, herramientas internas y sitios web de marketing."
     }
   },
   {
     "language": "en",
     "content": {
-      "title": "My name is Alejandro; a Freelance Full Stack Web Developer from Mexico."
+      "title": "My name is Alejandro; a Freelance Full Stack Web Developer from Mexico.",
+       "description": "<span>Full Stack Developer with 3+ years of experience</span> architecting and delivering <span >high‑performance, conversion‑optimized </span> digital solutions — spanning responsive web applications, scalable e‑commerce platforms, headless CMS integrations, real‑time experiences, dynamic landing pages, internal tools, and marketing websites."
     }
   },
   {
     "language": "de",
     "content": {
-      "title": "Ich heiße Alejandro; freiberuflicher Full-Stack-Webentwickler aus Mexiko."
+      "title": "Ich heiße Alejandro; freiberuflicher Full-Stack-Webentwickler aus Mexiko.",
+      "description": "<span>Full Stack Entwickler mit über 3 Jahren Erfahrung</span> in der Architektur und Bereitstellung von <span>leistungsstarken, konversionsoptimierten</span> digitalen Lösungen — von responsiven Webanwendungen und skalierbaren E‑Commerce‑Plattformen über Headless‑CMS‑Integrationen und Echtzeit‑Erlebnisse bis hin zu dynamischen Landing‑Pages, internen Tools und Marketing‑Websites."
 
     }
   },
   {
     "language": "fr",
     "content": {
-      "title": "Je m'appelle Alejandro; développeur Web Full Stack indépendant du Mexique."
-
+      "title": "Je m'appelle Alejandro; développeur Web Full Stack indépendant du Mexique.",
+      "description": "<span>Développeur Full Stack avec plus de 3 ans d’expérience</span> concevant et livrant <span>des solutions digitales hautes performances et optimisées pour la conversion</span> — couvrant des applications web responsives, des plateformes e‑commerce évolutives, des intégrations headless CMS, des expériences en temps réel, des pages d’atterrissage dynamiques, des outils internes et des sites web marketing."
     }
   },
   {
     "language": "ja",
     "content": {
-      "title": "アレハンドロと申します。メキシコ出身のフリーランスのフルスタックWeb開発者です。"
-
+      "title": "アレハンドロと申します。メキシコ出身のフリーランスのフルスタックWeb開発者です。",
+      "description": "3年以上の経験を持つフルスタック開発者として、ハイパフォーマンスかつコンバージョン最適化されたデジタルソリューションを設計・提供しています — レスポンシブWebアプリケーション、スケーラブルなEコマースプラットフォーム、ヘッドレスCMS統合、リアルタイム体験、動的なランディングページ、社内ツール、マーケティングサイトを含みます。"
     }
   },
   {
     "language": "pt",
     "content": {
-      "title": "Me chamo Alejandro; desenvolvedor Web Full Stack freelancer do México."
-
+      "title": "Me chamo Alejandro; desenvolvedor Web Full Stack freelancer do México.",
+      "description": "<span>Desenvolvedor Full Stack com mais de 3 anos de experiência</span> projetando e entregando <span>soluções digitais de alto desempenho e otimizadas para conversão</span> — abrangendo aplicações web responsivas, plataformas de e‑commerce escaláveis, integrações headless CMS, experiências em tempo real, landing pages dinâmicas, ferramentas internas e sites de marketing."
     }
   },
   {
     "language": "ru",
     "content": {
-      "title": "Меня зовут Алехандро; независимый Full Stack веб-разработчик из Мексики."
-
+      "title": "Меня зовут Алехандро; независимый Full Stack веб-разработчик из Мексики.",
+      "description": "3年以上の経験を持つフルスタック開発者として、ハイパフォーマンスかつコンバージョン最適化されたデジタルソリューションを設計・提供しています — レスポンシブWebアプリケーション、スケーラブルなEコマースプラットフォーム、ヘッドレスCMS統合、リアルタイム体験、動的なランディングページ、社内ツール、マーケティングサイトを含みます。"
     }
   }
 ]

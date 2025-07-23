@@ -4,11 +4,8 @@ import { InstantSearch } from 'react-instantsearch'
 import { algoliasearch } from "algoliasearch"
 import SearchClient from "../../(search)/(main)/search-client"
 
-const appId = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID
-const apiKey = process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_KEY
-
-const searchClient = algoliasearch(appId, apiKey)
-const indexName = process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME
+const searchClient = algoliasearch('ROT6QMNWYI', '5ba07ad37f42364e1c721c2e6ba83178')
+const indexName = 'Projects'
 
 export default function Projects({ data }) {
   return (
