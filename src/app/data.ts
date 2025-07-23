@@ -1,9 +1,76 @@
+export const translations = {
+  es: {
+    Home: 'Hogar',
+    Projects: 'Proyectos',
+    About: 'Sobre mí',
+    Contact: 'Contacto',
+    Name: 'Español',
+    Skills: 'Habilidades',
+  },
+  en: {
+    Home: 'Home',
+    Projects: 'Projects',
+    About: 'About',
+    Contact: 'Contact',
+    Name: 'English',
+    Skills: 'Skills',
+  },
+  de: {
+    Home: 'Startseite',
+    Projects: 'Projekte',
+    About: 'Über mich',
+    Contact: 'Kontakt',
+    Name: 'Deutsch',
+    Skills: 'Fähigkeiten',
+  },
+  fr: {
+    Home: 'Accueil',
+    Projects: 'Projets',
+    About: 'À propos de moi',
+    Contact: 'Contact',
+    Name: 'Français',
+    Skills: 'Compétences',
+  },
+  ja: {
+    Home: 'ホーム',
+    Projects: 'プロジェクト',
+    About: '自己紹介',
+    Contact: '連絡先',
+    Name: '日本語',
+    Skills: 'Skills',
+  },
+  ko: {
+    Home: '홈',
+    Projects: '프로젝트',
+    About: '내 소개',
+    Contact: '연락처',
+    Name: '(한국어)',
+    Skills: '기술 스킬',
+  },
+  pt: {
+    Home: 'Início',
+    Projects: 'Projetos',
+    About: 'Sobre mim',
+    Contact: 'Contato',
+    Name: 'Portugués (Brasil)',
+    Skills: 'Habilidades',
+  },
+  ru: {
+    Home: 'Главная',
+    Projects: 'Проекты',
+    About: 'Обо мне',
+    Contact: 'Контакт',
+    Name: 'Русский',
+    Skills: 'Навыки ',
+  }
+};
+
 export const home = [
   {
     "language": "es",
     "content": {
-      "title": "Me llamo Alejandro; <span class='font-bold'>Desarrollador Web Full Stack de México</span>.",
-      "description": ""
+      "title": "Me llamo Alejandro; <span>Desarrollador Web Full Stack de México</span>.",
+      "description": "<span>Full Stack Developer with 3+ years of experience</span> architecting and delivering <span >high‑performance, conversion‑optimized </span> digital solutions — spanning responsive web applications, scalable e‑commerce platforms, headless CMS integrations, real‑time experiences, dynamic landing pages, internal tools, and marketing websites."
     }
   },
   {
@@ -64,31 +131,33 @@ export const projects = [
         "items": [
           {
             img: "/images/adidas-project-overview1.png",
-            title: 'Theme Dark'
-          }, 
+            title: "Modo Oscuro"
+          },
           {
             img: "/images/adidas-project-overview2.png",
-            title: 'Pagination'
-          }, 
+            title: "Paginación Inteligente"
+          },
           {
             img: "/images/adidas-project-overview3.png",
-            title: 'Filtering'
-          }, 
+            title: "Filtrado Avanzado"
+          },
           {
             img: "/images/adidas-project-overview4.png",
-            title: 'Theme Dark Mobile'
-          }, {
+            title: "Tema Oscuro en Móvil"
+          },
+          {
             img: "/images/adidas-project-overview5.png",
-            title: 'E'
-          }, 
+            title: "Sistema de Búsqueda Móvil"
+          },
           {
             img: "/images/adidas-project-overview6.png",
-            title: 'Search System Mobile'
-          }, 
-        {
-          img: "/images/adidas-project-overview7.png",
-          title: 'Menu Mobile Modal'
-        }],
+            title: "Modal para el Menú Móvil"
+          },
+          {
+            img: "/images/adidas-project-overview7.png",
+            title: "Sistema de búsqueda persistido en la URL del navegador"
+          }
+        ],
         "url": "clon-de-landing-page-de-tesla",
         "content": ""
       },
@@ -104,35 +173,34 @@ export const projects = [
         "website": "https://ecommerce-search-clone-adidas.onrender.com/us/search",
         "source": "https://github.com/aleltl1xdvcr/Ecommerce-Search-Clone-Adidas",
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Framer Motion", "Splide", "Redis", "Render", "Postgres", "Algolia"],
-       
         "items": [
           {
-            img: "/adidas-project-overview1.png",
-            title: 'A'
+            img: "/images/adidas-project-overview1.png",
+            title: 'Dark Mode'
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'B'
+            img: "/images/adidas-project-overview2.png",
+            title: 'Smart Pagination'
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'C'
+            img: "/images/adidas-project-overview3.png",
+            title: 'Advanced Filtering'
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'D'
+            img: "/images/adidas-project-overview4.png",
+            title: 'Theme Dark Mobile'
           }, {
-            img: "/images/adidas-project-overview1.png",
-            title: 'E'
+            img: "/images/adidas-project-overview5.png",
+            title: 'Mobile Search System'
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'F'
+            img: "/images/adidas-project-overview6.png",
+            title: 'Modal for the Mobile Menu'
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'G'
-          }], 
+            img: "/images/adidas-project-overview7.png",
+            title: 'Search system persisted in the browser URL'
+          }],
        "url": "adidas-ecommerce-search-clone",
         "content": ""
       }
@@ -148,36 +216,36 @@ export const projects = [
         "website": "https://ecommerce-search-clone-adidas.onrender.com/us/search",
         "source": "https://github.com/aleltl1xdvcr/Ecommerce-Search-Clone-Adidas",
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Framer Motion", "Splide", "Redis", "Render", "Postgres", "Algolia"],
-      
-        
-        "items": [
+        items: [
           {
             img: "/images/adidas-project-overview1.png",
-            title: 'A'
+            title: "Темная тема"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'B'
+            img: "/images/adidas-project-overview2.png",
+            title: "Умная пагинация"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'C'
+            img: "/images/adidas-project-overview3.png",
+            title: "Расширенная фильтрация"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'D'
-          }, {
-            img: "/images/adidas-project-overview1.png",
-            title: 'E'
+            img: "/images/adidas-project-overview4.png",
+            title: "Темная тема на мобильных"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'F'
+            img: "/images/adidas-project-overview5.png",
+            title: "Мобильная поисковая система"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'G'
-          }],
+            img: "/images/adidas-project-overview6.png",
+            title: "Модальное окно для мобильного меню"
+          },
+          {
+            img: "/images/adidas-project-overview7.png",
+            title: "Система поиска, сохраняющая состояние в URL браузера"
+          }
+        ],
       "url": "klon-poiska-ecommerce-adidas",
         "content": ""
       }
@@ -193,35 +261,36 @@ export const projects = [
         "website": "https://ecommerce-search-clone-adidas.onrender.com/us/search",
         "source": "https://github.com/aleltl1xdvcr/Ecommerce-Search-Clone-Adidas",
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Framer Motion", "Splide", "Redis", "Render", "Postgres", "Algolia"],
-        //"img": ["/image-preview-adidas-project.png", "/images/adidas-imagepreview1.png", "/images/adidas-imagepreview2.png", "/images/adidas-imagepreview3.png", "/images/adidas-imagepreview4.png", "/images/adidas-imagepreview5.png", "/images/adidas-imagepreview6.png"],
         "items": [
           {
             img: "/images/adidas-project-overview1.png",
-            title: 'A'
+            title: "ダークモード"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'B'
+            img: "/images/adidas-project-overview2.png",
+            title: "スマートページネーション"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'C'
+            img: "/images/adidas-project-overview3.png",
+            title: "高度なフィルタリング"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'D'
-          }, {
-            img: "/images/adidas-project-overview1.png",
-            title: 'E'
+            img: "/images/adidas-project-overview4.png",
+            title: "モバイル向けダークテーマ"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'F'
+            img: "/images/adidas-project-overview5.png",
+            title: "モバイル検索システム"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'G'
-          }],
+            img: "/images/adidas-project-overview6.png",
+            title: "モバイルメニュー用モーダル"
+          },
+          {
+            img: "/images/adidas-project-overview7.png",
+            title: "ブラウザURLに永続化された検索システム"
+          }
+        ],
         "url": "adidas-ecommerce-search-clone",
         "content": ""
       }
@@ -237,36 +306,36 @@ export const projects = [
         "website": "https://ecommerce-search-clone-adidas.onrender.com/us/search",
         "source": "https://github.com/aleltl1xdvcr/Ecommerce-Search-Clone-Adidas",
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Framer Motion", "Splide", "Redis", "Render", "Postgres", "Algolia"],
-        //"img": ["/image-preview-adidas-project.png", "/images/adidas-imagepreview1.png", "/images/adidas-imagepreview2.png", "/images/adidas-imagepreview3.png", "/images/adidas-imagepreview4.png", "/images/adidas-imagepreview5.png", "/images/adidas-imagepreview6.png"],
-        
         "items": [
           {
             img: "/images/adidas-project-overview1.png",
-            title: 'A'
+            title: "Dunkler Modus"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'B'
+            img: "/images/adidas-project-overview2.png",
+            title: "Intelligente Paginierung"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'C'
+            img: "/images/adidas-project-overview3.png",
+            title: "Erweiterte Filterung"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'D'
-          }, {
-            img: "/images/adidas-project-overview1.png",
-            title: 'E'
+            img: "/images/adidas-project-overview4.png",
+            title: "Dunkles Thema auf Mobilgeräten"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'F'
+            img: "/images/adidas-project-overview5.png",
+            title: "Mobiles Suchsystem"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'G'
-          }],
+            img: "/images/adidas-project-overview6.png",
+            title: "Modalfenster für das mobile Menü"
+          },
+          {
+            img: "/images/adidas-project-overview7.png",
+            title: "Suchsystem, das in der Browser-URL gespeichert wird"
+          }
+        ],
         "url": "adidas-ecommerce-suchklon",
         "content": ""
       }
@@ -282,35 +351,36 @@ export const projects = [
         "website": "https://ecommerce-search-clone-adidas.onrender.com/us/search",
         "source": "https://github.com/aleltl1xdvcr/Ecommerce-Search-Clone-Adidas",
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Framer Motion", "Splide", "Redis", "Render", "Postgres", "Algolia"],
-       
         "items": [
           {
             img: "/images/adidas-project-overview1.png",
-            title: 'A'
+            title: "Modo Escuro"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'B'
+            img: "/images/adidas-project-overview2.png",
+            title: "Paginação Inteligente"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'C'
+            img: "/images/adidas-project-overview3.png",
+            title: "Filtragem Avançada"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'D'
-          }, {
-            img: "/images/adidas-project-overview1.png",
-            title: 'E'
+            img: "/images/adidas-project-overview4.png",
+            title: "Tema Escuro para Mobile"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'F'
+            img: "/images/adidas-project-overview5.png",
+            title: "Sistema de Busca Mobile"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'G'
-          }],
+            img: "/images/adidas-project-overview6.png",
+            title: "Modal para Menu Mobile"
+          },
+          {
+            img: "/images/adidas-project-overview7.png",
+            title: "Sistema de busca persistido na URL do navegador"
+          }
+        ],
         "url": "clone-de-pesquisa-ecommerce-adidas",
         "content": ""
       }
@@ -329,46 +399,39 @@ export const projects = [
         "items": [
           {
             img: "/images/adidas-project-overview1.png",
-            title: 'A'
+            title: "Mode Sombre"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'B'
+            img: "/images/adidas-project-overview2.png",
+            title: "Pagination Intelligente"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'C'
+            img: "/images/adidas-project-overview3.png",
+            title: "Filtrage Avancé"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'D'
-          }, {
-            img: "/images/adidas-project-overview1.png",
-            title: 'E'
+            img: "/images/adidas-project-overview4.png",
+            title: "Thème Sombre Mobile"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'F'
+            img: "/images/adidas-project-overview5.png",
+            title: "Système de Recherche Mobile"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'G'
-          }],
+            img: "/images/adidas-project-overview6.png",
+            title: "Fenêtre Modale pour le Menu Mobile"
+          },
+          {
+            img: "/images/adidas-project-overview7.png",
+            title: "Système de recherche persistant dans l’URL du navigateur"
+          }
+        ]
+,
         "url": "clone-de-recherche-ecommerce-adidas",
         "content": ""
       }
     ]
   },
-
-
-
-
-
-
-
-
-
-
   {
     "language": "es",
     "content": [
@@ -381,37 +444,29 @@ export const projects = [
         "stack": ["React", "Next.js", "Tailwind", "Zustand", 'Frammer Motion', 'Splide'],        
         "items": [
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'A'
+            img: "/images/tesla-project-overview1.png",
+            title: 'Modo oscuro'
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'B'
+            img: "/images/tesla-project-overview3.png",
+            title: 'Carrusel Automático'
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'C'
-          },
-          {
-            img: "/images/adidas-project-overview1.png",
-            title: 'D'
+            img: "/images/tesla-project-overview4.png",
+            title: 'Carrusel Fluido'
           }, {
-            img: "/images/adidas-project-overview1.png",
-            title: 'E'
+            img: "/images/tesla-project-overview5.png",
+            title: ''
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'F'
+            img: "/images/tesla-project-overview6.png",
+            title: ''
           },
-          {
-            img: "/images/adidas-project-overview1.png",
-            title: 'G'
-          }],
+          ],
         "url": "clon-de-landing-page-de-tesla",
         "content": ""
       },
     ]
-
   },
   {
     "language": "en",
@@ -425,36 +480,30 @@ export const projects = [
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
         "items": [
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'A'
+            img: "/images/tesla-project-overview1.png",
+            title: "Dark Mode"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'B'
+            img: "/images/tesla-project-overview3.png",
+            title: "Automatic Carousel"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'C'
+            img: "/images/tesla-project-overview4.png",
+            title: "Smooth Carousel"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'D'
-          }, {
-            img: "/images/adidas-project-overview1.png",
-            title: 'E'
+            img: "/images/tesla-project-overview5.png",
+            title: ""
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'F'
-          },
-          {
-            img: "/images/adidas-project-overview1.png",
-            title: 'G'
-          }],        "url": "clon-de-landing-page-de-tesla",
+            img: "/images/tesla-project-overview6.png",
+            title: ""
+          }
+        ],
+        "url": "clon-de-landing-page-de-tesla",
         "content": ""
       }
     ]
-
   },
   {
     "language": "de",
@@ -468,36 +517,30 @@ export const projects = [
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
         "items": [
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'A'
+            img: "/images/tesla-project-overview1.png",
+            title: "Dunkler Modus"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'B'
+            img: "/images/tesla-project-overview3.png",
+            title: "Automatischer Karussell"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'C'
+            img: "/images/tesla-project-overview4.png",
+            title: "Sanfter Karussell"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'D'
-          }, {
-            img: "/images/adidas-project-overview1.png",
-            title: 'E'
+            img: "/images/tesla-project-overview5.png",
+            title: ""
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'F'
-          },
-          {
-            img: "/images/adidas-project-overview1.png",
-            title: 'G'
-          }],        "url": "clon-de-landing-page-de-tesla",
+            img: "/images/tesla-project-overview6.png",
+            title: ""
+          }
+        ],
+        "url": "clon-de-landing-page-de-tesla",
         "content": ""
       }
     ]
-
   },
   {
     "language": "ko",
@@ -553,32 +596,27 @@ export const projects = [
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
         "items": [
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'A'
+            img: "/images/tesla-project-overview1.png",
+            title: "Mode Sombre"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'B'
+            img: "/images/tesla-project-overview3.png",
+            title: "Carrousel Automatique"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'C'
+            img: "/images/tesla-project-overview4.png",
+            title: "Carrousel Fluide"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'D'
-          }, {
-            img: "/images/adidas-project-overview1.png",
-            title: 'E'
+            img: "/images/tesla-project-overview5.png",
+            title: ""
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'F'
-          },
-          {
-            img: "/images/adidas-project-overview1.png",
-            title: 'G'
-          }],        "url": "clon-de-landing-page-de-tesla",
+            img: "/images/tesla-project-overview6.png",
+            title: ""
+          }
+        ],
+        "url": "clon-de-landing-page-de-tesla",
         "content": ""
       }
     ]
@@ -595,32 +633,27 @@ export const projects = [
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
         "items": [
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'A'
+            img: "/images/tesla-project-overview1.png",
+            title: "ダークモード"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'B'
+            img: "/images/tesla-project-overview3.png",
+            title: "自動カルーセル"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'C'
+            img: "/images/tesla-project-overview4.png",
+            title: "スムーズカルーセル"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'D'
-          }, {
-            img: "/images/adidas-project-overview1.png",
-            title: 'E'
+            img: "/images/tesla-project-overview5.png",
+            title: ""
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'F'
-          },
-          {
-            img: "/images/adidas-project-overview1.png",
-            title: 'G'
-          }],        "url": "clon-de-landing-page-de-tesla",
+            img: "/images/tesla-project-overview6.png",
+            title: ""
+          }
+        ],
+        "url": "clon-de-landing-page-de-tesla",
         "content": ""
       }
     ]
@@ -637,32 +670,27 @@ export const projects = [
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
         "items": [
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'A'
+            img: "/images/tesla-project-overview1.png",
+            title: "Modo Escuro"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'B'
+            img: "/images/tesla-project-overview3.png",
+            title: "Carrossel Automático"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'C'
+            img: "/images/tesla-project-overview4.png",
+            title: "Carrossel Suave"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'D'
-          }, {
-            img: "/images/adidas-project-overview1.png",
-            title: 'E'
+            img: "/images/tesla-project-overview5.png",
+            title: ""
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'F'
-          },
-          {
-            img: "/images/adidas-project-overview1.png",
-            title: 'G'
-          }],        "url": "clon-de-landing-page-de-tesla",
+            img: "/images/tesla-project-overview6.png",
+            title: ""
+          }
+        ],
+        "url": "clon-de-landing-page-de-tesla",
         "content": ""
       }
     ]
@@ -679,32 +707,27 @@ export const projects = [
         "stack": ["React", "Next.js", "Tailwind", "Zustand", "Frammer Motion", "Splide"],
         "items": [
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'A'
+            img: "/images/tesla-project-overview1.png",
+            title: "Темный режим"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'B'
+            img: "/images/tesla-project-overview3.png",
+            title: "Автоматическая карусель"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'C'
+            img: "/images/tesla-project-overview4.png",
+            title: "Плавная карусель"
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'D'
-          }, {
-            img: "/images/adidas-project-overview1.png",
-            title: 'E'
+            img: "/images/tesla-project-overview5.png",
+            title: ""
           },
           {
-            img: "/images/adidas-project-overview1.png",
-            title: 'F'
-          },
-          {
-            img: "/images/adidas-project-overview1.png",
-            title: 'G'
-          }],        "url": "clon-de-landing-page-de-tesla",
+            img: "/images/tesla-project-overview6.png",
+            title: ""
+          }
+        ],
+        "url": "clon-de-landing-page-de-tesla",
         "content": ""
       }
     ]

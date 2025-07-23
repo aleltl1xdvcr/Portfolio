@@ -41,13 +41,12 @@ export default function SearchClient({ RESULTS }) {
     isShowingMore,
     toggleShowMore,
   } = useRefinementList({
-    attribute: 'stack', 
+    attribute: 'stack',
     limit: 5,
     showMoreLimit: 20,
     showMore: true,
     operator: operator?.toLowerCase(),
     sortBy: [`count:${count}`, `name:${name}`, `isRefined:${isRefined}`],
-    
   });
 
   useEffect(() => {
@@ -62,14 +61,14 @@ export default function SearchClient({ RESULTS }) {
   }
 
   const dinamic_placeholders = [
-    { lang: 'es', placeholder: 'Buscar proyectos...'},
-    { lang: 'en', placeholder: 'Search projects...'},
-    { lang: 'de', placeholder: 'Projekte suchen...'},
-    { lang: 'pt', placeholder: 'Buscar projetos...'},
-    { lang: 'ru', placeholder: 'Искать проекты...'},
-    { lang: 'ko', placeholder: '프로젝트 검색...'},
-    { lang: 'ja', placeholder: '	プロジェクトを検索...'},
-    { lang: 'fr', placeholder: 'Rechercher des projets...'},
+    { lang: 'es', placeholder: 'Buscar proyectos...' },
+    { lang: 'en', placeholder: 'Search projects...' },
+    { lang: 'de', placeholder: 'Projekte suchen...' },
+    { lang: 'pt', placeholder: 'Buscar projetos...' },
+    { lang: 'ru', placeholder: 'Искать проекты...' },
+    { lang: 'ko', placeholder: '프로젝트 검색...' },
+    { lang: 'ja', placeholder: '	プロジェクトを検索...' },
+    { lang: 'fr', placeholder: 'Rechercher des projets...' },
   ]
 
   function translatePlaceholder() {
@@ -177,14 +176,13 @@ export default function SearchClient({ RESULTS }) {
           RESULTS_SSR={RESULTS}
         />
       </div>
-
     </div>
   )
 }
 
 function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore, setShowModal, modalState, operator, setOperator,
   name, setName, count, setCount, isRefined, setIsRefined
- }) {
+}) {
   function handleModal() {
     setShowModal(!modalState)
   }
@@ -196,13 +194,12 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
     setIsRefined('ASC')
   }
 
-
   return (
     <div
       className="flex flex-row items-center gap-3 flex-wrap w-full hidde overflow-hidden"
     >
       {
-        items?.map((i, n) => (        
+        items?.map((i, n) => (
           <div
             onClick={() => refine(i.value)}
             key={`${n}_${i}`}
@@ -228,22 +225,20 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
 
         <div
           className="relative"
-        >        
+        >
 
-         <div
+          <div
             onClick={() => handleModal()}
-         >
+          >
             <MoreHorizontal />
-         </div>
+          </div>
           <div
             className=
-            {`${
-              modalState 
-            ? 
+            {`${modalState
+                ?
                 'opacity-100 pointer-events-auto'
-            : 
-            
-          'opacity-0 pointer-events-none'} 
+                :
+                'opacity-0 pointer-events-none'} 
           duration-200 transition-opacity ease-out border border-white-70 absolute t w-fit p-5 whitespace-nowrap bg-black z-20`}
           >
             <div
@@ -271,10 +266,8 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
                 className="flex flex-col items-start gap-y-3 mt-3"
               >
                 <h1>Operator</h1>
-
                 <div className="relative max-w-sm flex w-full flex-col rounded-xl shadow">
                   <nav className="flex min-w-[240px] flex-col gap-0.5">
-
                     <label htmlFor="or" className="flex items-center gap-3 cursor-pointer pr-2 pl-1 py-2 hover:bg-gray-100 rounded-lg w-full group">
                       <input
                         type="radio"
@@ -290,7 +283,6 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
                       </div>
                       <span className={`text-sm group-hover:text-black ${operator === 'OR' ? 'font-bold' : null}`}>OR</span>
                     </label>
-
                     <label htmlFor="and" className="flex items-center gap-3 cursor-pointer py-2 pl-1 pr-2 hover:bg-gray-100 rounded-lg w-full group">
                       <input
                         type="radio"
@@ -308,9 +300,7 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
                     </label>
                   </nav>
                 </div>
-                
               </div>
-
               <div
                 className="flex flex-row items-center gap-x-3 my-3"
               >
@@ -319,15 +309,12 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
                   className="font-bold"
                 >Sorting</h1>
               </div>
-
               <div
                 className="flex flex-col items-start gap-y-3 mt-3"
               >
                 <h1>Name</h1>
-
                 <div className="relative max-w-sm flex w-full flex-col rounded-xl shadow">
                   <nav className="flex min-w-[240px] flex-col gap-0.5">
-
                     <label htmlFor="name_asc" className="flex items-center gap-3 cursor-pointer pr-2 pl-1 py-2 hover:bg-gray-100 rounded-lg w-full group">
                       <input
                         type="radio"
@@ -343,7 +330,6 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
                       </div>
                       <span className={`text-sm group-hover:text-black ${name === 'OR' ? 'font-bold' : null}`}>ASC</span>
                     </label>
-
                     <label htmlFor="name_desc" className="flex items-center gap-3 cursor-pointer py-2 pl-1 pr-2 hover:bg-gray-900 dark:hover:bg-gray-100 rounded-lg w-full group">
                       <input
                         type="radio"
@@ -361,17 +347,13 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
                     </label>
                   </nav>
                 </div>
-
               </div>
-
               <div
                 className="flex flex-col items-start gap-y-3 mt-3"
               >
                 <h1>Count</h1>
-
                 <div className="relative max-w-sm flex w-full flex-col rounded-xl shadow">
                   <nav className="flex min-w-[240px] flex-col gap-0.5">
-
                     <label htmlFor="count_asc" className="flex items-center gap-3 cursor-pointer pr-2 pl-1 py-2 hover:bg-gray-100 rounded-lg w-full group">
                       <input
                         type="radio"
@@ -387,7 +369,6 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
                       </div>
                       <span className={`text-sm group-hover:text-black ${count === 'ASC' ? 'font-bold' : null}`}>ASC</span>
                     </label>
-
                     <label htmlFor="count_desc" className="flex items-center gap-3 cursor-pointer py-2 pl-1 pr-2 hover:bg-gray-100 rounded-lg w-full group">
                       <input
                         type="radio"
@@ -405,17 +386,13 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
                     </label>
                   </nav>
                 </div>
-
               </div>
-
               <div
                 className="flex flex-col items-start gap-y-3 mt-3"
               >
                 <h1>Is refined</h1>
-
                 <div className="relative max-w-sm flex w-full flex-col rounded-xl shadow">
                   <nav className="flex min-w-[240px] flex-col gap-0.5">
-
                     <label htmlFor="isRefined_asc" className="flex items-center gap-3 cursor-pointer pr-2 pl-1 py-2 hover:bg-gray-100 rounded-lg w-full group">
                       <input
                         type="radio"
@@ -431,7 +408,6 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
                       </div>
                       <span className={`text-sm group-hover:text-black ${isRefined === 'ASC' ? 'font-bold' : null}`}>ASC</span>
                     </label>
-
                     <label htmlFor="isRefined_desc" className="flex items-center gap-3 cursor-pointer py-2 pl-1 pr-2 hover:bg-gray-100 rounded-lg w-full group">
                       <input
                         type="radio"
@@ -449,10 +425,8 @@ function Stack({ items, refine, isShowingMore, toggleShowMore, canToggleShowMore
                     </label>
                   </nav>
                 </div>
-
               </div>
             </div>
-
             <div
               className="flex flex-row items-center gap-x-5 mt-3 text-[15px]"
             >

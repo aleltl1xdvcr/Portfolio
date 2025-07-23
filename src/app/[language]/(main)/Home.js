@@ -1,6 +1,5 @@
 'use client'
 
-import ImgTor from "../../utils/img-tor"
 import { useEffect, useRef, useState } from "react"
 import { useLanguageStore } from "../../store"
 import { useHydration } from "../../useHydrated"
@@ -61,8 +60,12 @@ export default function Home({ data }) {
                 className="text-[29px]"
               />
               <br />
-              <div>
-                <p>{item.content?.description}</p>
+              <div
+                className="text-[16.5px] mb-12"
+              >
+                <p
+                  dangerouslySetInnerHTML={{ __html: item.content?.description }}
+                />
               </div>
             </div>
           ))
@@ -90,7 +93,6 @@ export default function Home({ data }) {
   useEffect(() => setIsClient(true), [])
 
   function fnCinema(id) {
-    // setCinema(Object.keys(cinema.find(i => i.lang === language).content.find(b => Object.keys(b)[0] === id) || [])[0] || null)
     setCinema(id)
   }
 
@@ -152,8 +154,7 @@ export default function Home({ data }) {
   const base = cinema.filter(i => i.lang === language).find(i => Object.values(i.content[0])[0] === true)?.content
   const idPropModalCinema = Object.keys(cinema.filter(i => i.lang === language).find(i => Object.values(i.content[0])[0] === true)?.content[0] || {})[0]
   const isShowModalCinema = cinema.filter(i => i.lang === language).map(o => Object.values(o.content[0])[0]).find(i => i === true)
-  // console.log('base:',base)
-  console.log('is show modalcinema:', cinema.filter(i => i.lang === language).map(o => Object.values(o.content[0])[0]).find(i => i === true))
+
   return (
     <div className="mt-[100px] w-full flex flex-col items-center justify-center">
       <main
@@ -262,16 +263,9 @@ export default function Home({ data }) {
 }
 
 function ModalCinema({ src, alt, quote, fnCinema, id, cinema, modal_cinema, splideRef, fnSplideMounted, fnSplideMove, base}) {
-  // console.log('id modal cinema', id)
   const items = base[0].items
   const itemIndex = splideRef.current?.splide.index || 0
   const title = items[itemIndex].title
-  // console.log('cinema img', base)
-  console.log('items', items)
-  console.log('title',
-    items[itemIndex].title
-  )
-
   const [scaleSt, setScaleSt] = useState(1)
   const [isOpenModalZoom,setIsOpenModalZoom] = useState(false)
   const [isVisibleSettings, setIsVisibleSettings] = useState(false)
@@ -317,7 +311,6 @@ function ModalCinema({ src, alt, quote, fnCinema, id, cinema, modal_cinema, spli
     toggleSettings(e)
     const img = document.getElementById(el)
     const ciEl = document.getElementById(ci)
-
     const rect = ciEl.getBoundingClientRect()
     const x = e.clientX - rect.left
     const y = e.clientY - rect.top
@@ -450,7 +443,7 @@ function ModalCinema({ src, alt, quote, fnCinema, id, cinema, modal_cinema, spli
                   {items?.map((i, index) => (
                     <SplideSlide
 
-                      className='h-[25vh] sm:h-[30vh] md:h-[35vh] xl:h-[75vh] fur293'
+                      className='h-[30vh] sm:h-[35vh] md:h-[55vh] lg:h-[65vh] xl:h-[75vh]'
                       key={index}>
                       <div
                         onMouseLeave={(e) => offZoom(e, `c-image-zoom${index}`, `czoomedn${index}`)}
@@ -460,8 +453,7 @@ function ModalCinema({ src, alt, quote, fnCinema, id, cinema, modal_cinema, spli
                       >
                         <div
                           id={`item-${index + 1}`}
-                          className="group/el-4 el-1 group group/cbk h-full el-img overflow-hidden bg-black
-                           sm:bg-blue-700 md:bg-red-700 lg:bg-green-700 xl:bg-purple-700"
+                          className="group/el-4 el-1 group group/cbk h-full el-img overflow-hidden bg-black"
                           data-n={`n_${index + 1}`}
                         >
                           <div
@@ -471,7 +463,7 @@ function ModalCinema({ src, alt, quote, fnCinema, id, cinema, modal_cinema, spli
                             <Image
                               id={`c-image-zoom${index}`}
                               priority
-                              className="opacity-55 transition-transform duration-700"
+                              className="transition-transform duration-700"
                               fill
                               src={i.img}
                               alt={'x'}
@@ -526,7 +518,6 @@ function ModalCinema({ src, alt, quote, fnCinema, id, cinema, modal_cinema, spli
                           <li
                             key={index}
                             className={
-                              // `w-[20vw] sm:w-[20vw] md:w-[15vw] lg:w-[10vw] h-[10vh]  relative cursor-pointer thumbnail bg-orange-700 sm:bg-green-700 md:bg-purple-700 lg:bg-blue-700`
                               `w-[20vw] sm:w-[20vw] md:w-[15vw] lg:w-[10vw] h-[10vh] relative cursor-pointer thumbnail`
                             }
                           >
@@ -542,14 +533,11 @@ function ModalCinema({ src, alt, quote, fnCinema, id, cinema, modal_cinema, spli
                   </ul>
                 </div>
               </div>
-
             </Splide >
           </div>
-
         </div>
       </div>
     </div >
-
   )
 }
 

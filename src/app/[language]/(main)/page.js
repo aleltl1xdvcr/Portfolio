@@ -16,8 +16,9 @@ export async function generateStaticParams() {
   ];
 }
 
-export default async function SearchPage({ params }) {
+export default async function SearchPage() {
   const data = await getResults('ssr')
+
   return (
     <div className='w-full justify-center items-center flex'>
         <Home

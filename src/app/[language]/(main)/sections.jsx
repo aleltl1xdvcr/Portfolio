@@ -118,7 +118,6 @@ export function Skills() {
                   }
                   fill
                   alt={i.name}
-                  
                 />
               </div>
             </div>

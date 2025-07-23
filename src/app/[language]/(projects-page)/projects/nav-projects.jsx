@@ -1,14 +1,10 @@
 'use client'
 
-import { Github, Linkedin, Menu, Star } from 'feather-icons-react'
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import {useLanguageStore} from '../../../store'
-import { useHydration } from '../../../useHydrated'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { MdDarkMode, MdLightMode } from "react-icons/md"
 import { useThemeStore } from '../../../store-theme'
-
-const languages = ['es', 'de', 'fr', 'ja', 'ko', 'pt', 'ru']
 
 const translations = {
   es: { 

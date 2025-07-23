@@ -1,7 +1,6 @@
 import "../../globals.css";
 import { smooch_Sans } from "../../fonts";
 import Nav from "../../nav";
-import Head from "next/head";
 import { ThemeProvider } from "../../theme-provider";
 
 export const metadata = {

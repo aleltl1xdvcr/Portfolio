@@ -33,7 +33,6 @@ export default function ImgTor({ src, alt, containerClass, quote, scale, fnCinem
             onLoad={() => setLoaded(true)}
           />
         </div>
-
       </div>
   )
 }

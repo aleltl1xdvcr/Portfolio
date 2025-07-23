@@ -9,5 +9,6 @@ export function manageStore(wish, key, data) {
 
   else if (wish === 'set') {
     const a = localStorage.setItem(key, JSON.stringify(data))
+    return a
   }}
 } 

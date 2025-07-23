@@ -4,98 +4,32 @@ import { Menu, Star } from 'feather-icons-react'
 import { useLayoutEffect, useRef, useState } from 'react'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
-import {useLanguageStore} from './store'
+import { useLanguageStore } from './store'
 import { useHydration } from './useHydrated'
-import { FaGithub, FaHome } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { useThemeStore } from './store-theme'
 import { MdDarkMode, MdLightMode } from "react-icons/md"
+import { translations } from './data'
 
-const translations = {
-  es: { 
-    Home: 'Hogar',
-    Projects: 'Proyectos',
-    About: 'Sobre mí',
-    Contact: 'Contacto',
-    Name: 'Español',
-    Skills: 'Habilidades',
-  },
-  en: {
-    Home: 'Home',
-    Projects: 'Projects',
-    About: 'About',
-    Contact: 'Contact',
-    Name: 'English',
-    Skills: 'Skills',
-  },
-  de: { 
-    Home: 'Startseite',
-    Projects: 'Projekte',
-    About: 'Über mich',
-    Contact: 'Kontakt',
-    Name: 'Deutsch',
-    Skills: 'Fähigkeiten',
-  },
-  fr: { 
-    Home: 'Accueil',
-    Projects: 'Projets',
-    About: 'À propos de moi',
-    Contact: 'Contact',
-    Name: 'Français',
-    Skills: 'Compétences',
-  },
-  ja: { 
-    Home: 'ホーム',
-    Projects: 'プロジェクト',
-    About: '自己紹介',
-    Contact: '連絡先',
-    Name: '日本語',
-    Skills: 'Skills',
-  },
-  ko: { 
-    Home: '홈',
-    Projects: '프로젝트',
-    About: '내 소개',
-    Contact: '연락처',
-    Name: '(한국어)',
-    Skills: '기술 스킬',
-  },
-  pt: { 
-    Home: 'Início',
-    Projects: 'Projetos',
-    About: 'Sobre mim',
-    Contact: 'Contato',
-    Name: 'Portugués (Brasil)',
-    Skills: 'Habilidades',
-  },
-  ru: { 
-    Home: 'Главная',
-    Projects: 'Проекты',
-    About: 'Обо мне',
-    Contact: 'Контакт',
-    Name: 'Русский',
-    Skills: 'Навыки ',
-  }
-};
-
-function getTranslation(language, i) {  
+function getTranslation(language, i) {
   return translations[language] && translations[language][i]
     ? translations[language][i]
-    : i; 
+    : i
 }
 
 export default function Nav() {
-  const [isClient, setIsClient] = useState(false);
-  const lenisRef = useRef(null) 
+  const [isClient, setIsClient] = useState(false)
+  const lenisRef = useRef(null)
   const pathRef = useRef(null)
-  const language  = useLanguageStore((state) => state.language)
-  const  setLanguage  = useLanguageStore((state) => state.setLanguage)
+  const language = useLanguageStore((state) => state.language)
+  const setLanguage = useLanguageStore((state) => state.setLanguage)
   const setLenisStore = useLanguageStore((state) => state.setLenis)
-  const hasHydrated = useHydration(useLanguageStore);
-  const { theme, toggleTheme } = useThemeStore();
+  const hasHydrated = useHydration(useLanguageStore)
+  const { theme, toggleTheme } = useThemeStore()
 
   useLayoutEffect(() => {
     if (typeof window !== 'undefined') {
-      setIsClient(true);
+      setIsClient(true)
       const sections = document.querySelectorAll('[id^="#homeN"], [id^="#skillsN"], [id^="#projectsN"], [id^="#aboutN"], [id^="#contactN"]')
       const sectionA = document.getElementById('#home');
       const sectionB = document.getElementById('#skills');
@@ -113,7 +47,7 @@ export default function Nav() {
             const w_modal = modal.offsetWidth / 2
             const w_to = to.offsetWidth / 2
             const width = '-' + (w_modal - w_to) + 'px'
-            
+
             modal.style.left = width
             modal?.classList.remove('opacity-0', 'pointer-events-none')
             modal?.classList.add('opacity-100')
@@ -122,16 +56,16 @@ export default function Nav() {
           if (modal?.classList.contains('opacity-100')) {
             modal?.classList.remove('opacity-100')
             modal?.classList.add('opacity-0', 'pointer-events-none')
-          } 
+          }
         } else if (action === 'click-display/hidden') {
           if (modal?.classList.contains('opacity-100')) {
             modal?.classList.remove('opacity-100')
             modal?.classList.add('opacity-0', 'pointer-events-none')
-          } else if (modal?.classList.contains('opacity-0') ) {
+          } else if (modal?.classList.contains('opacity-0')) {
             modal?.classList.remove('opacity-0', 'pointer-events-none')
             modal?.classList.add('opacity-100')
           }
-        } 
+        }
       }
 
       const path_url = window.location
@@ -139,21 +73,21 @@ export default function Nav() {
 
       if (lan && lan.trim !== '') {
         setLanguage(lan)
-      } 
+      }
 
       const asPath = window.location.hash
       pathRef.current = asPath
 
       lenisRef.current = new Lenis({
-        duration: 1, 
-        easing: 'ease', 
-        smoothWheel: true, 
-        smoothTouch: true, 
+        duration: 1,
+        easing: 'ease',
+        smoothWheel: true,
+        smoothTouch: true,
         prevent: (node) => node.id === 'modal_cinema__'
       })
 
       setLenisStore(lenisRef)
-      
+
       function raf(time) {
         lenisRef.current.raf(time)
         requestAnimationFrame(raf)
@@ -168,7 +102,7 @@ export default function Nav() {
       function boldSections(sectionId) {
         if (sectionId && sectionId.trim() !== '') {
           const hash = window.location.hash
-          const pathname =  window.location.pathname
+          const pathname = window.location.pathname
           const path = pathname.slice(-1) === '/' ? pathname : pathname
           const complete = path
           if (hash === sectionId) return
@@ -231,9 +165,8 @@ export default function Nav() {
         ActionsScrollSections(e)
       });
 
-
-      return () => {  
-        cancelAnimationFrame(raf); 
+      return () => {
+        cancelAnimationFrame(raf);
         lenisRef.current.destroy()
         window?.removeEventListener('beforeunload', () => {
           localStorage.setItem('scrollpos', window.scrollY);
@@ -244,42 +177,35 @@ export default function Nav() {
         window?.removeEventListener('click', (e) => modal_actions(e, 'click-hidden'))
       }
     }
-  }, [isClient]) 
+  }, [isClient])
 
   useLayoutEffect(() => {
     const savedScrollPos = sessionStorage.getItem('scrollPosition');
     if (savedScrollPos) {
       window.scrollTo(0, parseInt(savedScrollPos, 10));
     }
-
   }, [isClient])
 
   const handleScrollToSection = (sectionId) => {
-    console.log('SECTION ID', sectionId)
     const sections = document.querySelectorAll('[id^="#homeN"], [id^="#skillsN"], [id^="#projectsN"]')
     const section = document.getElementById(sectionId)
-    console.log('SECTION', section)
-    const path_name = 
-      language === 'es' ? '/es/' + sectionId 
-      : language === 'en' ? '/en/' + sectionId
-      : language === 'de' ? '/de/' + sectionId
-      : language === 'fr' ? '/fr/' + sectionId
-      : language === 'ja' ? '/ja/' + sectionId
-      : language === 'pt' ? '/pt/' + sectionId
-      : language === 'ru' ? '/ru/' + sectionId
-      : null
-
-    console.log('PATH NAME', path_name)
+    const path_name =
+      language === 'es' ? '/es/' + sectionId
+        : language === 'en' ? '/en/' + sectionId
+          : language === 'de' ? '/de/' + sectionId
+            : language === 'fr' ? '/fr/' + sectionId
+              : language === 'ja' ? '/ja/' + sectionId
+                : language === 'pt' ? '/pt/' + sectionId
+                  : language === 'ru' ? '/ru/' + sectionId
+                    : null
 
     if (section && lenisRef.current) {
-      //window.history.pushState(null, '', path_name);
-
       const offset = 25
-      const top = section.offsetTop + offset  
+      const top = section.offsetTop + offset
 
       lenisRef.current.scrollTo(top, {
-        duration: 1.2,  
-        easing: 'ease', 
+        duration: 1.2,
+        easing: 'ease',
       })
 
       sections.forEach((i, index) => {
@@ -288,27 +214,26 @@ export default function Nav() {
           i?.classList.add('opacity-0')
           i?.classList.remove('opacity-0', 'font-bold')
           i?.classList.add('opacity-100')
-        } 
-         if (!(i?.classList.contains('font-bold')) && id === sectionId) {
-           i?.classList.add('opacity-0')
-             i?.classList.remove('opacity-0')
-             i?.classList.add('font-bold', 'opacity-100')
+        }
+        if (!(i?.classList.contains('font-bold')) && id === sectionId) {
+          i?.classList.add('opacity-0')
+          i?.classList.remove('opacity-0')
+          i?.classList.add('font-bold', 'opacity-100')
         }
       })
     }
   }
 
-  function handleLanguage(n, ) {
-    const lan = n === 'Deutsch' ? 'de' : n === 'Español' ? 'es' : n === 'English' ? 'en' : n === 'Français' ? 'fr' : n === '日本語' ? 'ja' 
-    : n === 'Português(do Brasil)' ? 'pt' : n === '한국어' ? 'ko' : n === 'Português (do Brasil)' ? 'pt' : n === 'Русский' ? 'ru' : null
+  function handleLanguage(n,) {
+    const lan = n === 'Deutsch' ? 'de' : n === 'Español' ? 'es' : n === 'English' ? 'en' : n === 'Français' ? 'fr' : n === '日本語' ? 'ja'
+      : n === 'Português(do Brasil)' ? 'pt' : n === '한국어' ? 'ko' : n === 'Português (do Brasil)' ? 'pt' : n === 'Русский' ? 'ru' : null
     setLanguage(lan)
     const x = ''
     window.history.pushState(null, '', '/' + lan + '/' + x);
-  } 
+  }
 
-  if (!isClient) return null; 
+  if (!isClient) return null;
   if (!hasHydrated) return
-
 
   const cycleTheme = () => {
     const nextTheme =
@@ -317,7 +242,7 @@ export default function Nav() {
   };
 
   return (
-    <div 
+    <div
       className='fixed top-0 left-0 w-full h-16 z-40 justify-center items-center flex bg-transparent backdrop-blur-md border-white/30 border-b'>
       <div
         className='flex items-center justify-between w-full px-5 flex-row sm:hidden'
@@ -353,10 +278,9 @@ export default function Nav() {
           </li>
         </ol>
       </div>
-      <div 
+      <div
         className='w-full justify-between items-center px-4 lg:px-16 hidden sm:flex'>
-          
-        <div 
+        <div
           className='flex flex-row items-center gap-x-5 relative'>
           <span
             className="absolute z-40 flex items-start"
@@ -379,25 +303,24 @@ export default function Nav() {
             }
           </span>
         </div>
-        <ol 
+        <ol
           className='flex flex-row items-center gap-x-5'>
           {
             ['Home', 'Skills', 'Projects', 'Contact'].map((i, index) => (
               <li
-               
+
                 id={'#' + i.toLowerCase() + 'N'}
                 key={index}
                 className='cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out '
                 onClick={() => handleScrollToSection('#' + i.toLowerCase())}>
                 {
                   getTranslation(language, i)
-                } 
+                }
               </li>
             ))
           }
         </ol>
         <ol className='flex flex-row items-center'>
-          
           <div
             id='modal_container'
             className='relative flex flex-row'
@@ -407,7 +330,7 @@ export default function Nav() {
             >
               <li
                 id='li_lan'
-                
+
                 className={`cursor-pointer `}
               >
                 {
@@ -421,14 +344,13 @@ export default function Nav() {
             >
               <div
                 className='flex flex-col items-start w-full border mt-[18px] border-black dark:border-white p-6 bg-white text-black dark:text-white dark:bg-black'
-                  >
+              >
                 <div
 
                   className='flex flex-row items-center gap-x-2 w-full mb-2 hidden'
                 >
                   <input type="radio" />
                   <li
-                   
                     className={`cursor-pointer`}
                   >
                     Remember Language
@@ -450,22 +372,19 @@ export default function Nav() {
                       ))
                   }
                 </div>
-                
               </div>
-
             </div>
           </div>
-           <a
-            target="_blank" 
+          <a
+            target="_blank"
             rel="noopener noreferrer"
             href='https://github.com/aleltl1xdvcr'
             className=' ml-4'>
-            <FaGithub 
+            <FaGithub
               size={25}
             />
           </a>
         </ol>
-        
       </div>
     </div>
   )
