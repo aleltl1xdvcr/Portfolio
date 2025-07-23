@@ -91,8 +91,7 @@ export default function SearchClient({ RESULTS }) {
             className="flex flex-row items-center justify-between h-[45px] w-full"
           >
             <form
-              className="dark:border dark:border-white h-full flex flex-row focus-within:border-y-[2.5px] focus-within:border-l-[2.5px] 
-              border-r-0 transition-all duration-100 w-full border border-black"
+              className="dark:border dark:border-white h-full flex flex-row focus-within:border-y-[2.5px] focus-within:border-x-[2.5px] transition-all duration-100 w-full border border-black"
               action=""
               role="search"
               noValidate
