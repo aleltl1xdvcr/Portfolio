@@ -55,7 +55,7 @@ export default function SubResults() {
                 <div className="absolute w-full h-full cursor-zoom-in">
                   <ImgTor
                     key={`${i.img?.[index]}_${language}`}
-                    src={i.img?.[0] || '/images/project1i1.png'}
+                    src={i.img?.[0]}
                     alt={i.title}
                     containerclassName="w-full relative"
                     fnCinema={fnCinema}
@@ -70,7 +70,7 @@ export default function SubResults() {
                   </h1>
                   <p className="pt-2 leading-tight">{i?.description?.slice(0, 150)}</p>
                   <ul
-                    className="flex flex-row items-center gap-3 mt-5 text-[15px] flex-wrap"
+                    className="flex flex-row items-center gap-3 mt-5 text-[15 px] flex-wrap"
                   >
                     {
                       i?.stack?.map((i, n) => (
@@ -89,7 +89,7 @@ export default function SubResults() {
                     <a
                       target="_blank" rel="noopener noreferrer"
                       href={i.website}
-                      className="px-2 py-1 border flex flex-row items-center gap-x-2 w-fit transition-transform duration-700 border-white/10 hover:scale-110 bg-black dark:bg-white dark:text-black text-white hover:text-black hover:font-bold rounded-full"
+                      className="px-2 py-1 border flex flex-row items-center gap-x-2 w-fit transition-transform duration-700 border-white/10 hover:scale-110 bg-black dark:bg-white dark:text-black text-white hover:font-bold rounded-full"
                     >
                       <FaEye
                         size={20}
@@ -99,7 +99,7 @@ export default function SubResults() {
 
                     <a target="_blank" rel="noopener noreferrer"
                       href={i.source}
-                      className="px-2 py-1 border flex flex-row items-center gap-x-2 w-fit transition-transform duration-700 border-white hover:scale-110 bg-black dark:bg-white text-white dark:text-black hover:text-black hover:font-bold rounded-full"
+                      className="px-2 py-1 border flex flex-row items-center gap-x-2 w-fit transition-transform duration-700 border-white hover:scale-110 bg-black dark:bg-white text-white dark:text-black hover:font-bold rounded-full"
                     >
                       <FaGithub
                         size={20}

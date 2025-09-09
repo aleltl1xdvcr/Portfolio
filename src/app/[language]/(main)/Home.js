@@ -163,7 +163,7 @@ export default function Home({ data }) {
           className="w-full px-6 sm:px-0 sm:w-[80vw] md:w-[70vw] flex justify-center flex-col lg:w-[50vw] relative"
         >
           <div
-            className="w-full"
+            className="w-full transition-transform duration-500 scale-100"
             id="#home"
           >
             <RenderSection key={`HOME_${language}`} name_section='home' language={language} />
@@ -172,7 +172,7 @@ export default function Home({ data }) {
           <br />
 
           <div
-            className="w-full"
+            className="w-full transition-transform duration-500 scale-100"
             id="#skills"
             label="Sección 2"
           >
@@ -182,7 +182,7 @@ export default function Home({ data }) {
           <br />
           
           <div
-            className="w-full"
+            className="w-full transition-transform duration-500 scale-100"
             id="#projects"
             label="Sección 3"
           >
@@ -214,7 +214,7 @@ export default function Home({ data }) {
           <h1
             id="#contact"
             label="Sección 4"
-            className="text-[30px] w-full"  
+            className="text-[30px] w-full transition-all duration-300 scale-100"  
           >
             {Object.keys(contact.find(i => i.language === language) || '')[2]}
           </h1>

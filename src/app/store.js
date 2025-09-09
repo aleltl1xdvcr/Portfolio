@@ -30,7 +30,9 @@ export const useLanguageStore = create()(
       setCinema: (title) =>
         set(
           produce(draft => {   
-            const obj = draft.cinema.filter(i => i.lang === get().language).find(o => Object.keys(o.content[0])[0] === title).content[0]
+            const obj = draft.cinema
+              .filter(i => i.lang === get().language)
+              .find(o => Object.keys(o.content[0])[0] === title).content[0]
             if (obj) {
               const key = Object.keys(obj)[0]
               obj[key] = !obj[key]

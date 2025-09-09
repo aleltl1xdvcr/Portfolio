@@ -169,7 +169,7 @@ export const projects = [
     "language": "en",
     "content": [
       {
-        "title": "Adidas Ecommerce Search Clone",
+        "title": "Adidas E‑commerce Search Clone",
         "description": "A full stack project developed and deployed. With a diverse stack, I have strived to fulfill all the functions of the original ecommerce.",
         "status": "Completed",
         "website": "https://ecommerce-search-clone-adidas.onrender.com/us/search",
@@ -257,7 +257,7 @@ export const projects = [
     "language": "ja",
     "content": [
       {
-        "title": "アディダスEコマース検索クローン",
+        "title": "アディダスのeコマース検索クローン",
         "description": "フルスタックで開発およびデプロイされたプロジェクトです。多様なテクノロジースタックを使用し、オリジナルのEコマースのすべての機能を実現しました。",
         "status": "完了",
         "website": "https://ecommerce-search-clone-adidas.onrender.com/us/search",
@@ -302,7 +302,7 @@ export const projects = [
     "language": "de",
     "content": [
       {
-        "title": "Adidas E‑Commerce Suchklon",
+        "title": "Klon der Adidas Ecommerce Suche",
         "description": "Ein Full‑Stack-Projekt, entwickelt und bereitgestellt. Mit einem vielseitigen Tech‑Stack habe ich mich bemüht, alle Funktionen des originalen E‑Commerce umzusetzen.",
         "status": "Abgeschlossen",
         "website": "https://ecommerce-search-clone-adidas.onrender.com/us/search",
@@ -347,7 +347,7 @@ export const projects = [
     "language": "pt",
     "content": [
       {
-        "title": "Clone de Pesquisa do Ecommerce da Adidas",
+        "title": "Clone da Busca do Ecommerce da Adidas",
         "description": "Um projeto full stack desenvolvido e implantado. Com um stack diversificado, esforcei‑me para cumprir todas as funções do ecommerce original.",
         "status": "Concluído",
         "website": "https://ecommerce-search-clone-adidas.onrender.com/us/search",

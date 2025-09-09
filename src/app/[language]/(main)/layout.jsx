@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${smooch_Sans.className}  dark:bg-black dark:text-white bg-white text-black transition-colors duration-300 ease-in w-full antialiased`}
+        className={`  dark:bg-black dark:text-white bg-white text-black transition-colors duration-300 ease-in w-full antialiased`}
       >
        <div
         className="w-full"

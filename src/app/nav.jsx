@@ -30,12 +30,8 @@ export default function Nav() {
   useLayoutEffect(() => {
     if (typeof window !== 'undefined') {
       setIsClient(true)
-      const sections = document.querySelectorAll('[id^="#homeN"], [id^="#skillsN"], [id^="#projectsN"], [id^="#aboutN"], [id^="#contactN"]')
-      const sectionA = document.getElementById('#home');
-      const sectionB = document.getElementById('#skills');
-      const sectionC = document.getElementById('#projects');
-      const sectionD = document.getElementById('#about');
-      const sectionE = document.getElementById('#contact');
+      const sections = document.querySelectorAll('[id^="#home"], [id^="#skills"], [id^="#projects"], [id^="#contact"]')
+      const sectionsN = document.querySelectorAll('[id^="#homeN"], [id^="#skillsN"], [id^="#projectsN"], [id^="#contactN"]')
       const modal_container = document.getElementById('modal_container')
       const modal = document.getElementById('modal_language')
       const to = document.getElementById('trigger_opener')
@@ -99,29 +95,52 @@ export default function Nav() {
         localStorage.setItem('scrollpos', window.scrollY);
       })
 
+      function changeUrlSections(sectionId) {
+        const hash = window.location.hash
+        const pathname = window.location.pathname
+        const path = pathname.slice(-1) === '/' ? pathname : pathname
+        const complete = path
+        if (hash === sectionId) return
+        window.history.pushState(null, '', complete)
+      }
+
+      const normalScale = 'scale-100'
+      const bigScale = 'scale-110'
+
+      function animateSections(sectionId) {
+        if (sectionId && sectionId.trim() !== '') {
+          sectionsN.forEach((i, _) => {
+            const id = i.id.length > 0 ? i.id.slice(0, -1) : i.id
+            if (i?.classList.contains('scale-100') && (id === sectionId)) {
+              i?.classList.remove(normalScale)
+              i?.classList.add(bigScale)
+            }
+            if (i?.classList.contains(bigScale) && !(id === sectionId)) {
+              i?.classList.remove(bigScale)
+              i?.classList.add(normalScale)
+            }
+          })
+        }
+      }
+      
       function boldSections(sectionId) {
         if (sectionId && sectionId.trim() !== '') {
-          const hash = window.location.hash
-          const pathname = window.location.pathname
-          const path = pathname.slice(-1) === '/' ? pathname : pathname
-          const complete = path
-          if (hash === sectionId) return
-          window.history.pushState(null, '', complete)
-        }
+          changeUrlSections(sectionId)
 
-        sections.forEach((i, _) => {
-          const id = i.id.length > 0 ? i.id.slice(0, -1) : i.id
-          if (i?.classList.contains('font-bold') && id !== sectionId) {
-            i?.classList.add('opacity-0')
-            i?.classList.remove('opacity-0', 'font-bold')
-            i?.classList.add('opacity-100')
-          }
-          if (!(i?.classList.contains('font-bold')) && id === sectionId) {
-            i?.classList.add('opacity-0')
-            i?.classList.remove('opacity-0')
-            i?.classList.add('font-bold', 'opacity-100')
-          }
-        })
+          sectionsN.forEach((i, _) => {
+            const id = i.id.length > 0 ? i.id.slice(0, -1) : i.id
+            if (i?.classList.contains('font-bold') && id !== sectionId) {
+              i?.classList.add('opacity-0')
+              i?.classList.remove('opacity-0', 'font-bold')
+              i?.classList.add('opacity-100')
+            }
+            if (!(i?.classList.contains('font-bold')) && id === sectionId) {
+              i?.classList.add('opacity-0')
+              i?.classList.remove('opacity-0')
+              i?.classList.add('font-bold', 'opacity-100')
+            }
+          })
+        }
       }
 
       function ActionsScrollSections(e) {
@@ -134,49 +153,45 @@ export default function Nav() {
           button_to_top?.classList.add('opacity-100')
         }
 
-        const sectionAOffset = sectionA.offsetTop;
-        const sectionBOffset = sectionB.offsetTop;
-        const sectionCOffset = sectionC.offsetTop;
-        const sectionDOffset = sectionD.offsetTop;
-
-        if (scrollY >= sectionAOffset && scrollY < sectionBOffset) {
-          boldSections('#home')
-        }
-
-        else if (scrollY >= sectionBOffset && scrollY < sectionCOffset) {
-          boldSections('#skills')
-        }
-
-        else if (scrollY >= sectionCOffset && scrollY < sectionDOffset) {
-          boldSections('#projects')
-        }
-
-        else if (scrollY >= sectionDOffset) {
-          boldSections('#contact')
-        }
-      }
-
-      modal_container?.addEventListener('mouseover', (e) => modal_actions(e, 'display'))
-      modal_container?.addEventListener('mouseout', (e) => modal_actions(e, 'hidden'))
-      modal_container?.addEventListener('click', (e) => modal_actions(e, 'click-display/hidden'))
-      window?.addEventListener('click', (e) => modal_actions(e, 'click-hidden'))
-
-      lenisRef.current.on('scroll', (e) => {
-        ActionsScrollSections(e)
-      });
-
-      return () => {
-        cancelAnimationFrame(raf);
-        lenisRef.current.destroy()
-        window?.removeEventListener('beforeunload', () => {
-          localStorage.setItem('scrollpos', window.scrollY);
+        sections.forEach((_, n) => {
+          const l = sections.length
+          const id = sections[n].id
+          if (n !== l - 1) {
+            if (scrollY >= sections[n].offsetTop && scrollY < sections[n + 1].offsetTop) {
+              boldSections(id)
+              animateSections(id)
+            }
+          } else if (n === l - 1) {
+            if (scrollY >= sections[l - 1].offsetTop) {
+              boldSections(id)
+              animateSections(id)
+            }
+          }
         })
-        modal_container?.removeEventListener('mouseover', (e) => modal_actions(e, 'display'))
-        modal_container?.removeEventListener('mouseleave', (e) => modal_actions(e, 'hidden'))
-        modal_container?.removeEventListener('click', (e) => modal_actions(e, 'click-display/hidden'))
-        window?.removeEventListener('click', (e) => modal_actions(e, 'click-hidden'))
       }
-    }
+
+        modal_container?.addEventListener('mouseover', (e) => modal_actions(e, 'display'))
+        modal_container?.addEventListener('mouseout', (e) => modal_actions(e, 'hidden'))
+        modal_container?.addEventListener('click', (e) => modal_actions(e, 'click-display/hidden'))
+        window?.addEventListener('click', (e) => modal_actions(e, 'click-hidden'))
+
+        lenisRef.current.on('scroll', (e) => {
+          ActionsScrollSections(e)
+        });
+
+        return () => {
+          cancelAnimationFrame(raf);
+          lenisRef.current.destroy()
+          window?.removeEventListener('beforeunload', () => {
+            localStorage.setItem('scrollpos', window.scrollY);
+          })
+          modal_container?.removeEventListener('mouseover', (e) => modal_actions(e, 'display'))
+          modal_container?.removeEventListener('mouseleave', (e) => modal_actions(e, 'hidden'))
+          modal_container?.removeEventListener('click', (e) => modal_actions(e, 'click-display/hidden'))
+          window?.removeEventListener('click', (e) => modal_actions(e, 'click-hidden'))
+        }
+
+      }
   }, [isClient])
 
   useLayoutEffect(() => {
@@ -187,17 +202,8 @@ export default function Nav() {
   }, [isClient])
 
   const handleScrollToSection = (sectionId) => {
-    const sections = document.querySelectorAll('[id^="#homeN"], [id^="#skillsN"], [id^="#projectsN"]')
+    const sectionsN = document.querySelectorAll('[id^="#homeN"], [id^="#skillsN"], [id^="#projectsN"]')
     const section = document.getElementById(sectionId)
-    const path_name =
-      language === 'es' ? '/es/' + sectionId
-        : language === 'en' ? '/en/' + sectionId
-          : language === 'de' ? '/de/' + sectionId
-            : language === 'fr' ? '/fr/' + sectionId
-              : language === 'ja' ? '/ja/' + sectionId
-                : language === 'pt' ? '/pt/' + sectionId
-                  : language === 'ru' ? '/ru/' + sectionId
-                    : null
 
     if (section && lenisRef.current) {
       const offset = 25
@@ -208,7 +214,7 @@ export default function Nav() {
         easing: 'ease',
       })
 
-      sections.forEach((i, index) => {
+      sectionsN.forEach((i, _) => {
         const id = i.id.length > 0 ? i.id.slice(0, -1) : i.id
         if (i?.classList.contains('font-bold') && id !== sectionId) {
           i?.classList.add('opacity-0')
@@ -311,7 +317,7 @@ export default function Nav() {
 
                 id={'#' + i.toLowerCase() + 'N'}
                 key={index}
-                className='cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out '
+                className='cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out scale-100'
                 onClick={() => handleScrollToSection('#' + i.toLowerCase())}>
                 {
                   getTranslation(language, i)
