@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/(search)/(search-store)/search-store.js", "src/app/[language]/(main)/contact.jsx"  ],
+, "src/app/(search)/(search-store)/search-store.js", "src/app/[language]/(main)/(contact)/contact.jsx"  ],
   "exclude": [
     "node_modules"
   ]

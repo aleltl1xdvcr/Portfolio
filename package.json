@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
+    "@sendgrid/client": "^8.1.5",
+    "@sendgrid/mail": "^8.1.5",
     "@splidejs/react-splide": "^0.7.12",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "algoliasearch": "^5.25.0",

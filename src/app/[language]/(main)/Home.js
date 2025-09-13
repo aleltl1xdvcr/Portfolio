@@ -11,7 +11,7 @@ import '@splidejs/react-splide/css/core'
 import Image from "next/image"
 import { home, profile, contact } from '../../data'
 import {ProjectsPage, Skills, } from "./sections"
-import { Contact } from "./contact"
+import { Contact } from "./(contact)/contact"
 import './styles.css'
 
 export const dynamic = 'force-dynamic';

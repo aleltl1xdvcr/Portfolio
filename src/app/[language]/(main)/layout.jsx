@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`  dark:bg-black dark:text-white bg-white text-black transition-colors duration-300 ease-in w-full antialiased`}
+        className={`dark:bg-black dark:text-white bg-white text-black transition-colors duration-300 ease-in w-full antialiased overflow-x-hidden`}
       >
        <div
         className="w-full"
